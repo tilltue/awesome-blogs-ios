@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import XCGLogger
+
+let log = XCGLogger.default
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
