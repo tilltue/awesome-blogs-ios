@@ -35,7 +35,7 @@ class AwesomeBlogsSpec: QuickSpec {
                 it("failed to make model at empty data") {
                     var count = 0
                     var errorEvent: Swift.Error? = nil
-                    provider.singleRequest(.feeds(group: AwesomeBlogs.Group.all)).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }.subscribe(onSuccess: { entries in
+                    provider.singleRequest(.feeds(group: AwesomeBlogs.Group.dev)).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }.subscribe(onSuccess: { entries in
                         count = entries.count
                     }, onError: { error in
                         errorEvent = error
@@ -54,7 +54,7 @@ class AwesomeBlogsSpec: QuickSpec {
                     }) { error in
                         
                     }.addDisposableTo(disposeBag)
-                    expect(count).toEventuallyNot(equal(0),timeout: 10)
+                    expect(count).toEventuallyNot(equal(100),timeout: 10)
                 }
             }
         }
