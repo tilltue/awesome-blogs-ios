@@ -46,9 +46,17 @@ extension RxMoyaProvider {
     }
 }
 
+class ApiProvider {
+    var awesomeBlogProvider: RxMoyaProvider<AwesomeBlogs>!
+    init() {
+        self.awesomeBlogProvider = RxMoyaProvider<AwesomeBlogs>(plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)])
+    }
+}
+
+let provider = ApiProvider()
 enum Api {
     static func getFeeds(group: AwesomeBlogs.Group) -> Single<[Entry]> {
-        let awesomeBlogProvider = RxMoyaProvider<AwesomeBlogs>(plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)])
-        return awesomeBlogProvider.singleRequest(.feeds(group: group)).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }
+        //let awesomeBlogProvider = RxMoyaProvider<AwesomeBlogs>(plugins: [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)])
+        return provider.awesomeBlogProvider.singleRequest(.feeds(group: group)).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }
     }
 }

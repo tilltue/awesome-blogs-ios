@@ -58,6 +58,6 @@ extension AwesomeBlogs: TargetType {
         return true
     }
     public var sampleData: Data {
-        return Data()
+        return "{ \"entries\" : [{\"title\": \"mock title\", \"author\": \"mock author\", \"link\": \"mock link\", \"updated_at\": \"2017-07-26T00:01:00.000+09:00\", \"summary\" : \"mock summary\" }] }".data(using: String.Encoding.utf8)!
     }
 }

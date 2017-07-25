@@ -10,7 +10,8 @@ import XCTest
 import RxSwift
 import Quick
 import Nimble
-//import Moya
+import Swinject
+import Moya
 //import ObjectMapper
 
 @testable import AwesomeBlogs
@@ -18,8 +19,32 @@ import Nimble
 class BlogsFeedSpec: QuickSpec {
     
     override func spec() {
-        
+        /*
+        var container: Container!
         var disposeBag: DisposeBag!
+        var reactor: BlogsFeedReactor!
+        //Service
+        //"블로그 피드 리엑터 테스트"
+        context("blog feed reactor test") {
+            beforeEach {
+                container = Container()
+                disposeBag = DisposeBag()
+                reactor = BlogsFeedReactor()
+                container.register(RxMoyaProvider<AwesomeBlogs>.self){ _ in RxMoyaProvider<AwesomeBlogs>(stubClosure: MoyaProvider.immediatelyStub) }
+            }
+            describe("action -> state test") {
+                it("getfeed action") {
+                    var count = 0
+                    reactor.state.subscribe(onNext: { item in
+                        print("haha")
+                        count = item.entries.count
+                        print("haha")
+                    }).addDisposableTo(disposeBag)
+                    reactor.action.on(.next(.getFeed(group: .dev)))
+                    expect(count).toEventually(equal(1))
+                }
+            }
+        }*/
         /*
         //describe("") {
         context("get awesome blog feed all group") {

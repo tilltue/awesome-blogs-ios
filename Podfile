@@ -16,6 +16,7 @@ target 'AwesomeBlogs' do
     pod 'ReactorKit'
     pod 'Moya/RxSwift'
     pod 'XCGLogger'
+    pod 'Swinject', '~> 2.1.0'
     target 'AwesomeBlogsTests' do
         test_pods
     end

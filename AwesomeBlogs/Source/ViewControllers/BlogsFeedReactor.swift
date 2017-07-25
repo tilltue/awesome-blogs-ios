@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Moya
 import RxSwift
 import ReactorKit
-
+/*
 class BlogsFeedReactor: Reactor {
     enum Action {
         case getFeed(group: AwesomeBlogs.Group)
@@ -20,7 +21,8 @@ class BlogsFeedReactor: Reactor {
     }
     
     struct State {
-        var isLoaded: Bool?
+        var isLoaded: Bool = false
+        var entries: [Entry] = [Entry]()
     }
     
     let initialState = State()
@@ -28,7 +30,7 @@ class BlogsFeedReactor: Reactor {
     func mutate(action: Action) -> Single<Mutation> {
         switch action {
         case .getFeed(let group):
-            return Api.getFeeds(group: group).map{ $0.count == 10 }.map(Mutation.setLoaded)
+            return Api.getFeeds(group: group).map{ $0.count > 0 }.map(Mutation.setLoaded)
         }
     }
     
@@ -40,4 +42,4 @@ class BlogsFeedReactor: Reactor {
             return state
         }
     }
-}
+}*/
