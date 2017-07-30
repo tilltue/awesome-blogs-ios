@@ -9,8 +9,8 @@
 import Foundation
 import Moya
 
-public enum AwesomeBlogs {
-    public enum Group: String {
+enum AwesomeBlogs {
+    enum Group: String {
         case all
         case dev
         case insightful

@@ -19,6 +19,8 @@
 		5D1FF4501F264903009C863B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1FF44F1F264903009C863B /* UIColor+Extension.swift */; };
 		5D1FF4521F2651EC009C863B /* BlogsFeedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1FF4511F2651EC009C863B /* BlogsFeedSpec.swift */; };
 		5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */; };
+		5D6111F61F2E47A300D7F61C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F51F2E47A300D7F61C /* Service.swift */; };
+		5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */; };
 		5DAB859F1F1FA8F30082D5E1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85901F1FA8F30082D5E1 /* BaseView.swift */; };
 		5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */; };
 		5DAB85A11F1FA8F30082D5E1 /* ObjectMapper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85931F1FA8F30082D5E1 /* ObjectMapper+Extension.swift */; };
@@ -72,6 +74,8 @@
 		5D1FF44F1F264903009C863B /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5D1FF4511F2651EC009C863B /* BlogsFeedSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogsFeedSpec.swift; sourceTree = "<group>"; };
 		5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogsFeedReactor.swift; sourceTree = "<group>"; };
+		5D6111F51F2E47A300D7F61C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxMoya+Extension.swift"; sourceTree = "<group>"; };
 		5DAB85901F1FA8F30082D5E1 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5DAB85931F1FA8F30082D5E1 /* ObjectMapper+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObjectMapper+Extension.swift"; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 				5D1FF4441F264675009C863B /* Common */,
 				5DAB85901F1FA8F30082D5E1 /* BaseView.swift */,
 				5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */,
+				5D6111F51F2E47A300D7F61C /* Service.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				5DAB85941F1FA8F30082D5E1 /* Reactive+Extension.swift */,
 				5DAB85951F1FA8F30082D5E1 /* UIView+Extension.swift */,
 				5D1FF44F1F264903009C863B /* UIColor+Extension.swift */,
+				5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -558,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DAB85A71F1FA8F30082D5E1 /* ViewController.swift in Sources */,
+				5D6111F61F2E47A300D7F61C /* Service.swift in Sources */,
 				5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */,
 				5D1FF4461F264684009C863B /* MaterialLoadingIndicator.swift in Sources */,
 				5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */,
@@ -568,6 +575,7 @@
 				5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */,
 				5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */,
 				5DAB85A21F1FA8F30082D5E1 /* Reactive+Extension.swift in Sources */,
+				5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */,
 				5DAB85A51F1FA8F30082D5E1 /* Api.swift in Sources */,
 				5DAB85A11F1FA8F30082D5E1 /* ObjectMapper+Extension.swift in Sources */,
 			);
