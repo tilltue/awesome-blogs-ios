@@ -4,6 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 def test_pods
     pod 'Quick'
     pod 'Nimble'
+    pod 'RxTest'
 end
 
 target 'AwesomeBlogs' do

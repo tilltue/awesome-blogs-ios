@@ -12,6 +12,7 @@ import Quick
 import Nimble
 import Swinject
 import Moya
+import RxTest
 //import ObjectMapper
 
 @testable import AwesomeBlogs
@@ -19,32 +20,39 @@ import Moya
 class BlogsFeedSpec: QuickSpec {
     
     override func spec() {
-        /*
-        var container: Container!
         var disposeBag: DisposeBag!
         var reactor: BlogsFeedReactor!
-        //Service
-        //"블로그 피드 리엑터 테스트"
+        //context("블로그 피드 리엑터 테스트") {
         context("blog feed reactor test") {
             beforeEach {
-                container = Container()
                 disposeBag = DisposeBag()
                 reactor = BlogsFeedReactor()
-                container.register(RxMoyaProvider<AwesomeBlogs>.self){ _ in RxMoyaProvider<AwesomeBlogs>(stubClosure: MoyaProvider.immediatelyStub) }
+                Service.shared.mockRegister()
             }
+            //describe("load action -> loding -> loaded -> empty or have state") {
             describe("action -> state test") {
-                it("getfeed action") {
-                    var count = 0
-                    reactor.state.subscribe(onNext: { item in
-                        print("haha")
-                        count = item.entries.count
-                        print("haha")
+                it("get feed action") {
+                    var events = [Recorded<Event<Int>>]()
+                    let correctEvents = [
+                        next(100, 0),
+                        next(150, 1),
+                        next(200, 1)
+                    ]
+                    var index = 0
+                    let times = [100,150,200,250]
+                    reactor.state.subscribe(onNext: { state in
+                        events.append(next(times[index],state.entries.count))
+                        index+=1
+                        //print("state : \(state.isLoading) \(state.entries.count)")
                     }).addDisposableTo(disposeBag)
-                    reactor.action.on(.next(.getFeed(group: .dev)))
-                    expect(count).toEventually(equal(1))
+                    reactor.action.on(.next(.load(group: .dev)))
+//                    XCTAssertEqual(events,correctEvents)
+                    expect(events).toEventually(equal(correctEvents))
+                    //expect(mutations).toEventually(equal([(true,0),(true,1),(false,1)]))
+                    //expect(mutations).toEventually(equal([true,true,false]))
                 }
             }
-        }*/
+        }
         /*
         //describe("") {
         context("get awesome blog feed all group") {

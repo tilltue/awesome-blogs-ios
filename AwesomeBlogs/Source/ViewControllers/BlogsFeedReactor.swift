@@ -10,36 +10,49 @@ import Foundation
 import Moya
 import RxSwift
 import ReactorKit
-/*
+
 class BlogsFeedReactor: Reactor {
     enum Action {
-        case getFeed(group: AwesomeBlogs.Group)
+        case load(group: AwesomeBlogs.Group)
+        case refresh(group: AwesomeBlogs.Group)
     }
     
     enum Mutation {
-        case setLoaded(Bool)
+        case setLoading(Bool)
+        case setEntries([Entry])
     }
     
     struct State {
-        var isLoaded: Bool = false
+        var isLoading: Bool = false
         var entries: [Entry] = [Entry]()
     }
     
     let initialState = State()
     
-    func mutate(action: Action) -> Single<Mutation> {
+    func mutate(action: Action) -> Observable<Mutation> {
+        let start = Observable.just(Mutation.setLoading(true))
+        let end = Observable.just(Mutation.setLoading(false))
         switch action {
-        case .getFeed(let group):
-            return Api.getFeeds(group: group).map{ $0.count > 0 }.map(Mutation.setLoaded)
+        case .load(let group):
+            return Observable.empty()
+            //let getFeed = Api.getFeeds(group: group).map(Mutation.setEntries).asObservable()
+            //return Observable.concat(start,getFeed,end)
+        case .refresh(let group):
+            return Observable.empty()
+            //let getFeed = Api.getFeeds(group: group).asObservable().map(Mutation.setEntries)
+            //return Observable.concat(start,getFeed,end)
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         switch mutation {
-        case let .setLoaded(isLoaded):
-            state.isLoaded = isLoaded
+        case let .setLoading(isLoading):
+            state.isLoading = isLoading
+            return state
+        case let .setEntries(entries):
+            state.entries = entries
             return state
         }
     }
-}*/
+}
