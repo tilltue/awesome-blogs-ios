@@ -17,6 +17,14 @@ import RxTest
 
 @testable import AwesomeBlogs
 
+struct FeedStateEvent: Equatable {
+    var loading: Bool
+    var count: Int
+    static func ==(lhs: FeedStateEvent, rhs: FeedStateEvent) -> Bool {
+        return false
+    }
+}
+
 class BlogsFeedSpec: QuickSpec {
     
     override func spec() {
@@ -29,27 +37,24 @@ class BlogsFeedSpec: QuickSpec {
                 reactor = BlogsFeedReactor()
                 Service.shared.mockRegister()
             }
-            //describe("load action -> loding -> loaded -> empty or have state") {
-            describe("action -> state test") {
-                it("get feed action") {
-                    var events = [Recorded<Event<Int>>]()
-                    let correctEvents = [
-                        next(100, 0),
-                        next(150, 1),
-                        next(200, 1)
-                    ]
+            //describe("액션을 전달하고 이벤트 스트림 결과를 비교") {
+            describe("action -> event stream result") {
+                //it("액션: 피드 로드") {
+                it("action: feed load") {
+                    var stateEvents = [Recorded<Event<FeedStateEvent>>]()
                     var index = 0
                     let times = [100,150,200,250]
-                    reactor.state.subscribe(onNext: { state in
-                        events.append(next(times[index],state.entries.count))
+                    reactor.state.map{ FeedStateEvent(loading: $0.isLoading, count:$0.entries.count) }
+                    .subscribe(onNext: { event in
+                        stateEvents.append(next(times[index],event))
                         index+=1
-                        //print("state : \(state.isLoading) \(state.entries.count)")
+                        print("state : \(event.loading) \(event.count)")
                     }).addDisposableTo(disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
-//                    XCTAssertEqual(events,correctEvents)
-                    expect(events).toEventually(equal(correctEvents))
-                    //expect(mutations).toEventually(equal([(true,0),(true,1),(false,1)]))
-                    //expect(mutations).toEventually(equal([true,true,false]))
+                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, count: 0)),
+                                                            next(150, FeedStateEvent(loading: true, count: 0)),
+                                                            next(200, FeedStateEvent(loading: true, count: 1)),
+                                                            next(250, FeedStateEvent(loading: false, count: 1))]))
                 }
             }
         }

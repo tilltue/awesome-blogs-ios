@@ -34,13 +34,11 @@ class BlogsFeedReactor: Reactor {
         let end = Observable.just(Mutation.setLoading(false))
         switch action {
         case .load(let group):
-            return Observable.empty()
-            //let getFeed = Api.getFeeds(group: group).map(Mutation.setEntries).asObservable()
-            //return Observable.concat(start,getFeed,end)
+            let getFeed = Api.getFeeds(group: group).map(Mutation.setEntries).asObservable()
+            return Observable.concat(start,getFeed,end)
         case .refresh(let group):
-            return Observable.empty()
-            //let getFeed = Api.getFeeds(group: group).asObservable().map(Mutation.setEntries)
-            //return Observable.concat(start,getFeed,end)
+            let getFeed = Api.getFeeds(group: group).asObservable().map(Mutation.setEntries)
+            return Observable.concat(start,getFeed,end)
         }
     }
     
