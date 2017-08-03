@@ -58,6 +58,15 @@ extension AwesomeBlogs: TargetType {
         return true
     }
     public var sampleData: Data {
-        return "{ \"entries\" : [{\"title\": \"mock title\", \"author\": \"mock author\", \"link\": \"mock link\", \"updated_at\": \"2017-07-26T00:01:00.000+09:00\", \"summary\" : \"mock summary\" }] }".data(using: String.Encoding.utf8)!
+        switch self {
+        case .feeds(let group):
+            if group == .dev {
+                return "{ \"entries\" : [{\"title\": \"mock title\", \"author\": \"mock author\", \"link\": \"mock link\", \"updated_at\": \"2017-07-26T00:01:00.000+09:00\", \"summary\" : \"mock summary\" }] }".data(using: String.Encoding.utf8)!
+            }else {
+                return "{ \"entries\" : [{\"title\": \"mock title\", \"author\": \"mock author\", \"link\": \"mock link\", \"updated_at\": \"2017-07-26T00:01:00.000+09:00\", \"summary\" : \"mock summary\" },{\"title\": \"mock title2\", \"author\": \"mock author2\", \"link\": \"mock link2\", \"updated_at\": \"2017-07-26T00:02:00.000+09:00\", \"summary\" : \"mock summary2\" }] }".data(using: String.Encoding.utf8)!
+            }
+        default:
+            return "{ \"entries\" : [{\"title\": \"mock title\", \"author\": \"mock author\", \"link\": \"mock link\", \"updated_at\": \"2017-07-26T00:01:00.000+09:00\", \"summary\" : \"mock summary\" }] }".data(using: String.Encoding.utf8)!
+        }
     }
 }
