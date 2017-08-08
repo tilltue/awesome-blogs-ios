@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import ReactorKit
 
 protocol BaseViewControllerType: class {
     var disposeBag: DisposeBag { get }
@@ -17,9 +18,11 @@ protocol BaseViewControllerType: class {
 
 class BaseViewController: UIViewController, BaseViewControllerType {
     var disposeBag = DisposeBag()
+    var compositeDisposable = CompositeDisposable()
     let viewControllerState = Variable<ViewControllerState>(.notloaded)
     var statusBarStyle: UIStatusBarStyle { get { return .default } }
     deinit {
+        self.compositeDisposable.dispose()
         log.verbose(type(of: self))
     }
     override func viewDidLoad() {

@@ -19,9 +19,19 @@
 		5D1FF4501F264903009C863B /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1FF44F1F264903009C863B /* UIColor+Extension.swift */; };
 		5D1FF4521F2651EC009C863B /* BlogsFeedSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1FF4511F2651EC009C863B /* BlogsFeedSpec.swift */; };
 		5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */; };
+		5D2594741F39F6DD00C49CE2 /* HaveReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594731F39F6DD00C49CE2 /* HaveReactor.swift */; };
+		5D2594761F3A02B000C49CE2 /* DevBlogFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */; };
+		5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */; };
+		5D25947E1F3A0F0100C49CE2 /* BlogFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D25947D1F3A0F0100C49CE2 /* BlogFeedCell.xib */; };
+		5D2594801F3A0F1B00C49CE2 /* BlogFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25947F1F3A0F1B00C49CE2 /* BlogFeedCell.swift */; };
+		5D2594821F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */; };
 		5D6111F61F2E47A300D7F61C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F51F2E47A300D7F61C /* Service.swift */; };
 		5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */; };
 		5D65EB201F32293900D6E633 /* Quick+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */; };
+		5D65EB561F33763900D6E633 /* BaseBlogFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB551F33763900D6E633 /* BaseBlogFeedViewController.swift */; };
+		5D65EB581F33768400D6E633 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D65EB571F33768400D6E633 /* Feed.storyboard */; };
+		5D65EB5B1F33796F00D6E633 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */; };
+		5D65EB5F1F337A3000D6E633 /* HidingNavViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB5E1F337A3000D6E633 /* HidingNavViewControllerType.swift */; };
 		5DAB859F1F1FA8F30082D5E1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85901F1FA8F30082D5E1 /* BaseView.swift */; };
 		5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */; };
 		5DAB85A11F1FA8F30082D5E1 /* ObjectMapper+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85931F1FA8F30082D5E1 /* ObjectMapper+Extension.swift */; };
@@ -30,7 +40,7 @@
 		5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85971F1FA8F30082D5E1 /* Entry.swift */; };
 		5DAB85A51F1FA8F30082D5E1 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85991F1FA8F30082D5E1 /* Api.swift */; };
 		5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogs.swift */; };
-		5DAB85A71F1FA8F30082D5E1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859D1F1FA8F30082D5E1 /* ViewController.swift */; };
+		5DAB85A71F1FA8F30082D5E1 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859D1F1FA8F30082D5E1 /* MainTabBarController.swift */; };
 		88B7CF2BE8363D977BA59F3C /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F9F4B23AAD9EA9FBCDB62 /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,9 +85,19 @@
 		5D1FF44F1F264903009C863B /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		5D1FF4511F2651EC009C863B /* BlogsFeedSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogsFeedSpec.swift; sourceTree = "<group>"; };
 		5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogsFeedReactor.swift; sourceTree = "<group>"; };
+		5D2594731F39F6DD00C49CE2 /* HaveReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HaveReactor.swift; sourceTree = "<group>"; };
+		5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevBlogFeedViewController.swift; sourceTree = "<group>"; };
+		5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewBindProtocol.swift; sourceTree = "<group>"; };
+		5D25947D1F3A0F0100C49CE2 /* BlogFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell.xib; sourceTree = "<group>"; };
+		5D25947F1F3A0F1B00C49CE2 /* BlogFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell.swift; sourceTree = "<group>"; };
+		5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFeedTableViewBindProtocol.swift; sourceTree = "<group>"; };
 		5D6111F51F2E47A300D7F61C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxMoya+Extension.swift"; sourceTree = "<group>"; };
 		5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Quick+Extension.swift"; sourceTree = "<group>"; };
+		5D65EB551F33763900D6E633 /* BaseBlogFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBlogFeedViewController.swift; sourceTree = "<group>"; };
+		5D65EB571F33768400D6E633 /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		5D65EB5E1F337A3000D6E633 /* HidingNavViewControllerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HidingNavViewControllerType.swift; sourceTree = "<group>"; };
 		5DAB85901F1FA8F30082D5E1 /* BaseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5DAB85931F1FA8F30082D5E1 /* ObjectMapper+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ObjectMapper+Extension.swift"; sourceTree = "<group>"; };
@@ -86,7 +106,7 @@
 		5DAB85971F1FA8F30082D5E1 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		5DAB85991F1FA8F30082D5E1 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeBlogs.swift; sourceTree = "<group>"; };
-		5DAB859D1F1FA8F30082D5E1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5DAB859D1F1FA8F30082D5E1 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		73A3E35F6407F7C484420A27 /* Pods_AwesomeBlogs_AwesomeBlogsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeBlogs_AwesomeBlogsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25F9F4B23AAD9EA9FBCDB62 /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeBlogs_AwesomeBlogsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -182,6 +202,26 @@
 			name = Common;
 			sourceTree = "<group>";
 		};
+		5D2594781F3A051B00C49CE2 /* BlogFeed */ = {
+			isa = PBXGroup;
+			children = (
+				5D25947D1F3A0F0100C49CE2 /* BlogFeedCell.xib */,
+				5D25947F1F3A0F1B00C49CE2 /* BlogFeedCell.swift */,
+				5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */,
+				5D65EB551F33763900D6E633 /* BaseBlogFeedViewController.swift */,
+			);
+			name = BlogFeed;
+			sourceTree = "<group>";
+		};
+		5D65EB5D1F337A1900D6E633 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				5D65EB5E1F337A3000D6E633 /* HidingNavViewControllerType.swift */,
+				5D2594731F39F6DD00C49CE2 /* HaveReactor.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		5DAB858E1F1FA8F30082D5E1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,10 +239,14 @@
 		5DAB858F1F1FA8F30082D5E1 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				5D65EB5D1F337A1900D6E633 /* Protocol */,
 				5D1FF4441F264675009C863B /* Common */,
+				5D6111F51F2E47A300D7F61C /* Service.swift */,
 				5DAB85901F1FA8F30082D5E1 /* BaseView.swift */,
 				5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */,
-				5D6111F51F2E47A300D7F61C /* Service.swift */,
+				5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */,
+				5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */,
+				5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -246,8 +290,10 @@
 		5DAB859C1F1FA8F30082D5E1 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */,
-				5DAB859D1F1FA8F30082D5E1 /* ViewController.swift */,
+				5D2594781F3A051B00C49CE2 /* BlogFeed */,
+				5D65EB571F33768400D6E633 /* Feed.storyboard */,
+				5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */,
+				5DAB859D1F1FA8F30082D5E1 /* MainTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -401,8 +447,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D25947E1F3A0F0100C49CE2 /* BlogFeedCell.xib in Resources */,
 				5D17D7891F1E6D7D00C5D84D /* LaunchScreen.storyboard in Resources */,
 				5D17D7861F1E6D7D00C5D84D /* Assets.xcassets in Resources */,
+				5D65EB581F33768400D6E633 /* Feed.storyboard in Resources */,
 				5D17D7841F1E6D7D00C5D84D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,21 +614,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DAB85A71F1FA8F30082D5E1 /* ViewController.swift in Sources */,
+				5DAB85A71F1FA8F30082D5E1 /* MainTabBarController.swift in Sources */,
 				5D6111F61F2E47A300D7F61C /* Service.swift in Sources */,
+				5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */,
 				5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */,
 				5D1FF4461F264684009C863B /* MaterialLoadingIndicator.swift in Sources */,
 				5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */,
 				5D1FF4501F264903009C863B /* UIColor+Extension.swift in Sources */,
 				5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogs.swift in Sources */,
+				5D2594821F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift in Sources */,
 				5D17D77F1F1E6D7D00C5D84D /* AppDelegate.swift in Sources */,
 				5DAB859F1F1FA8F30082D5E1 /* BaseView.swift in Sources */,
 				5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */,
+				5D2594801F3A0F1B00C49CE2 /* BlogFeedCell.swift in Sources */,
 				5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */,
+				5D65EB5B1F33796F00D6E633 /* BaseNavigationViewController.swift in Sources */,
+				5D2594761F3A02B000C49CE2 /* DevBlogFeedViewController.swift in Sources */,
 				5DAB85A21F1FA8F30082D5E1 /* Reactive+Extension.swift in Sources */,
 				5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */,
 				5DAB85A51F1FA8F30082D5E1 /* Api.swift in Sources */,
+				5D65EB561F33763900D6E633 /* BaseBlogFeedViewController.swift in Sources */,
 				5DAB85A11F1FA8F30082D5E1 /* ObjectMapper+Extension.swift in Sources */,
+				5D2594741F39F6DD00C49CE2 /* HaveReactor.swift in Sources */,
+				5D65EB5F1F337A3000D6E633 /* HidingNavViewControllerType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

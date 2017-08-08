@@ -18,6 +18,7 @@ target 'AwesomeBlogs' do
     pod 'Moya/RxSwift'
     pod 'XCGLogger'
     pod 'Swinject', '~> 2.1.0'
+    pod 'AMScrollingNavbar'
     target 'AwesomeBlogsTests' do
         test_pods
     end

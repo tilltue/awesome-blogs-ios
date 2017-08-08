@@ -9,13 +9,16 @@
 import Foundation
 import Moya
 import Swinject
+import ReactorKit
 
 struct Service {
     static let shared = Service()
     let container = Container()
     
     private init() {
+//        mockRegister()
         register()
+        reactorRegister()
     }
     
     func register() {
@@ -25,6 +28,10 @@ struct Service {
     
     func mockRegister() {
         self.container.register(RxMoyaProvider<AwesomeBlogs>.self){ _ in RxMoyaProvider<AwesomeBlogs>(stubClosure: MoyaProvider.immediatelyStub) }
+    }
+    
+    func reactorRegister() {
+        self.container.register(BlogsFeedReactor.self) { _ in BlogsFeedReactor() }
     }
 }
 

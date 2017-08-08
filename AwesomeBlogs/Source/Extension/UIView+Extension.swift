@@ -166,3 +166,25 @@ extension UIView {
         return result!
     }
 }
+
+// MARK: Loading indicator
+class WhiteView: UIView {
+    
+}
+
+extension UIView {
+    func showIndicator() {
+        if (self.subviews.filter{ $0 is WhiteView }.count) != 0 { return }
+        let backView = WhiteView(frame: CGRect(x: 0, y: 0, width: self.width, height: self.height))
+        backView.backgroundColor = UIColor(hex: 0xFFFFFF, alpha: 0.3)
+        let indicator = MaterialLoadingIndicator.init(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        indicator.center = self.center
+        indicator.startAnimating()
+        backView.addSubview(indicator)
+        self.addSubview(backView)
+    }
+    func hideIndicator() {
+        guard let backView = (self.subviews.filter{ $0 is WhiteView }.first) else { return }
+        backView.removeFromSuperview()
+    }
+}

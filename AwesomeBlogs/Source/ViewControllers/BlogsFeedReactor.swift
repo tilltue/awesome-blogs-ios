@@ -12,6 +12,7 @@ import RxSwift
 import ReactorKit
 
 class BlogsFeedReactor: Reactor {
+    
     enum Action {
         case load(group: AwesomeBlogs.Group)
         case refresh(group: AwesomeBlogs.Group)

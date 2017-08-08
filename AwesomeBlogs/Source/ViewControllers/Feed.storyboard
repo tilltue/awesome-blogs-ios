@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base Navigation View Controller-->
+        <scene sceneID="DVN-4L-VXH">
+            <objects>
+                <navigationController storyboardIdentifier="BlogFeed" id="kvG-y1-xFO" customClass="BaseNavigationViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DIn-Rr-y4G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mj1-lX-vWm" kind="relationship" relationship="rootViewController" id="Znj-Wl-M36"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mci-du-UMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-522" y="0.0"/>
+        </scene>
+        <!--Dev Blog Feed View Controller-->
+        <scene sceneID="Xoh-Cm-aCm">
+            <objects>
+                <viewController id="mj1-lX-vWm" customClass="DevBlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Ca-lD-fXr"/>
+                        <viewControllerLayoutGuide type="bottom" id="pHJ-Vj-eqZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="am9-zG-dJ8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gr1-qT-5CM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gr1-qT-5CM" firstAttribute="top" secondItem="am9-zG-dJ8" secondAttribute="top" id="6mE-3e-kSN"/>
+                            <constraint firstItem="pHJ-Vj-eqZ" firstAttribute="top" secondItem="Gr1-qT-5CM" secondAttribute="bottom" id="Tox-gq-6VG"/>
+                            <constraint firstAttribute="trailing" secondItem="Gr1-qT-5CM" secondAttribute="trailing" id="XJf-Vg-315"/>
+                            <constraint firstItem="Gr1-qT-5CM" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="z0Y-iU-yBG"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aao-SQ-ZT9"/>
+                    <connections>
+                        <outlet property="tableView" destination="Gr1-qT-5CM" id="jaS-eg-kq1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jjU-lL-esz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210.40000000000001" y="-0.44977511244377816"/>
+        </scene>
+    </scenes>
+</document>

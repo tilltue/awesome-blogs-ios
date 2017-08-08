@@ -10,6 +10,15 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+// MARK: - CompositeDisposable
+extension CompositeDisposable {
+    func add(disposables: [Disposable]) {
+        for disposable in disposables {
+            _ = self.insert(disposable)
+        }
+    }
+}
+
 // MARK: - UIViewController
 enum ViewControllerState {
     case notloaded, hidden, hiding, showing, shown

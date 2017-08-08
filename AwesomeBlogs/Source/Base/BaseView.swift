@@ -12,13 +12,13 @@ import RxSwift
 class BaseUICollectionViewCell: UICollectionViewCell {
     let disposeBag = DisposeBag()
     deinit {
-        //log.verbose(type(of: self))
+        log.verbose(type(of: self))
     }
 }
 class BaseUITableViewCell: UITableViewCell {
     let disposeBag = DisposeBag()
     deinit {
-        //log.verbose(type(of: self))
+        log.verbose(type(of: self))
     }
 }
 class BaseUICollectionReusableView: UICollectionReusableView {
