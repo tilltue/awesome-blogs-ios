@@ -26,8 +26,13 @@ class BlogsFeedReactor: Reactor {
     struct State {
         var isLoading: Bool = false
         var entries: [Entry] = [Entry]()
+        var viewModels: [BlogFeedCellViewModel] = [BlogFeedCellViewModel]()
     }
     
+    deinit {
+        print("deinit BlogFeedReactor")
+    }
+
     let initialState = State()
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -51,7 +56,41 @@ class BlogsFeedReactor: Reactor {
             return state
         case let .setEntries(entries):
             state.entries = entries
+            state.viewModels = flatMapFeedViewModel(entries: entries)
             return state
         }
+    }
+}
+
+// MARK: - Service Logic
+extension BlogsFeedReactor {
+    func flatMapFeedViewModel(entries: [Entry]) -> [BlogFeedCellViewModel] {
+        var viewModels = [BlogFeedCellViewModel]()
+        var mutableEntries = entries
+        repeat {
+            switch Int(arc4random_uniform(4)) {
+            case 0:
+                guard let entry = mutableEntries.first else { break }
+                viewModels.append(BlogFeedCellViewModel(cellType: .rectangle(entry: entry)))
+                mutableEntries.removeFirst()
+            case 1:
+                guard let entry = mutableEntries.first else { break }
+                viewModels.append(BlogFeedCellViewModel(cellType: .circle(entry: entry)))
+                mutableEntries.removeFirst()
+            case 2:
+                let entries = Array(mutableEntries.prefix(2))
+                guard entries.count == 2 else { break }
+                viewModels.append(BlogFeedCellViewModel(cellType: .diagonal(entries: entries)))
+                mutableEntries.removeFirst(2)
+            case 3:
+                let entries = Array(mutableEntries.prefix(4))
+                guard entries.count == 4 else { break }
+                viewModels.append(BlogFeedCellViewModel(cellType: .table(entries: entries)))
+                mutableEntries.removeFirst(4)
+            default:
+                break
+            }
+        }while(mutableEntries.count > 0)
+        return viewModels
     }
 }

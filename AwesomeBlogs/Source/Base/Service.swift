@@ -16,8 +16,8 @@ struct Service {
     let container = Container()
     
     private init() {
-//        mockRegister()
-        register()
+        mockRegister()
+//        register()
         reactorRegister()
     }
     

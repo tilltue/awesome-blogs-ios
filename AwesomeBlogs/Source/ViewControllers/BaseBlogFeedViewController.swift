@@ -29,6 +29,9 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.tableView.isPagingEnabled = true
+        self.tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
         self.bindDataSource(tableView: self.tableView)
         self.compositeDisposable.add(disposables: [
             self.reactor.state.map{ $0.isLoading }.distinctUntilChanged().bind(onNext: { [weak self] isLoading in
@@ -38,12 +41,26 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                     self?.view.hideIndicator()
                 }
             }),
-            self.reactor.state.map{ $0.entries }.subscribe(onNext: { [weak self] entries in
-                let items = entries.map{ BlogFeedCellViewModel(entry: $0) }
-                self?.cellViewModels.value = [AnimatableSectionModel(model: "section", items: items)]
-                print(entries.count)
+            self.reactor.state.map{ $0.viewModels }.subscribe(onNext: { [weak self] viewModels in
+                self?.cellViewModels.value = [AnimatableSectionModel(model: "section", items: viewModels)]
+                log.debug(viewModels.count)
             })
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
+    }
+}
+
+extension UIStoryboard {
+    class func VC(name: String, bundle: Bundle? = nil, withIdentifier: String) -> UIViewController {
+        let board = UIStoryboard(name: name, bundle: bundle)
+        return board.instantiateViewController(withIdentifier: withIdentifier)
+    }
+}
+
+
+//MARK: - UITableViewDelegate
+extension BlogFeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.view.height
     }
 }

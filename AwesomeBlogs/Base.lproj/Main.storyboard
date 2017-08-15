@@ -12,6 +12,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="6c3-pT-eNG">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uz1-xI-the" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="Q5r-Dc-X4x" customClass="MainTabBarController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="gT7-wh-0qh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -22,25 +23,24 @@
                         <segue destination="Dii-6z-tze" kind="relationship" relationship="viewControllers" id="hCj-9L-HVk"/>
                     </connections>
                 </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uz1-xI-the" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-450" y="-251"/>
         </scene>
         <!--BlogFeed-->
         <scene sceneID="emM-vL-6G7">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="moA-z3-jjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Feed" referencedIdentifier="BlogFeed" id="Dii-6z-tze" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="Ivq-GM-69p"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="moA-z3-jjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-943" y="202"/>
         </scene>
         <!--Storyboard Reference-->
         <scene sceneID="92u-gA-iEN">
             <objects>
-                <viewControllerPlaceholder id="Csm-21-UXu" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Hq-sY-XJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder id="Csm-21-UXu" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="-618" y="202"/>
         </scene>

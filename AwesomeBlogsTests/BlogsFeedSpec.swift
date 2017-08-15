@@ -19,9 +19,15 @@ import RxTest
 
 struct FeedStateEvent: Equatable {
     var loading: Bool
-    var count: Int
+    var entryCount: Int
+    var useableViewModel: Bool
+    init(loading: Bool, entryCount: Int, useableViewModel: Bool = false) {
+        self.loading = loading
+        self.entryCount = entryCount
+        self.useableViewModel = useableViewModel
+    }
     static func ==(lhs: FeedStateEvent, rhs: FeedStateEvent) -> Bool {
-        return lhs.loading == rhs.loading && lhs.count == rhs.count
+        return lhs.loading == rhs.loading && lhs.entryCount == rhs.entryCount && lhs.useableViewModel == rhs.useableViewModel
     }
 }
 
@@ -38,43 +44,65 @@ class BlogsFeedSpec: QuickSpec {
                 Service.shared.mockRegister()
             }
             //describe("액션을 전달하고 이벤트 스트림 결과를 비교") {
-            describe("action -> event stream result") {
+            xdescribe("action -> event stream result") {
                 //it("액션: 피드 로드") {
                 it("action: feed load") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
                     var index = 0
                     let times = [100,150,200,250]
-                    reactor.state.map{ FeedStateEvent(loading: $0.isLoading, count:$0.entries.count) }
+                    reactor.state.map{ FeedStateEvent(loading: $0.isLoading, entryCount:$0.entries.count) }
                     .subscribe(onNext: { event in
                         stateEvents.append(next(times[index],event))
                         index+=1
-                        print("state : \(event.loading) \(event.count)")
+                        log.debug("state : \(event.loading) \(event.entryCount)")
                     }).addDisposableTo(disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
-                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, count: 0)),
-                                                            next(150, FeedStateEvent(loading: true, count: 0)),
-                                                            next(200, FeedStateEvent(loading: true, count: 1)),
-                                                            next(250, FeedStateEvent(loading: false, count: 1))]))
+                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
+                                                            next(150, FeedStateEvent(loading: true, entryCount: 0)),
+                                                            next(200, FeedStateEvent(loading: true, entryCount: 1)),
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 1))]))
                 }
                 it("action: feed load , feed refresh") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
                     var index = 0
                     let times = [100,150,200,250,300,350,400]
-                    reactor.state.map{ FeedStateEvent(loading: $0.isLoading, count:$0.entries.count) }
+                    reactor.state.map{ FeedStateEvent(loading: $0.isLoading, entryCount:$0.entries.count) }
                     .subscribe(onNext: { event in
                         stateEvents.append(next(times[index],event))
                         index+=1
-                        print("state : \(event.loading) \(event.count)")
+                        log.debug("state : \(event.loading) \(event.entryCount)")
                     }).addDisposableTo(disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
-                    reactor.action.on(.next(.refresh(group: .all)))
-                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, count: 0)),
-                                                            next(150, FeedStateEvent(loading: true, count: 0)),
-                                                            next(200, FeedStateEvent(loading: true, count: 1)),
-                                                            next(250, FeedStateEvent(loading: false, count: 1)),
-                                                            next(300, FeedStateEvent(loading: true, count: 1)),
-                                                            next(350, FeedStateEvent(loading: true, count: 2)),
-                                                            next(400, FeedStateEvent(loading: false, count: 2))]))
+                    reactor.action.on(.next(.refresh(group: .company)))
+                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
+                                                            next(150, FeedStateEvent(loading: true, entryCount: 0)),
+                                                            next(200, FeedStateEvent(loading: true, entryCount: 1)),
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 1)),
+                                                            next(300, FeedStateEvent(loading: true, entryCount: 1)),
+                                                            next(350, FeedStateEvent(loading: true, entryCount: 35)),
+                                                            next(400, FeedStateEvent(loading: false, entryCount: 35))]))
+                }
+                it("action: feed load -> usable view model") {
+                    var stateEvents = [Recorded<Event<FeedStateEvent>>]()
+                    var index = 0
+                    let times = [100,150,200,250]
+                    reactor.state.map{ state -> FeedStateEvent in
+                        let viewModelEntryCount = state.viewModels.reduce(0, { (result, viewModel) -> Int in
+                            return result + viewModel.cellType.entries.count
+                        })
+                        let useableViewModel = state.entries.count == viewModelEntryCount && viewModelEntryCount > 0
+                        return FeedStateEvent(loading: state.isLoading, entryCount:state.entries.count, useableViewModel: useableViewModel)
+                        }
+                        .subscribe(onNext: { event in
+                            stateEvents.append(next(times[index],event))
+                            index+=1
+                            log.debug("state : \(event.loading) \(event.entryCount) \(event.useableViewModel)")
+                        }).addDisposableTo(disposeBag)
+                    reactor.action.on(.next(.load(group: .company)))
+                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0, useableViewModel: false)),
+                                                            next(150, FeedStateEvent(loading: true, entryCount: 0, useableViewModel: false)),
+                                                            next(200, FeedStateEvent(loading: true, entryCount: 35, useableViewModel: true)),
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 35, useableViewModel: true))]))
                 }
             }
         }

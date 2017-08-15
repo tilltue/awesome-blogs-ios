@@ -35,7 +35,7 @@ class AwesomeBlogsSpec: QuickSpec {
                 it("mock data has returned 1 entry") {
                     var count = 0
                     Api.getFeeds(group: .dev).subscribe(onSuccess: { entries in
-                        print(entries)
+                        log.debug(entries)
                         count = entries.count
                     }, onError: { error in
                         
@@ -54,7 +54,7 @@ class AwesomeBlogsSpec: QuickSpec {
                     Api.getFeeds(group: .dev).subscribe(onSuccess: { entries in
                         count = entries.count
                         for entry in entries {
-                            print(entry.title)
+                            log.debug(entry.title)
                         }
                     }) { error in
                         

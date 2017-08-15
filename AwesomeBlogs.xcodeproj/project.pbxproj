@@ -22,9 +22,15 @@
 		5D2594741F39F6DD00C49CE2 /* HaveReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594731F39F6DD00C49CE2 /* HaveReactor.swift */; };
 		5D2594761F3A02B000C49CE2 /* DevBlogFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */; };
 		5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */; };
-		5D25947E1F3A0F0100C49CE2 /* BlogFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D25947D1F3A0F0100C49CE2 /* BlogFeedCell.xib */; };
-		5D2594801F3A0F1B00C49CE2 /* BlogFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25947F1F3A0F1B00C49CE2 /* BlogFeedCell.swift */; };
 		5D2594821F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */; };
+		5D5D92E01F42D2A10062631B /* BlogFeedCell_Circle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */; };
+		5D5D92E11F42D2A10062631B /* BlogFeedCell_Diagonal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */; };
+		5D5D92E21F42D2A10062631B /* BlogFeedCell_Table.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */; };
+		5D5D92E31F42D2A10062631B /* BlogFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92DE1F42D2A10062631B /* BlogFeedCell.swift */; };
+		5D5D92E41F42D2A10062631B /* BlogFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DF1F42D2A10062631B /* BlogFeedCell.xib */; };
+		5D5D92E91F42D5EF0062631B /* MockCompanyBlogs.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92E81F42D5EF0062631B /* MockCompanyBlogs.json */; };
+		5D5D92EB1F42D6910062631B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92EA1F42D6910062631B /* Bundle+Extension.swift */; };
+		5D5D92ED1F42D75A0062631B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92EC1F42D75A0062631B /* String+Extension.swift */; };
 		5D6111F61F2E47A300D7F61C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F51F2E47A300D7F61C /* Service.swift */; };
 		5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */; };
 		5D65EB201F32293900D6E633 /* Quick+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */; };
@@ -88,9 +94,15 @@
 		5D2594731F39F6DD00C49CE2 /* HaveReactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HaveReactor.swift; sourceTree = "<group>"; };
 		5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevBlogFeedViewController.swift; sourceTree = "<group>"; };
 		5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewBindProtocol.swift; sourceTree = "<group>"; };
-		5D25947D1F3A0F0100C49CE2 /* BlogFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell.xib; sourceTree = "<group>"; };
-		5D25947F1F3A0F1B00C49CE2 /* BlogFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell.swift; sourceTree = "<group>"; };
 		5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFeedTableViewBindProtocol.swift; sourceTree = "<group>"; };
+		5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Circle.xib; sourceTree = "<group>"; };
+		5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Diagonal.xib; sourceTree = "<group>"; };
+		5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Table.xib; sourceTree = "<group>"; };
+		5D5D92DE1F42D2A10062631B /* BlogFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell.swift; sourceTree = "<group>"; };
+		5D5D92DF1F42D2A10062631B /* BlogFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell.xib; sourceTree = "<group>"; };
+		5D5D92E81F42D5EF0062631B /* MockCompanyBlogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockCompanyBlogs.json; sourceTree = "<group>"; };
+		5D5D92EA1F42D6910062631B /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		5D5D92EC1F42D75A0062631B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5D6111F51F2E47A300D7F61C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxMoya+Extension.swift"; sourceTree = "<group>"; };
 		5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Quick+Extension.swift"; sourceTree = "<group>"; };
@@ -205,12 +217,18 @@
 		5D2594781F3A051B00C49CE2 /* BlogFeed */ = {
 			isa = PBXGroup;
 			children = (
-				5D25947D1F3A0F0100C49CE2 /* BlogFeedCell.xib */,
-				5D25947F1F3A0F1B00C49CE2 /* BlogFeedCell.swift */,
 				5D1FF4531F2659AE009C863B /* BlogsFeedReactor.swift */,
 				5D65EB551F33763900D6E633 /* BaseBlogFeedViewController.swift */,
 			);
 			name = BlogFeed;
+			sourceTree = "<group>";
+		};
+		5D5D92E71F42D5DA0062631B /* MockJson */ = {
+			isa = PBXGroup;
+			children = (
+				5D5D92E81F42D5EF0062631B /* MockCompanyBlogs.json */,
+			);
+			name = MockJson;
 			sourceTree = "<group>";
 		};
 		5D65EB5D1F337A1900D6E633 /* Protocol */ = {
@@ -218,6 +236,8 @@
 			children = (
 				5D65EB5E1F337A3000D6E633 /* HidingNavViewControllerType.swift */,
 				5D2594731F39F6DD00C49CE2 /* HaveReactor.swift */,
+				5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */,
+				5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -245,8 +265,6 @@
 				5DAB85901F1FA8F30082D5E1 /* BaseView.swift */,
 				5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */,
 				5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */,
-				5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */,
-				5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -259,6 +277,8 @@
 				5DAB85951F1FA8F30082D5E1 /* UIView+Extension.swift */,
 				5D1FF44F1F264903009C863B /* UIColor+Extension.swift */,
 				5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */,
+				5D5D92EA1F42D6910062631B /* Bundle+Extension.swift */,
+				5D5D92EC1F42D75A0062631B /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -274,6 +294,7 @@
 		5DAB85981F1FA8F30082D5E1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5D5D92E71F42D5DA0062631B /* MockJson */,
 				5DAB85991F1FA8F30082D5E1 /* Api.swift */,
 				5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogs.swift */,
 			);
@@ -301,6 +322,11 @@
 		5DAB859E1F1FA8F30082D5E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */,
+				5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */,
+				5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */,
+				5D5D92DE1F42D2A10062631B /* BlogFeedCell.swift */,
+				5D5D92DF1F42D2A10062631B /* BlogFeedCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -447,11 +473,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D25947E1F3A0F0100C49CE2 /* BlogFeedCell.xib in Resources */,
 				5D17D7891F1E6D7D00C5D84D /* LaunchScreen.storyboard in Resources */,
+				5D5D92E41F42D2A10062631B /* BlogFeedCell.xib in Resources */,
 				5D17D7861F1E6D7D00C5D84D /* Assets.xcassets in Resources */,
+				5D5D92E11F42D2A10062631B /* BlogFeedCell_Diagonal.xib in Resources */,
 				5D65EB581F33768400D6E633 /* Feed.storyboard in Resources */,
 				5D17D7841F1E6D7D00C5D84D /* Main.storyboard in Resources */,
+				5D5D92E91F42D5EF0062631B /* MockCompanyBlogs.json in Resources */,
+				5D5D92E01F42D2A10062631B /* BlogFeedCell_Circle.xib in Resources */,
+				5D5D92E21F42D2A10062631B /* BlogFeedCell_Table.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,10 +645,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DAB85A71F1FA8F30082D5E1 /* MainTabBarController.swift in Sources */,
+				5D5D92EB1F42D6910062631B /* Bundle+Extension.swift in Sources */,
 				5D6111F61F2E47A300D7F61C /* Service.swift in Sources */,
 				5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */,
 				5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */,
 				5D1FF4461F264684009C863B /* MaterialLoadingIndicator.swift in Sources */,
+				5D5D92ED1F42D75A0062631B /* String+Extension.swift in Sources */,
+				5D5D92E31F42D2A10062631B /* BlogFeedCell.swift in Sources */,
 				5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */,
 				5D1FF4501F264903009C863B /* UIColor+Extension.swift in Sources */,
 				5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogs.swift in Sources */,
@@ -626,7 +659,6 @@
 				5D17D77F1F1E6D7D00C5D84D /* AppDelegate.swift in Sources */,
 				5DAB859F1F1FA8F30082D5E1 /* BaseView.swift in Sources */,
 				5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */,
-				5D2594801F3A0F1B00C49CE2 /* BlogFeedCell.swift in Sources */,
 				5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */,
 				5D65EB5B1F33796F00D6E633 /* BaseNavigationViewController.swift in Sources */,
 				5D2594761F3A02B000C49CE2 /* DevBlogFeedViewController.swift in Sources */,
