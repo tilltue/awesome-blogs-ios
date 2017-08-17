@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-522" y="0.0"/>
         </scene>
-        <!--Dev Blog Feed View Controller-->
+        <!--Company Blog Feed View Controller-->
         <scene sceneID="Xoh-Cm-aCm">
             <objects>
-                <viewController id="mj1-lX-vWm" customClass="DevBlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mj1-lX-vWm" customClass="CompanyBlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Ca-lD-fXr"/>
                         <viewControllerLayoutGuide type="bottom" id="pHJ-Vj-eqZ"/>

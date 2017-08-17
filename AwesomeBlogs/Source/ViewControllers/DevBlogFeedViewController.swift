@@ -10,6 +10,6 @@ import Foundation
 
 class DevBlogFeedViewController: BlogFeedViewController {
     override var group: AwesomeBlogs.Group {
-        return .all
+        return .dev
     }
 }

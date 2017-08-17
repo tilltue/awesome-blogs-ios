@@ -6,38 +6,77 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell" id="khj-ux-58N" customClass="BlogFeedCell" customModule="AwesomeBlogs" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell_Diagonal" id="iFX-tg-wqk" customClass="BlogFeedCell_Diagonal" customModule="AwesomeBlogs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khj-ux-58N" id="wrd-Qy-7QW">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iFX-tg-wqk" id="YEf-Ap-CoQ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="666.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
-                        <rect key="frame" x="11" y="11" width="353" height="21.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-bo-9QC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rgr-Y1-2E1" customClass="BlogFeedView" customModule="AwesomeBlogs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="309.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvn-ae-tof">
+                                        <rect key="frame" x="0.0" y="44" width="335" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddo-YD-isH" customClass="BlogFeedView" customModule="AwesomeBlogs" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="309.5" width="375" height="309"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tnW-1y-CQ6">
+                                        <rect key="frame" x="0.0" y="30" width="200" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.23921568630000001" blue="0.1450980392" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rgr-Y1-2E1" firstAttribute="leading" secondItem="uSc-bo-9QC" secondAttribute="leading" id="2td-p2-B0k"/>
+                            <constraint firstItem="rgr-Y1-2E1" firstAttribute="top" secondItem="uSc-bo-9QC" secondAttribute="top" id="552-nc-K1f"/>
+                            <constraint firstItem="rgr-Y1-2E1" firstAttribute="height" secondItem="uSc-bo-9QC" secondAttribute="height" multiplier="1:2" id="8OI-f9-2ld"/>
+                            <constraint firstAttribute="bottom" secondItem="ddo-YD-isH" secondAttribute="bottom" id="Bdl-0q-Vxi"/>
+                            <constraint firstItem="ddo-YD-isH" firstAttribute="height" secondItem="uSc-bo-9QC" secondAttribute="height" multiplier="1:2" id="KeZ-ZT-SXI"/>
+                            <constraint firstItem="ddo-YD-isH" firstAttribute="leading" secondItem="uSc-bo-9QC" secondAttribute="leading" id="clB-DY-Nl7"/>
+                            <constraint firstAttribute="trailing" secondItem="ddo-YD-isH" secondAttribute="trailing" id="i6L-ka-9Jk"/>
+                            <constraint firstAttribute="trailing" secondItem="rgr-Y1-2E1" secondAttribute="trailing" id="rBk-FA-aar"/>
+                        </constraints>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="YDZ-C5-aeU" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="topMargin" constant="3" id="8d6-bV-f0Y"/>
-                    <constraint firstItem="YDZ-C5-aeU" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leadingMargin" constant="3" id="dbA-1j-5IF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="YDZ-C5-aeU" secondAttribute="trailing" constant="3" id="fr7-Ie-Brq"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="YDZ-C5-aeU" secondAttribute="bottom" constant="3" id="h1u-WI-804"/>
+                    <constraint firstItem="uSc-bo-9QC" firstAttribute="leading" secondItem="YEf-Ap-CoQ" secondAttribute="leading" id="2XQ-ss-rGO"/>
+                    <constraint firstItem="uSc-bo-9QC" firstAttribute="top" secondItem="YEf-Ap-CoQ" secondAttribute="top" id="Ev1-Ue-6rn"/>
+                    <constraint firstAttribute="bottom" secondItem="uSc-bo-9QC" secondAttribute="bottom" constant="48" id="o8x-Mq-EcR"/>
+                    <constraint firstAttribute="trailing" secondItem="uSc-bo-9QC" secondAttribute="trailing" id="vX3-mf-lLN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="titleLabel" destination="YDZ-C5-aeU" id="wDn-6v-JQJ"/>
+                <outlet property="bottomBlogFeedView" destination="ddo-YD-isH" id="5e6-Ti-FVI"/>
+                <outlet property="diagonalView" destination="uSc-bo-9QC" id="fje-M3-WQC"/>
+                <outlet property="topBlogFeedView" destination="rgr-Y1-2E1" id="AzA-Qb-g8c"/>
             </connections>
-            <point key="canvasLocation" x="-142" y="-49"/>
+            <point key="canvasLocation" x="-142.5" y="-49.5"/>
         </tableViewCell>
     </objects>
 </document>

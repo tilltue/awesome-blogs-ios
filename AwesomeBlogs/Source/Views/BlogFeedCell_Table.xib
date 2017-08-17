@@ -12,32 +12,37 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell" id="khj-ux-58N" customClass="BlogFeedCell" customModule="AwesomeBlogs" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell_Table" id="erU-Gn-N8q" customClass="BlogFeedCell_Table" customModule="AwesomeBlogs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khj-ux-58N" id="wrd-Qy-7QW">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="erU-Gn-N8q" id="Vtd-0Q-C6e">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="666.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
-                        <rect key="frame" x="11" y="11" width="353" height="21.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWj-WI-2ld">
+                        <rect key="frame" x="20" y="64" width="335" height="540"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D98-SX-0zm">
+                                <rect key="frame" x="0.0" y="0.0" width="335" height="540"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
-                <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="YDZ-C5-aeU" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="topMargin" constant="3" id="8d6-bV-f0Y"/>
-                    <constraint firstItem="YDZ-C5-aeU" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leadingMargin" constant="3" id="dbA-1j-5IF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="YDZ-C5-aeU" secondAttribute="trailing" constant="3" id="fr7-Ie-Brq"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="YDZ-C5-aeU" secondAttribute="bottom" constant="3" id="h1u-WI-804"/>
+                    <constraint firstItem="BWj-WI-2ld" firstAttribute="leading" secondItem="Vtd-0Q-C6e" secondAttribute="leadingMargin" constant="12" id="BG9-Zd-uF3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BWj-WI-2ld" secondAttribute="bottom" constant="54.5" id="hjj-8m-LXo"/>
+                    <constraint firstItem="BWj-WI-2ld" firstAttribute="top" secondItem="Vtd-0Q-C6e" secondAttribute="topMargin" constant="56" id="jnv-Jy-qSX"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BWj-WI-2ld" secondAttribute="trailing" constant="12" id="vxk-Cb-LIL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="titleLabel" destination="YDZ-C5-aeU" id="wDn-6v-JQJ"/>
+                <outlet property="tableView" destination="D98-SX-0zm" id="NBq-dO-OzZ"/>
             </connections>
-            <point key="canvasLocation" x="-142" y="-49"/>
+            <point key="canvasLocation" x="-142.5" y="-49.5"/>
         </tableViewCell>
     </objects>
 </document>

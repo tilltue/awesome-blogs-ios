@@ -10,6 +10,7 @@ import Foundation
 import Moya
 import RxSwift
 import ReactorKit
+import GameplayKit
 
 class BlogsFeedReactor: Reactor {
     
@@ -64,31 +65,36 @@ class BlogsFeedReactor: Reactor {
 
 // MARK: - Service Logic
 extension BlogsFeedReactor {
+    func transform(mutation: Observable<BlogsFeedReactor.Mutation>) -> Observable<BlogsFeedReactor.Mutation> {
+        return mutation
+    }
     func flatMapFeedViewModel(entries: [Entry]) -> [BlogFeedCellViewModel] {
         var viewModels = [BlogFeedCellViewModel]()
         var mutableEntries = entries
         repeat {
-            switch Int(arc4random_uniform(4)) {
-            case 0:
-                guard let entry = mutableEntries.first else { break }
-                viewModels.append(BlogFeedCellViewModel(cellType: .rectangle(entry: entry)))
-                mutableEntries.removeFirst()
-            case 1:
-                guard let entry = mutableEntries.first else { break }
-                viewModels.append(BlogFeedCellViewModel(cellType: .circle(entry: entry)))
-                mutableEntries.removeFirst()
-            case 2:
+            let randomBound = viewModels.count < 5 ? 3: 4
+            let type = GKRandomSource.sharedRandom().nextInt(upperBound: randomBound)
+            print(type)
+            //type = viewModels.count == 0 ? 0 : type //facebook view test 를 한다면 이곳을 활성화 하자.
+            switch type {
+            case 0 where mutableEntries.count > 2:
                 let entries = Array(mutableEntries.prefix(2))
                 guard entries.count == 2 else { break }
                 viewModels.append(BlogFeedCellViewModel(cellType: .diagonal(entries: entries)))
                 mutableEntries.removeFirst(2)
-            case 3:
+            case 1:
+                guard let entry = mutableEntries.first else { break }
+                viewModels.append(BlogFeedCellViewModel(cellType: .rectangle(entry: entry)))
+                mutableEntries.removeFirst()
+            case 2:
                 let entries = Array(mutableEntries.prefix(4))
                 guard entries.count == 4 else { break }
                 viewModels.append(BlogFeedCellViewModel(cellType: .table(entries: entries)))
                 mutableEntries.removeFirst(4)
             default:
-                break
+                guard let entry = mutableEntries.first else { break }
+                viewModels.append(BlogFeedCellViewModel(cellType: .circle(entry: entry)))
+                mutableEntries.removeFirst()
             }
         }while(mutableEntries.count > 0)
         return viewModels

@@ -23,14 +23,21 @@
 		5D2594761F3A02B000C49CE2 /* DevBlogFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */; };
 		5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */; };
 		5D2594821F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */; };
+		5D3927121F45FB3000BE7923 /* BlogFeedCell_Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3927111F45FB3000BE7923 /* BlogFeedCell_Circle.swift */; };
+		5D3927141F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3927131F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift */; };
+		5D3927161F45FB7000BE7923 /* BlogFeedCell_Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3927151F45FB7000BE7923 /* BlogFeedCell_Table.swift */; };
+		5D4AC6021F45EBBC005B6B20 /* BlogFeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */; };
+		5D4AC6041F45F150005B6B20 /* BlogFeedCell_TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */; };
 		5D5D92E01F42D2A10062631B /* BlogFeedCell_Circle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */; };
 		5D5D92E11F42D2A10062631B /* BlogFeedCell_Diagonal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */; };
 		5D5D92E21F42D2A10062631B /* BlogFeedCell_Table.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */; };
 		5D5D92E31F42D2A10062631B /* BlogFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92DE1F42D2A10062631B /* BlogFeedCell.swift */; };
-		5D5D92E41F42D2A10062631B /* BlogFeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DF1F42D2A10062631B /* BlogFeedCell.xib */; };
+		5D5D92E41F42D2A10062631B /* BlogFeedCell_Rectangle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DF1F42D2A10062631B /* BlogFeedCell_Rectangle.xib */; };
 		5D5D92E91F42D5EF0062631B /* MockCompanyBlogs.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92E81F42D5EF0062631B /* MockCompanyBlogs.json */; };
 		5D5D92EB1F42D6910062631B /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92EA1F42D6910062631B /* Bundle+Extension.swift */; };
 		5D5D92ED1F42D75A0062631B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92EC1F42D75A0062631B /* String+Extension.swift */; };
+		5D5D92EF1F4347140062631B /* CompanyBlogFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92EE1F4347140062631B /* CompanyBlogFeedViewController.swift */; };
+		5D5D92F21F435C5D0062631B /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5D92F11F435C5D0062631B /* NSLayoutConstraint.swift */; };
 		5D6111F61F2E47A300D7F61C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F51F2E47A300D7F61C /* Service.swift */; };
 		5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */; };
 		5D65EB201F32293900D6E633 /* Quick+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */; };
@@ -95,14 +102,21 @@
 		5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DevBlogFeedViewController.swift; sourceTree = "<group>"; };
 		5D25947B1F3A086600C49CE2 /* RxTableViewBindProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxTableViewBindProtocol.swift; sourceTree = "<group>"; };
 		5D2594811F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxFeedTableViewBindProtocol.swift; sourceTree = "<group>"; };
+		5D3927111F45FB3000BE7923 /* BlogFeedCell_Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell_Circle.swift; sourceTree = "<group>"; };
+		5D3927131F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell_Diagonal.swift; sourceTree = "<group>"; };
+		5D3927151F45FB7000BE7923 /* BlogFeedCell_Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell_Table.swift; sourceTree = "<group>"; };
+		5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCellViewModel.swift; sourceTree = "<group>"; };
+		5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_TableCell.xib; sourceTree = "<group>"; };
 		5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Circle.xib; sourceTree = "<group>"; };
 		5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Diagonal.xib; sourceTree = "<group>"; };
 		5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Table.xib; sourceTree = "<group>"; };
 		5D5D92DE1F42D2A10062631B /* BlogFeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell.swift; sourceTree = "<group>"; };
-		5D5D92DF1F42D2A10062631B /* BlogFeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell.xib; sourceTree = "<group>"; };
+		5D5D92DF1F42D2A10062631B /* BlogFeedCell_Rectangle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Rectangle.xib; sourceTree = "<group>"; };
 		5D5D92E81F42D5EF0062631B /* MockCompanyBlogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockCompanyBlogs.json; sourceTree = "<group>"; };
 		5D5D92EA1F42D6910062631B /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		5D5D92EC1F42D75A0062631B /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5D5D92EE1F4347140062631B /* CompanyBlogFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyBlogFeedViewController.swift; sourceTree = "<group>"; };
+		5D5D92F11F435C5D0062631B /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
 		5D6111F51F2E47A300D7F61C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RxMoya+Extension.swift"; sourceTree = "<group>"; };
 		5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Quick+Extension.swift"; sourceTree = "<group>"; };
@@ -279,6 +293,7 @@
 				5D6111F71F2E481A00D7F61C /* RxMoya+Extension.swift */,
 				5D5D92EA1F42D6910062631B /* Bundle+Extension.swift */,
 				5D5D92EC1F42D75A0062631B /* String+Extension.swift */,
+				5D5D92F11F435C5D0062631B /* NSLayoutConstraint.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -314,6 +329,7 @@
 				5D2594781F3A051B00C49CE2 /* BlogFeed */,
 				5D65EB571F33768400D6E633 /* Feed.storyboard */,
 				5D2594751F3A02B000C49CE2 /* DevBlogFeedViewController.swift */,
+				5D5D92EE1F4347140062631B /* CompanyBlogFeedViewController.swift */,
 				5DAB859D1F1FA8F30082D5E1 /* MainTabBarController.swift */,
 			);
 			path = ViewControllers;
@@ -322,11 +338,16 @@
 		5DAB859E1F1FA8F30082D5E1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */,
-				5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */,
-				5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */,
+				5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */,
+				5D5D92DF1F42D2A10062631B /* BlogFeedCell_Rectangle.xib */,
+				5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */,
 				5D5D92DE1F42D2A10062631B /* BlogFeedCell.swift */,
-				5D5D92DF1F42D2A10062631B /* BlogFeedCell.xib */,
+				5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */,
+				5D3927111F45FB3000BE7923 /* BlogFeedCell_Circle.swift */,
+				5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */,
+				5D3927131F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift */,
+				5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */,
+				5D3927151F45FB7000BE7923 /* BlogFeedCell_Table.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -474,11 +495,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D17D7891F1E6D7D00C5D84D /* LaunchScreen.storyboard in Resources */,
-				5D5D92E41F42D2A10062631B /* BlogFeedCell.xib in Resources */,
+				5D5D92E41F42D2A10062631B /* BlogFeedCell_Rectangle.xib in Resources */,
 				5D17D7861F1E6D7D00C5D84D /* Assets.xcassets in Resources */,
 				5D5D92E11F42D2A10062631B /* BlogFeedCell_Diagonal.xib in Resources */,
 				5D65EB581F33768400D6E633 /* Feed.storyboard in Resources */,
 				5D17D7841F1E6D7D00C5D84D /* Main.storyboard in Resources */,
+				5D4AC6041F45F150005B6B20 /* BlogFeedCell_TableCell.xib in Resources */,
 				5D5D92E91F42D5EF0062631B /* MockCompanyBlogs.json in Resources */,
 				5D5D92E01F42D2A10062631B /* BlogFeedCell_Circle.xib in Resources */,
 				5D5D92E21F42D2A10062631B /* BlogFeedCell_Table.xib in Resources */,
@@ -644,14 +666,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D5D92F21F435C5D0062631B /* NSLayoutConstraint.swift in Sources */,
 				5DAB85A71F1FA8F30082D5E1 /* MainTabBarController.swift in Sources */,
 				5D5D92EB1F42D6910062631B /* Bundle+Extension.swift in Sources */,
+				5D5D92EF1F4347140062631B /* CompanyBlogFeedViewController.swift in Sources */,
 				5D6111F61F2E47A300D7F61C /* Service.swift in Sources */,
 				5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */,
 				5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */,
 				5D1FF4461F264684009C863B /* MaterialLoadingIndicator.swift in Sources */,
 				5D5D92ED1F42D75A0062631B /* String+Extension.swift in Sources */,
 				5D5D92E31F42D2A10062631B /* BlogFeedCell.swift in Sources */,
+				5D4AC6021F45EBBC005B6B20 /* BlogFeedCellViewModel.swift in Sources */,
 				5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */,
 				5D1FF4501F264903009C863B /* UIColor+Extension.swift in Sources */,
 				5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogs.swift in Sources */,
@@ -659,8 +684,11 @@
 				5D17D77F1F1E6D7D00C5D84D /* AppDelegate.swift in Sources */,
 				5DAB859F1F1FA8F30082D5E1 /* BaseView.swift in Sources */,
 				5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */,
+				5D3927141F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift in Sources */,
+				5D3927121F45FB3000BE7923 /* BlogFeedCell_Circle.swift in Sources */,
 				5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */,
 				5D65EB5B1F33796F00D6E633 /* BaseNavigationViewController.swift in Sources */,
+				5D3927161F45FB7000BE7923 /* BlogFeedCell_Table.swift in Sources */,
 				5D2594761F3A02B000C49CE2 /* DevBlogFeedViewController.swift in Sources */,
 				5DAB85A21F1FA8F30082D5E1 /* Reactive+Extension.swift in Sources */,
 				5D6111F81F2E481A00D7F61C /* RxMoya+Extension.swift in Sources */,

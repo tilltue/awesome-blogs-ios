@@ -10,26 +10,26 @@ import UIKit
 import RxSwift
 
 class BaseUICollectionViewCell: UICollectionViewCell {
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     deinit {
         log.verbose(type(of: self))
     }
 }
 class BaseUITableViewCell: UITableViewCell {
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     deinit {
         log.verbose(type(of: self))
     }
 }
 class BaseUICollectionReusableView: UICollectionReusableView {
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     deinit {
         log.verbose(type(of: self))
     }
 }
 
 class BaseUIView: UIView {
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     deinit {
         log.verbose(type(of: self))
     }
