@@ -53,34 +53,44 @@ struct BlogFeedCellViewModel: RxTableCellViewModel {
     init(cellType: CellType) {
         self.identity = cellType.identity
         self.cellType = cellType
+        self.color = UIColor.randomFlatColor
     }
     
     //MARK: - RxTableCellViewModel protocol
     static var cellNibSet = ["BlogFeedCell_Rectangle","BlogFeedCell_Circle","BlogFeedCell_Diagonal","BlogFeedCell_Table","BlogFeedCell_TableCell"]
     var identity: String
     var cellType: CellType
+    var color: UIColor
     
     func cellFactory(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
         let identifier = self.cellType.cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! BlogFeedCell
         switch self.cellType {
         case .rectangle(let entry):
-            break
+            let cell = cell as! BlogFeedCell_Rectangle
+            cell.contentView.backgroundColor = self.color
+            cell.downText.text = entry.summary
+            cell.titleLabel?.text = entry.title
+            cell.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
         case .circle(let entry):
             let cell = cell as! BlogFeedCell_Circle
-            break
+            cell.circleView.backgroundColor = self.color
+            cell.titleLabel?.text = entry.title
+            cell.authorLabel?.text = "by \(entry.author)"
+            cell.dateLabel?.text = entry.updatedAt.colloquial()
         case .diagonal(let entries):
-            break
+            let cell = cell as! BlogFeedCell_Diagonal
+            cell.fillColor = self.color
+            cell.topBlogFeedView.setData(entry: entries[0])
+            cell.bottomBlogFeedView.setData(entry: entries[1])
         case .table(let entries):
             let cell = cell as! BlogFeedCell_Table
             let viewModels = entries.map{ BlogFeedCellViewModel(cellType: .tableCell(entry: $0)) }
             cell.cellViewModels.value = [AnimatableSectionModel(model: "section", items: viewModels)]
         case .tableCell(let entry):
-            break
-        default:
-            break
+            cell.titleLabel?.text = entry.title
+            cell.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
         }
-        cell.titleLabel?.text = self.identity
         cell.selectionStyle = .none
         return cell
     }

@@ -77,16 +77,16 @@ extension BlogsFeedReactor {
             print(type)
             //type = viewModels.count == 0 ? 0 : type //facebook view test 를 한다면 이곳을 활성화 하자.
             switch type {
-            case 0 where mutableEntries.count > 2:
+            case 1 where mutableEntries.count > 2:
                 let entries = Array(mutableEntries.prefix(2))
                 guard entries.count == 2 else { break }
                 viewModels.append(BlogFeedCellViewModel(cellType: .diagonal(entries: entries)))
                 mutableEntries.removeFirst(2)
-            case 1:
+            case 2:
                 guard let entry = mutableEntries.first else { break }
                 viewModels.append(BlogFeedCellViewModel(cellType: .rectangle(entry: entry)))
                 mutableEntries.removeFirst()
-            case 2:
+            case 3:
                 let entries = Array(mutableEntries.prefix(4))
                 guard entries.count == 4 else { break }
                 viewModels.append(BlogFeedCellViewModel(cellType: .table(entries: entries)))

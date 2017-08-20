@@ -13,4 +13,5 @@ class BlogFeedCell: BaseUITableViewCell {
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var authorLabel: UILabel?
     @IBOutlet var dateLabel: UILabel?
+    @IBOutlet var authorDateLabel: UILabel?
 }

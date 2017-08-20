@@ -9,29 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Base Navigation View Controller-->
-        <scene sceneID="DVN-4L-VXH">
-            <objects>
-                <navigationController storyboardIdentifier="BlogFeed" id="kvG-y1-xFO" customClass="BaseNavigationViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DIn-Rr-y4G">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="clearNavStyle" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="mj1-lX-vWm" kind="relationship" relationship="rootViewController" id="Znj-Wl-M36"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Mci-du-UMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-522" y="0.0"/>
-        </scene>
         <!--Company Blog Feed View Controller-->
         <scene sceneID="Xoh-Cm-aCm">
             <objects>
-                <viewController id="mj1-lX-vWm" customClass="CompanyBlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompanyBlogFeedViewController" id="mj1-lX-vWm" customClass="CompanyBlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Ca-lD-fXr"/>
                         <viewControllerLayoutGuide type="bottom" id="pHJ-Vj-eqZ"/>
@@ -44,44 +25,50 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6F7-YR-Xvj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aPN-lF-UPM">
+                                        <rect key="frame" x="0.0" y="19" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="Wr4-1L-afB">
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="preciseConstant">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </constraint>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Dnp-c4-92Z"/>
+                                    <constraint firstItem="aPN-lF-UPM" firstAttribute="leading" secondItem="6F7-YR-Xvj" secondAttribute="leading" id="adD-sG-arV"/>
+                                    <constraint firstAttribute="trailing" secondItem="aPN-lF-UPM" secondAttribute="trailing" id="c5B-CV-xSg"/>
+                                    <constraint firstAttribute="bottom" secondItem="aPN-lF-UPM" secondAttribute="bottom" id="i1m-kK-ktx"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2784313725" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gr1-qT-5CM" secondAttribute="trailing" id="0OX-WB-Ygc"/>
+                            <constraint firstAttribute="trailing" secondItem="6F7-YR-Xvj" secondAttribute="trailing" id="5rC-7j-B9p"/>
                             <constraint firstItem="Gr1-qT-5CM" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="9EV-4g-pgK"/>
+                            <constraint firstItem="6F7-YR-Xvj" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="CKt-ZQ-CFD"/>
+                            <constraint firstItem="6F7-YR-Xvj" firstAttribute="top" secondItem="am9-zG-dJ8" secondAttribute="top" id="LZP-bV-gm2"/>
                             <constraint firstAttribute="bottom" secondItem="Gr1-qT-5CM" secondAttribute="bottom" id="k2p-i1-B9B"/>
                             <constraint firstItem="Gr1-qT-5CM" firstAttribute="top" secondItem="am9-zG-dJ8" secondAttribute="top" id="xZv-Pd-Oj2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="aao-SQ-ZT9">
-                        <nil key="title"/>
-                        <view key="titleView" contentMode="scaleToFill" id="MnN-Tx-VYA">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPE-5d-XqT">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="33"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <nil key="textColor"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="JPE-5d-XqT" secondAttribute="bottom" id="1l8-wR-IKr"/>
-                                <constraint firstItem="JPE-5d-XqT" firstAttribute="leading" secondItem="MnN-Tx-VYA" secondAttribute="leading" id="4wm-6K-bIk"/>
-                                <constraint firstItem="JPE-5d-XqT" firstAttribute="top" secondItem="MnN-Tx-VYA" secondAttribute="top" id="Mjx-13-Tnz"/>
-                                <constraint firstAttribute="trailing" secondItem="JPE-5d-XqT" secondAttribute="trailing" id="d1f-EG-8dO"/>
-                            </constraints>
-                        </view>
-                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Gr1-qT-5CM" id="jaS-eg-kq1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjU-lL-esz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="210.40000000000001" y="-0.44977511244377816"/>
+            <point key="canvasLocation" x="-201" y="-18"/>
         </scene>
     </scenes>
 </document>

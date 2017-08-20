@@ -17,6 +17,8 @@ target 'AwesomeBlogs' do
     pod 'ReactorKit'
     pod 'Moya/RxSwift'
     pod 'XCGLogger'
+    pod 'SwiftDate', '~> 4.0'
+    pod 'EasyAbout'
     pod 'Swinject', '~> 2.1.0'
     pod 'AMScrollingNavbar'
     target 'AwesomeBlogsTests' do

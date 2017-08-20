@@ -11,8 +11,11 @@ import UIKit
 
 class BlogFeedView: BaseUIView {
     @IBOutlet var titleLabel: UILabel?
-    @IBOutlet var authorLabel: UILabel?
-    @IBOutlet var dateLabel: UILabel?
+    @IBOutlet var authorDateLabel: UILabel?
+    func setData(entry: Entry) {
+        self.titleLabel?.text = entry.title
+        self.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
+    }
 }
 
 class BlogFeedCell_Diagonal: BlogFeedCell {
@@ -21,10 +24,10 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
     @IBOutlet var bottomBlogFeedView: BlogFeedView!
     
     var fillColor: UIColor = UIColor(hex: 0x1abc9c)
-    private var points = [CGPoint(x: 0, y: 0.45),
+    private var points = [CGPoint(x: 0, y: 0.55),
                           CGPoint(x: 0, y: 1),
                           CGPoint(x: 1, y: 1),
-                          CGPoint(x: 1, y: 0.35)]
+                          CGPoint(x: 1, y: 0.45)]
     
     private lazy var shapeLayer: CAShapeLayer = {
         let _shapeLayer = CAShapeLayer()
@@ -34,7 +37,9 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.rx.layoutSubviews.take(1).subscribe(onNext: { [weak self] _ in
+        self.diagonalView.rx.layoutSubviews.filter{ _ in
+            return self.contentView.width == UIScreen.main.bounds.width
+        }.take(1).subscribe(onNext: { [weak self] _ in
             self?.addLayer()
         }).addDisposableTo(disposeBag)
     }

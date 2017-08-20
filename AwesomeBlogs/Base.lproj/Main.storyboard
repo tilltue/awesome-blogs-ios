@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Q5r-Dc-X4x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YAD-rX-jZJ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,40 +9,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Tab Bar Controller-->
-        <scene sceneID="6c3-pT-eNG">
+        <!--Main Side Bar Controller-->
+        <scene sceneID="xYO-eP-akJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uz1-xI-the" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tabBarController id="Q5r-Dc-X4x" customClass="MainTabBarController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="gT7-wh-0qh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                <navigationController id="YAD-rX-jZJ" customClass="MainSideBarController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QAp-rk-etV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
+                    </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="clearNavStyle" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
-                        <segue destination="Dii-6z-tze" kind="relationship" relationship="viewControllers" id="hCj-9L-HVk"/>
+                        <segue destination="dcJ-7o-5x3" kind="relationship" relationship="rootViewController" id="Nfc-X2-vhF"/>
                     </connections>
-                </tabBarController>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RiI-VX-DwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-450" y="-251"/>
+            <point key="canvasLocation" x="-1063" y="-420"/>
         </scene>
-        <!--BlogFeed-->
-        <scene sceneID="emM-vL-6G7">
+        <!--CompanyBlogFeedViewController-->
+        <scene sceneID="7c1-au-HAe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="moA-z3-jjA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder storyboardName="Feed" referencedIdentifier="BlogFeed" id="Dii-6z-tze" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Ivq-GM-69p"/>
+                <viewControllerPlaceholder storyboardName="Feed" referencedIdentifier="CompanyBlogFeedViewController" id="dcJ-7o-5x3" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="E3O-ee-rY7"/>
                 </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UiW-E4-l0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-943" y="202"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="92u-gA-iEN">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Hq-sY-XJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewControllerPlaceholder id="Csm-21-UXu" sceneMemberID="viewController"/>
-            </objects>
-            <point key="canvasLocation" x="-618" y="202"/>
+            <point key="canvasLocation" x="-459" y="-421"/>
         </scene>
     </scenes>
 </document>

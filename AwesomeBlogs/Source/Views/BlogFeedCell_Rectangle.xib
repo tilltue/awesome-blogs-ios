@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell_Rectangle" id="khj-ux-58N" customClass="BlogFeedCell" customModule="AwesomeBlogs" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell_Rectangle" id="khj-ux-58N" customClass="BlogFeedCell_Rectangle" customModule="AwesomeBlogs" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khj-ux-58N" id="wrd-Qy-7QW">
@@ -20,66 +20,51 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBY-NZ-Lcl">
-                        <rect key="frame" x="20" y="64" width="335" height="540"/>
+                        <rect key="frame" x="32" y="74" width="311" height="540.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
-                                <rect key="frame" x="0.0" y="0.0" width="335" height="84"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
+                                <rect key="frame" x="0.0" y="0.0" width="311" height="67"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SiA-EV-iRR">
-                                <rect key="frame" x="0.0" y="92" width="177.5" height="20.5"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
-                                        <rect key="frame" x="0.0" y="0.0" width="83" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" · 1 days ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-Ih-Eyn">
-                                        <rect key="frame" x="83" y="0.0" width="94.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hqv-04-hgH">
-                                <rect key="frame" x="0.0" y="390" width="335" height="150"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="5Qt-3X-ShW"/>
-                                </constraints>
-                                <color key="textColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
+                                <rect key="frame" x="0.0" y="75" width="77.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-vU-SVP">
+                                <rect key="frame" x="0.0" y="521" width="311" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2MQ-g2-Plo" firstAttribute="leading" secondItem="CBY-NZ-Lcl" secondAttribute="leading" id="20E-PG-dW1"/>
+                            <constraint firstItem="2MQ-g2-Plo" firstAttribute="top" secondItem="YDZ-C5-aeU" secondAttribute="bottom" constant="8" id="3f1-fj-gzl"/>
                             <constraint firstAttribute="trailing" secondItem="YDZ-C5-aeU" secondAttribute="trailing" id="7D4-ia-EBK"/>
                             <constraint firstItem="YDZ-C5-aeU" firstAttribute="leading" secondItem="CBY-NZ-Lcl" secondAttribute="leading" id="7yQ-7K-rpd"/>
-                            <constraint firstItem="SiA-EV-iRR" firstAttribute="top" secondItem="YDZ-C5-aeU" secondAttribute="bottom" constant="8" id="AHM-HT-Wcc"/>
-                            <constraint firstAttribute="bottom" secondItem="hqv-04-hgH" secondAttribute="bottom" id="HEH-qs-muH"/>
-                            <constraint firstAttribute="trailing" secondItem="hqv-04-hgH" secondAttribute="trailing" id="VML-BR-tn4"/>
-                            <constraint firstItem="hqv-04-hgH" firstAttribute="leading" secondItem="CBY-NZ-Lcl" secondAttribute="leading" id="XAX-yA-4RV"/>
-                            <constraint firstItem="SiA-EV-iRR" firstAttribute="leading" secondItem="CBY-NZ-Lcl" secondAttribute="leading" id="ceS-aT-by4"/>
+                            <constraint firstAttribute="trailing" secondItem="Evn-vU-SVP" secondAttribute="trailing" id="Vyh-mZ-ldS"/>
                             <constraint firstItem="YDZ-C5-aeU" firstAttribute="top" secondItem="CBY-NZ-Lcl" secondAttribute="top" id="f7v-Dj-msA"/>
+                            <constraint firstAttribute="bottom" secondItem="Evn-vU-SVP" secondAttribute="bottom" id="np0-UR-GLT"/>
+                            <constraint firstItem="Evn-vU-SVP" firstAttribute="leading" secondItem="CBY-NZ-Lcl" secondAttribute="leading" id="oWl-oP-YMd"/>
                         </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="CBY-NZ-Lcl" secondAttribute="bottom" constant="54.5" id="8Cn-3X-i7m"/>
-                    <constraint firstItem="CBY-NZ-Lcl" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="topMargin" constant="56" id="SnM-L6-u7a"/>
-                    <constraint firstItem="CBY-NZ-Lcl" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leadingMargin" constant="12" id="fxt-3P-Rs1"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="CBY-NZ-Lcl" secondAttribute="trailing" constant="12" id="hrX-M4-rDZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="CBY-NZ-Lcl" secondAttribute="bottom" constant="44" id="8Cn-3X-i7m"/>
+                    <constraint firstItem="CBY-NZ-Lcl" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="topMargin" constant="66" id="SnM-L6-u7a"/>
+                    <constraint firstItem="CBY-NZ-Lcl" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leadingMargin" constant="24" id="fxt-3P-Rs1"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="CBY-NZ-Lcl" secondAttribute="trailing" constant="24" id="hrX-M4-rDZ"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="authorLabel" destination="2MQ-g2-Plo" id="I7L-HZ-kcq"/>
-                <outlet property="dateLabel" destination="VFh-Ih-Eyn" id="CIn-ao-9OU"/>
+                <outlet property="authorDateLabel" destination="2MQ-g2-Plo" id="N07-jA-ewu"/>
+                <outlet property="downText" destination="Evn-vU-SVP" id="36Z-1e-Uf7"/>
                 <outlet property="titleLabel" destination="YDZ-C5-aeU" id="wDn-6v-JQJ"/>
             </connections>
             <point key="canvasLocation" x="-142.5" y="-49.5"/>
