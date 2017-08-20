@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Company Blog Feed View Controller-->
+        <!--Blog Feed View Controller-->
         <scene sceneID="Xoh-Cm-aCm">
             <objects>
-                <viewController storyboardIdentifier="CompanyBlogFeedViewController" id="mj1-lX-vWm" customClass="CompanyBlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlogFeedViewController" id="mj1-lX-vWm" customClass="BlogFeedViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Ca-lD-fXr"/>
                         <viewControllerLayoutGuide type="bottom" id="pHJ-Vj-eqZ"/>
@@ -50,19 +50,53 @@
                                     <constraint firstAttribute="bottom" secondItem="aPN-lF-UPM" secondAttribute="bottom" id="i1m-kK-ktx"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psl-Yq-5Sa">
+                                <rect key="frame" x="12" y="55" width="30" height="30"/>
+                                <subviews>
+                                    <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YkM-Ap-JyE">
+                                        <rect key="frame" x="20" y="0.0" width="10" height="10"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGs-dj-Q7B">
+                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="WVs-QU-OcJ"/>
+                                    <constraint firstAttribute="height" constant="30" id="Wl8-tN-hyK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.2784313725" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gr1-qT-5CM" secondAttribute="trailing" id="0OX-WB-Ygc"/>
+                            <constraint firstItem="psl-Yq-5Sa" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" constant="12" id="2hW-WE-9Ya"/>
                             <constraint firstAttribute="trailing" secondItem="6F7-YR-Xvj" secondAttribute="trailing" id="5rC-7j-B9p"/>
                             <constraint firstItem="Gr1-qT-5CM" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="9EV-4g-pgK"/>
                             <constraint firstItem="6F7-YR-Xvj" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="CKt-ZQ-CFD"/>
                             <constraint firstItem="6F7-YR-Xvj" firstAttribute="top" secondItem="am9-zG-dJ8" secondAttribute="top" id="LZP-bV-gm2"/>
                             <constraint firstAttribute="bottom" secondItem="Gr1-qT-5CM" secondAttribute="bottom" id="k2p-i1-B9B"/>
+                            <constraint firstItem="psl-Yq-5Sa" firstAttribute="top" secondItem="am9-zG-dJ8" secondAttribute="top" constant="55" id="rdR-2H-DBp"/>
                             <constraint firstItem="Gr1-qT-5CM" firstAttribute="top" secondItem="am9-zG-dJ8" secondAttribute="top" id="xZv-Pd-Oj2"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dotButton" destination="YGs-dj-Q7B" id="h1t-Bb-4a7"/>
+                        <outlet property="dotView" destination="YkM-Ap-JyE" id="u89-yj-uib"/>
                         <outlet property="tableView" destination="Gr1-qT-5CM" id="jaS-eg-kq1"/>
                     </connections>
                 </viewController>

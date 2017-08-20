@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YAD-rX-jZJ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t7I-Fe-2wS">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,10 +9,28 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Side Bar Controller-->
+        <!--Main Side Menu Controller-->
+        <scene sceneID="A0q-TE-Pus">
+            <objects>
+                <viewController id="t7I-Fe-2wS" customClass="MainSideMenuController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k8e-hd-pv4"/>
+                        <viewControllerLayoutGuide type="bottom" id="hk9-GZ-lDz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D0l-YJ-NBV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PCn-nd-Hy8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1756" y="-421"/>
+        </scene>
+        <!--Main Nav Controller-->
         <scene sceneID="xYO-eP-akJ">
             <objects>
-                <navigationController id="YAD-rX-jZJ" customClass="MainSideBarController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainNavController" id="YAD-rX-jZJ" customClass="MainNavController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QAp-rk-etV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -20,23 +38,40 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="clearNavStyle" value="YES"/>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="dcJ-7o-5x3" kind="relationship" relationship="rootViewController" id="Nfc-X2-vhF"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiI-VX-DwZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1063" y="-420"/>
         </scene>
-        <!--CompanyBlogFeedViewController-->
-        <scene sceneID="7c1-au-HAe">
+        <!--Left Side Menu View Controller-->
+        <scene sceneID="A8u-YU-DaO">
             <objects>
-                <viewControllerPlaceholder storyboardName="Feed" referencedIdentifier="CompanyBlogFeedViewController" id="dcJ-7o-5x3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="E3O-ee-rY7"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UiW-E4-l0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="LeftSideMenuViewController" id="tbF-hl-TtS" customClass="LeftSideMenuViewController" customModule="AwesomeBlogs" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="v4S-nQ-Ptb"/>
+                        <viewControllerLayoutGuide type="bottom" id="KPk-cU-4sN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="utE-6o-dQw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qi5-z6-Joc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qi5-z6-Joc" firstAttribute="leading" secondItem="utE-6o-dQw" secondAttribute="leading" id="3gY-Hp-i9Y"/>
+                            <constraint firstItem="KPk-cU-4sN" firstAttribute="top" secondItem="qi5-z6-Joc" secondAttribute="bottom" id="b72-39-NMl"/>
+                            <constraint firstItem="qi5-z6-Joc" firstAttribute="top" secondItem="utE-6o-dQw" secondAttribute="top" id="kaK-jD-uRX"/>
+                            <constraint firstAttribute="trailing" secondItem="qi5-z6-Joc" secondAttribute="trailing" id="mjF-ah-9PX"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dV3-rH-kam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-459" y="-421"/>
+            <point key="canvasLocation" x="-1061.5999999999999" y="251.42428785607197"/>
         </scene>
     </scenes>
 </document>

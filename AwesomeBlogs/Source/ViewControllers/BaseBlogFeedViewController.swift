@@ -12,7 +12,8 @@ import RxCocoa
 import RxDataSources
 
 class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProtocol {
-    
+    @IBOutlet var dotView: UIView!
+    @IBOutlet var dotButton: UIButton!
     @IBOutlet var tableView: UITableView!
     
     typealias ReactorType = BlogsFeedReactor
@@ -22,10 +23,10 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     
     typealias ModelType = BlogFeedCellViewModel
     var cellViewModels = Variable<[AnimatableSectionModel<String, BlogFeedCellViewModel>]>([])
+    var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
+    var reloaded = PublishSubject<Void>()
     
-    var group: AwesomeBlogs.Group {
-        return .all
-    }
+    var group: AwesomeBlogs.Group = .all
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,23 +45,41 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
             self.reactor.state.map{ $0.viewModels }.subscribe(onNext: { [weak self] viewModels in
                 self?.cellViewModels.value = [AnimatableSectionModel(model: "section", items: viewModels)]
                 log.debug(viewModels.count)
+            }),
+            self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] _ in
+                
+            }),
+            self.reloaded.subscribe(onNext: { [weak self] _ in
+                self?.checkDotView()
             })
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
     }
-}
-
-extension UIStoryboard {
-    class func VC(name: String, bundle: Bundle? = nil, withIdentifier: String) -> UIViewController {
-        let board = UIStoryboard(name: name, bundle: bundle)
-        return board.instantiateViewController(withIdentifier: withIdentifier)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
 }
 
-
 //MARK: - UITableViewDelegate
 extension BlogFeedViewController: UITableViewDelegate {
+    func checkDotView() {
+        if let _ = self.tableView.visibleCells.first as? BlogFeedCell_Rectangle {
+            self.dotView.borderColor = UIColor.white
+        }else {
+            self.dotView.borderColor = UIColor(hex: 0x333333)
+        }
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.view.height
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        checkDotView()
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        checkDotView()
+    }
+    func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
+        checkDotView()
     }
 }

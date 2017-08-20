@@ -13,6 +13,9 @@ import RxDataSources
 
 class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
     
+    var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
+    var reloaded = PublishSubject<Void>()
+
     @IBOutlet var tableView: UITableView!
     typealias ModelType = BlogFeedCellViewModel
     var cellViewModels = Variable<[AnimatableSectionModel<String, BlogFeedCellViewModel>]>([])

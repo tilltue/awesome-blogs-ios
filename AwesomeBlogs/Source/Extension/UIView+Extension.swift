@@ -111,11 +111,7 @@ extension UIView {
     @IBInspectable var borderWidth: CGFloat {
         get { return layer.borderWidth }
         set {
-            if newValue == 1 {
-                layer.borderWidth = 1 / UIScreen.main.scale
-            }else {
-                layer.borderWidth = newValue
-            }
+            layer.borderWidth = newValue
         }
     }
 }

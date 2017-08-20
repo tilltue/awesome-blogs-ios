@@ -15,6 +15,18 @@ enum AwesomeBlogs {
         case dev
         case insightful
         case company
+        var title: String {
+            switch self {
+            case .all:
+                return "ALL".localized
+            case .dev:
+                return "DEVELOPER".localized
+            case .company:
+                return "TECH COMPANY".localized
+            case .insightful:
+                return "INSIGHTFUL".localized
+            }
+        }
     }
     case feeds(group: Group)
     case read

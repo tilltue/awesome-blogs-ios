@@ -32,6 +32,7 @@ struct Service {
     
     func reactorRegister() {
         self.container.register(BlogsFeedReactor.self) { _ in BlogsFeedReactor() }
+        self.container.register(MainSideMenuReactor.self) { _ in MainSideMenuReactor() }
     }
 }
 

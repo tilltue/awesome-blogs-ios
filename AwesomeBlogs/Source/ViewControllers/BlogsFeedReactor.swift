@@ -31,7 +31,7 @@ class BlogsFeedReactor: Reactor {
     }
     
     deinit {
-        print("deinit BlogFeedReactor")
+        log.verbose("deinit BlogFeedReactor")
     }
 
     let initialState = State()
