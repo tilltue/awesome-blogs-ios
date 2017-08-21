@@ -29,5 +29,6 @@ class BaseNavigationViewController: UINavigationController {
     fileprivate func hideNavigationBar() {
         self.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationBar.shadowImage = UIImage()
+        self.navigationBar.isHidden = true
     }
 }

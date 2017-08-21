@@ -1,5 +1,5 @@
 //
-//  BlogsFeedSpec.swift
+//  BlogsFeedReactorSpec.swift
 //  AwesomeBlogs
 //
 //  Created by wade.hawk on 2017. 7. 25..
@@ -31,7 +31,7 @@ struct FeedStateEvent: Equatable {
     }
 }
 
-class BlogsFeedSpec: QuickSpec {
+class BlogsFeedReactorSpec: QuickSpec {
     
     override func spec() {
         var disposeBag: DisposeBag!

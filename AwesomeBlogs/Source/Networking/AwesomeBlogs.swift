@@ -13,8 +13,8 @@ enum AwesomeBlogs {
     enum Group: String {
         case all
         case dev
-        case insightful
         case company
+        case insightful
         var title: String {
             switch self {
             case .all:
@@ -30,6 +30,7 @@ enum AwesomeBlogs {
     }
     case feeds(group: Group)
     case read
+    static let groups:[Group] = [.all,.dev,.company,.insightful]
 }
 
 extension AwesomeBlogs: TargetType {

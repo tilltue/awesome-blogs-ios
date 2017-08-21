@@ -18,34 +18,36 @@ class MainSideMenuReactor: Reactor {
     }
     
     enum Mutation {
-        case setShowMenu(Bool)
-        case setRootViewController(BlogFeedViewController)
+        case showMenu(Bool)
+        case selected(AwesomeBlogs.Group)
     }
     
     struct State {
-        var showMenu: Bool = false
-        var currentIndex: Int = 0
+        var isShowMenu: Bool = false
+        var selectedGroup: AwesomeBlogs.Group = .dev
     }
     
+    let groups = AwesomeBlogs.groups
     let initialState = State()
     
     func mutate(action: MainSideMenuReactor.Action) -> Observable<Mutation> {
         switch action {
         case .menu(let show):
-            return Observable.just(Mutation.setShowMenu(show))
+            return Observable.just(Mutation.showMenu(show))
         case .selected(let index):
-            var groups: [AwesomeBlogs.Group] = [.all,.dev,.company,.insightful]
-            let group = groups[index]
-            
-            return Observable.empty()
+            let group = self.groups[index]
+            return Observable.just(.selected(group))
         }
     }
     
     func reduce(state: MainSideMenuReactor.State, mutation: MainSideMenuReactor.Mutation) -> MainSideMenuReactor.State {
+        var state = state
         switch mutation {
-        case let _:
+        case let .showMenu(show):
+            state.isShowMenu = show
             return state
-        case let _:
+        case let .selected(group):
+            state.selectedGroup = group
             return state
         }
     }

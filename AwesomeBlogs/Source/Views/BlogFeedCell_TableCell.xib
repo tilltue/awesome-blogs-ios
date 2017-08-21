@@ -18,44 +18,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
-                        <rect key="frame" x="5" y="5" width="365" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hqv-04-hgH">
-                        <rect key="frame" x="5" y="30.5" width="365" height="135.5"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <accessibility key="accessibilityConfiguration">
-                            <accessibilityTraits key="traits" notEnabled="YES"/>
-                        </accessibility>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="custom" customColorSpace="sRGB"/>
-                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    </textView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
-                        <rect key="frame" x="8" y="171" width="359" height="20.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20.5" id="xfe-tN-c9i"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                        <color key="textColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NPZ-hd-toW">
+                        <rect key="frame" x="8" y="50.5" width="359" height="100"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-K6-nmg">
+                                <rect key="frame" x="0.0" y="26.5" width="359" height="50.5"/>
+                                <string key="text">Label
+ㅇ ㅇ</string>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
+                                <rect key="frame" x="0.0" y="83" width="359" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <color key="textColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="hqv-04-hgH" firstAttribute="top" secondItem="YDZ-C5-aeU" secondAttribute="bottom" constant="5" id="Eb8-kv-4lG"/>
-                    <constraint firstItem="YDZ-C5-aeU" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leading" constant="5" id="Z7v-d9-X1m"/>
-                    <constraint firstItem="hqv-04-hgH" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leading" constant="5" id="dx4-Oz-Hr5"/>
-                    <constraint firstAttribute="trailing" secondItem="hqv-04-hgH" secondAttribute="trailing" constant="5" id="fqt-36-mVq"/>
-                    <constraint firstAttribute="bottom" secondItem="2MQ-g2-Plo" secondAttribute="bottom" constant="8" id="hts-7F-6nA"/>
-                    <constraint firstItem="2MQ-g2-Plo" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leading" constant="8" id="jqn-W0-Z7m"/>
-                    <constraint firstItem="2MQ-g2-Plo" firstAttribute="top" secondItem="hqv-04-hgH" secondAttribute="bottom" constant="5" id="mj5-pf-R8a"/>
-                    <constraint firstAttribute="trailing" secondItem="2MQ-g2-Plo" secondAttribute="trailing" constant="8" id="tmT-2c-48x"/>
-                    <constraint firstAttribute="trailing" secondItem="YDZ-C5-aeU" secondAttribute="trailing" constant="5" id="vC8-1a-dF6"/>
-                    <constraint firstItem="YDZ-C5-aeU" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="top" constant="5" id="wXo-mG-5Rb"/>
+                    <constraint firstItem="NPZ-hd-toW" firstAttribute="centerY" secondItem="wrd-Qy-7QW" secondAttribute="centerY" id="3C8-wZ-8eC"/>
+                    <constraint firstItem="NPZ-hd-toW" firstAttribute="centerX" secondItem="wrd-Qy-7QW" secondAttribute="centerX" id="3ZD-45-fuk"/>
+                    <constraint firstItem="NPZ-hd-toW" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wrd-Qy-7QW" secondAttribute="top" constant="8" id="OQF-G0-zSI"/>
+                    <constraint firstItem="NPZ-hd-toW" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leading" constant="8" id="TSf-Cl-YJx"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NPZ-hd-toW" secondAttribute="bottom" constant="8" id="Z7M-yX-5da"/>
+                    <constraint firstAttribute="trailing" secondItem="NPZ-hd-toW" secondAttribute="trailing" constant="8" id="gvT-XU-Pnd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

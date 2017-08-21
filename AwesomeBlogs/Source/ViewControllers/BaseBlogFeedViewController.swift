@@ -25,6 +25,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     var cellViewModels = Variable<[AnimatableSectionModel<String, BlogFeedCellViewModel>]>([])
     var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
     var reloaded = PublishSubject<Void>()
+    var dotTap = PublishSubject<Void>()
     
     var group: AwesomeBlogs.Group = .all
     
@@ -47,7 +48,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                 log.debug(viewModels.count)
             }),
             self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] _ in
-                
+                self?.dotTap.on(.next())
             }),
             self.reloaded.subscribe(onNext: { [weak self] _ in
                 self?.checkDotView()

@@ -23,7 +23,11 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
     @IBOutlet var topBlogFeedView: BlogFeedView!
     @IBOutlet var bottomBlogFeedView: BlogFeedView!
     
-    var fillColor: UIColor = UIColor(hex: 0x1abc9c)
+    var fillColor: UIColor = UIColor(hex: 0x1abc9c) {
+        didSet {
+            self.drawLayer()
+        }
+    }
     private var points = [CGPoint(x: 0, y: 0.55),
                           CGPoint(x: 0, y: 1),
                           CGPoint(x: 1, y: 1),
@@ -40,11 +44,11 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
         self.diagonalView.rx.layoutSubviews.filter{ _ in
             return self.contentView.width == UIScreen.main.bounds.width
         }.take(1).subscribe(onNext: { [weak self] _ in
-            self?.addLayer()
+            self?.drawLayer()
         }).addDisposableTo(disposeBag)
     }
     
-    private func addLayer() {
+    private func drawLayer() {
         self.shapeLayer.fillColor = self.fillColor.cgColor
         let path = UIBezierPath()
         path.move(to: convert(relativePoint: self.points[0]))

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -55,23 +56,81 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qi5-z6-Joc">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="apv-Ch-Mcm">
+                                <rect key="frame" x="34" y="50" width="46" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="3fD-c5-KaI"/>
+                                    <constraint firstAttribute="width" constant="46" id="Dqj-nE-goP"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ViE-k0-vuL">
+                                <rect key="frame" x="34" y="166" width="307" height="204"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cRC-2T-SiK">
+                                        <rect key="frame" x="0.0" y="0.0" width="38" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="fhN-eN-t3u"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="ALL">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhI-Ie-l2h">
+                                        <rect key="frame" x="0.0" y="53" width="124" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="lAA-Pv-ytn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="DEVELOPER">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nun-8l-kjj">
+                                        <rect key="frame" x="0.0" y="106" width="168" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="cgl-DW-Iw9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="TECH COMPANY">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMJ-Vj-jRV">
+                                        <rect key="frame" x="0.0" y="159" width="122" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="7Ti-0m-Xns"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="22"/>
+                                        <state key="normal" title="INSIGHTFUL">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="qi5-z6-Joc" firstAttribute="leading" secondItem="utE-6o-dQw" secondAttribute="leading" id="3gY-Hp-i9Y"/>
-                            <constraint firstItem="KPk-cU-4sN" firstAttribute="top" secondItem="qi5-z6-Joc" secondAttribute="bottom" id="b72-39-NMl"/>
-                            <constraint firstItem="qi5-z6-Joc" firstAttribute="top" secondItem="utE-6o-dQw" secondAttribute="top" id="kaK-jD-uRX"/>
-                            <constraint firstAttribute="trailing" secondItem="qi5-z6-Joc" secondAttribute="trailing" id="mjF-ah-9PX"/>
+                            <constraint firstItem="ViE-k0-vuL" firstAttribute="leading" secondItem="utE-6o-dQw" secondAttribute="leading" constant="34" id="0p7-qF-XvZ"/>
+                            <constraint firstItem="ViE-k0-vuL" firstAttribute="top" secondItem="apv-Ch-Mcm" secondAttribute="bottom" constant="80" id="e5r-6d-Sg2"/>
+                            <constraint firstAttribute="trailing" secondItem="ViE-k0-vuL" secondAttribute="trailing" constant="34" id="fh8-Tf-IqB"/>
+                            <constraint firstItem="apv-Ch-Mcm" firstAttribute="leading" secondItem="utE-6o-dQw" secondAttribute="leading" constant="34" id="hBy-7n-ZR7"/>
+                            <constraint firstItem="apv-Ch-Mcm" firstAttribute="top" secondItem="utE-6o-dQw" secondAttribute="topMargin" constant="50" id="txb-Ef-69h"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="allButton" destination="cRC-2T-SiK" id="deJ-Bl-sh9"/>
+                        <outlet property="companyButton" destination="nun-8l-kjj" id="SJ6-3p-N6A"/>
+                        <outlet property="devButton" destination="HhI-Ie-l2h" id="sGo-UV-UQQ"/>
+                        <outlet property="insightfulButton" destination="pMJ-Vj-jRV" id="eiF-us-jei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dV3-rH-kam" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1061.5999999999999" y="251.42428785607197"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="184" height="144"/>
+    </resources>
 </document>

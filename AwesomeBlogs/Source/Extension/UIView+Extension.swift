@@ -151,6 +151,20 @@ extension UIView {
             completion?()
         })
     }
+    func gradientAlpha(startPoint:CGPoint = CGPoint(x: 0, y: 0), endPoint: CGPoint = CGPoint(x: 0, y: 1), reverse: Bool = false) {
+        let gradientLayer = CAGradientLayer.init()
+        gradientLayer.frame = self.bounds
+        if reverse {
+            gradientLayer.colors = [UIColor(hex: 0x000000, alpha: 1).cgColor,
+                                    UIColor(hex: 0x000000, alpha: 0).cgColor]
+        }else {
+            gradientLayer.colors = [UIColor(hex: 0x000000, alpha: 0).cgColor,
+                                    UIColor(hex: 0x000000, alpha: 1).cgColor]
+        }
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+        self.layer.mask = gradientLayer
+    }
 }
 
 extension UIView {
