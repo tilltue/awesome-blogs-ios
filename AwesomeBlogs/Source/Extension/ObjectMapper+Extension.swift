@@ -66,3 +66,17 @@ struct DateAtTransform: TransformType {
         return value?.dateString
     }
 }
+
+struct RemoveHTMLAtTransform: TransformType {
+    typealias Object = String
+    typealias JSON = String
+    
+    func transformFromJSON(_ value: Any?) -> String? {
+        guard let value = value as? String else { return nil }
+        return value.removeHTMLTags
+    }
+    
+    func transformToJSON(_ value: String?) -> String? {
+        return value?.removeHTMLTags
+    }
+}

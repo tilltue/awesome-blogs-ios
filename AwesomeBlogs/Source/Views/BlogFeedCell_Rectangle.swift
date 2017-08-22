@@ -8,7 +8,8 @@
 
 import Foundation
 import UIKit
+import KRWordWrapLabel
 
 class BlogFeedCell_Rectangle: BlogFeedCell {
-    @IBOutlet var downText: UILabel!
+    @IBOutlet var downText: KRWordWrapLabel!
 }

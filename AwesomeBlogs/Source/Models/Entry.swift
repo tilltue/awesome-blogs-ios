@@ -16,14 +16,16 @@ struct Entry: Equatable,ImmutableMappable {
     let link: URL
     let updatedAt: Date
     let summary: String
+    let removeHTMLSummary: String
     //let createdAt: String
     
     init(map: Map) throws {
-        self.title = try map.value("title")
+        self.title = try map.value("title", using: RemoveHTMLAtTransform())
         self.author = try map.value("author")
         self.link = try map.value("link", using: URLTransform())
         self.updatedAt = try map.value("updated_at", using: DateAtTransform())
         self.summary = try map.value("summary")
+        self.removeHTMLSummary = self.summary.removeHTMLTags
     }
     
     static func ==(lhs: Entry,rhs: Entry) -> Bool {

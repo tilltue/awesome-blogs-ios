@@ -36,6 +36,7 @@ class LeftSideMenuViewController: BaseViewController {
             self.selectedGroup.asObservable().map{ $0 == .insightful }.bind(to: self.insightfulButton.rx.isSelected),
         ])
     }
+    
     func makeUI() {
         var normalAttrs: [String : Any] = [NSFontAttributeName : self.allButton.titleLabel!.font,
                                       NSForegroundColorAttributeName : UIColor.white]

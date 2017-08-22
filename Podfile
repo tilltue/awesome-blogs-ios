@@ -19,6 +19,8 @@ target 'AwesomeBlogs' do
     pod 'XCGLogger'
     pod 'SwiftDate', '~> 4.0'
     pod 'EasyAbout'
+    pod 'Down'
+    pod 'KRWordWrapLabel'
     pod 'Swinject', '~> 2.1.0'
     pod 'AMScrollingNavbar'
     pod 'FAPanels', :git => 'https://github.com/tilltue/FAPanels', :branch => 'master'

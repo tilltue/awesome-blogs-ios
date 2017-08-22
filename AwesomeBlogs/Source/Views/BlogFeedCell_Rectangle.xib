@@ -22,21 +22,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBY-NZ-Lcl">
                         <rect key="frame" x="32" y="88" width="311" height="526.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
-                                <rect key="frame" x="0.0" y="0.0" width="311" height="67"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
+                                <rect key="frame" x="0.0" y="0.0" width="311" height="68"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
-                                <rect key="frame" x="0.0" y="75" width="77.5" height="19.5"/>
+                                <rect key="frame" x="0.0" y="76" width="77.5" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-vU-SVP">
-                                <rect key="frame" x="0.0" y="507" width="311" height="19.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-vU-SVP" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
+                                <rect key="frame" x="0.0" y="506.5" width="311" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -65,7 +65,7 @@
             <connections>
                 <outlet property="authorDateLabel" destination="2MQ-g2-Plo" id="N07-jA-ewu"/>
                 <outlet property="downText" destination="Evn-vU-SVP" id="36Z-1e-Uf7"/>
-                <outlet property="titleLabel" destination="YDZ-C5-aeU" id="wDn-6v-JQJ"/>
+                <outlet property="titleLabel" destination="YDZ-C5-aeU" id="85m-Bp-BXZ"/>
             </connections>
             <point key="canvasLocation" x="-142.5" y="-49.5"/>
         </tableViewCell>

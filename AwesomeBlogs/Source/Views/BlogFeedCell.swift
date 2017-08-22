@@ -8,10 +8,12 @@
 
 import Foundation
 import UIKit
+import KRWordWrapLabel
 
 class BlogFeedCell: BaseUITableViewCell {
-    @IBOutlet var titleLabel: UILabel?
+    @IBOutlet var titleLabel: KRWordWrapLabel?
     @IBOutlet var authorLabel: UILabel?
     @IBOutlet var dateLabel: UILabel?
     @IBOutlet var authorDateLabel: UILabel?
+    @IBOutlet var summaryLabel: KRWordWrapLabel?
 }

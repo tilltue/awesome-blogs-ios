@@ -19,24 +19,24 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NPZ-hd-toW">
-                        <rect key="frame" x="8" y="50.5" width="359" height="100"/>
+                        <rect key="frame" x="8" y="49.5" width="359" height="101"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU">
-                                <rect key="frame" x="0.0" y="0.0" width="359" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
+                                <rect key="frame" x="0.0" y="0.0" width="359" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-K6-nmg">
-                                <rect key="frame" x="0.0" y="26.5" width="359" height="50.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-K6-nmg" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
+                                <rect key="frame" x="0.0" y="27" width="359" height="51"/>
                                 <string key="text">Label
 ㅇ ㅇ</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.58823529411764708" green="0.58823529411764708" blue="0.58823529411764708" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
-                                <rect key="frame" x="0.0" y="83" width="359" height="17"/>
+                                <rect key="frame" x="0.0" y="84" width="359" height="17"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -56,6 +56,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="authorDateLabel" destination="2MQ-g2-Plo" id="KTg-nO-0DM"/>
+                <outlet property="summaryLabel" destination="k0c-K6-nmg" id="dtl-ac-MDs"/>
                 <outlet property="titleLabel" destination="YDZ-C5-aeU" id="wDn-6v-JQJ"/>
             </connections>
             <point key="canvasLocation" x="-142.5" y="-50"/>

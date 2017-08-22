@@ -63,8 +63,8 @@ class MainSideMenuController: FAPanelController,HaveReactor {
                 guard let `self` = self else { return }
                 self.setBlogFeed(group: group)
             }),
-            self.leftSideMenuViewController.selectedGroup.asObservable().map{ MainSideMenuReactor.Action.selected(group: $0) }.bind(to: self.reactor.action),
-            self.leftSideMenuViewController.selectedGroup.asObservable().distinctUntilChanged().map{ _ in MainSideMenuReactor.Action.menu(show: false) }.bind(to: self.reactor.action)
+            self.leftSideMenuViewController.selectedGroup.asObservable().skip(1).map{ MainSideMenuReactor.Action.selected(group: $0) }.bind(to: self.reactor.action),
+            self.leftSideMenuViewController.selectedGroup.asObservable().skip(1).distinctUntilChanged().map{ _ in MainSideMenuReactor.Action.menu(show: false) }.bind(to: self.reactor.action)
         ])
     }
 }

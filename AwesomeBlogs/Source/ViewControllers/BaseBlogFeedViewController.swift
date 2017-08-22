@@ -56,6 +56,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -63,6 +64,10 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
 
 //MARK: - UITableViewDelegate
 extension BlogFeedViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return self.view.height
+    }
+    
     func checkDotView() {
         if let _ = self.tableView.visibleCells.first as? BlogFeedCell_Rectangle {
             self.dotView.borderColor = UIColor.white
@@ -70,16 +75,15 @@ extension BlogFeedViewController: UITableViewDelegate {
             self.dotView.borderColor = UIColor(hex: 0x333333)
         }
     }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.height
-    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         checkDotView()
     }
+    
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         checkDotView()
     }
+    
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
         checkDotView()
     }

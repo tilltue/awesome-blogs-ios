@@ -69,7 +69,7 @@ struct BlogFeedCellViewModel: RxTableCellViewModel {
         case .rectangle(let entry):
             let cell = cell as! BlogFeedCell_Rectangle
             cell.contentView.backgroundColor = self.color
-            cell.downText.text = entry.summary
+            cell.downText.text = entry.removeHTMLSummary
             cell.titleLabel?.text = entry.title
             cell.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
         case .circle(let entry):
@@ -90,6 +90,7 @@ struct BlogFeedCellViewModel: RxTableCellViewModel {
         case .tableCell(let entry):
             cell.titleLabel?.text = entry.title
             cell.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
+            cell.summaryLabel?.text = entry.removeHTMLSummary
         }
         cell.selectionStyle = .none
         return cell
