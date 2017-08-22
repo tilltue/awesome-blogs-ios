@@ -44,7 +44,7 @@ class BlogsFeedReactorSpec: QuickSpec {
                 Service.shared.mockRegister()
             }
             //describe("액션을 전달하고 이벤트 스트림 결과를 비교") {
-            xdescribe("action -> event stream result") {
+            describe("action -> event stream result") {
                 //it("액션: 피드 로드") {
                 it("action: feed load") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
@@ -55,7 +55,7 @@ class BlogsFeedReactorSpec: QuickSpec {
                         stateEvents.append(next(times[index],event))
                         index+=1
                         log.debug("state : \(event.loading) \(event.entryCount)")
-                    }).addDisposableTo(disposeBag)
+                    }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
                                                             next(150, FeedStateEvent(loading: true, entryCount: 0)),
@@ -71,7 +71,7 @@ class BlogsFeedReactorSpec: QuickSpec {
                         stateEvents.append(next(times[index],event))
                         index+=1
                         log.debug("state : \(event.loading) \(event.entryCount)")
-                    }).addDisposableTo(disposeBag)
+                    }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
                     reactor.action.on(.next(.refresh(group: .company)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
@@ -97,7 +97,7 @@ class BlogsFeedReactorSpec: QuickSpec {
                             stateEvents.append(next(times[index],event))
                             index+=1
                             log.debug("state : \(event.loading) \(event.entryCount) \(event.useableViewModel)")
-                        }).addDisposableTo(disposeBag)
+                        }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .company)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0, useableViewModel: false)),
                                                             next(150, FeedStateEvent(loading: true, entryCount: 0, useableViewModel: false)),

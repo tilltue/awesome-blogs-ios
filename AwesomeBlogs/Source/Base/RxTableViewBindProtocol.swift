@@ -39,16 +39,16 @@ extension RxTableViewBindProtocol {
     
     func bindDataSource(tableView: UITableView) {
         register(tableView: tableView, nibNameSet: ModelType.cellNibSet)
-        self.cellViewModels.asDriver().drive(tableView.rx.items(dataSource: createDataSource())).addDisposableTo(disposeBag)
+        self.cellViewModels.asDriver().drive(tableView.rx.items(dataSource: createDataSource())).disposed(by: disposeBag)
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             guard let `self` = self else { return }
             guard let sectionModel = (self.cellViewModels.value.filter{ $0.model == "section\(indexPath.section)" }.first) else { return }
             self.selectedCell.on(.next(indexPath, sectionModel.items[indexPath.row]))
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
         tableView.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
             guard let `self` = self else { return }
             self.cellViewModels.value[indexPath.section].items.remove(at: indexPath.row)
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     private func cellViewModel(at indexPath: IndexPath) -> ModelType? {

@@ -39,7 +39,7 @@ class AwesomeBlogsSpec: QuickSpec {
                         count = entries.count
                     }, onError: { error in
                         
-                    }).addDisposableTo(disposeBag)
+                    }).disposed(by: disposeBag)
                     expect(count).toEventually(equal(1))
                 }
             }
@@ -58,7 +58,7 @@ class AwesomeBlogsSpec: QuickSpec {
                         }
                     }) { error in
                         
-                    }.addDisposableTo(disposeBag)
+                    }.disposed(by: disposeBag)
                     expect(count).toEventually(beGreaterThan(0),timeout: 20)
                 }
             }

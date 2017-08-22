@@ -23,6 +23,6 @@ extension RxFeedTableViewBindProtocol {
         self.loadTrigger?.subscribe(onNext: { [weak self]  in
             guard let `self` = self, let api = self.api else { return }
             self.cellViewModels.value = api().map{ AnimatableSectionModel(model:"section\($0.0)", items:$0.1) }
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
 }

@@ -30,7 +30,7 @@ class BaseViewController: UIViewController, BaseViewControllerType {
         self.viewControllerState.value = .hidden
         self.rx.viewEvent.subscribe(onNext:{ [weak self] state in
             self?.viewControllerState.value = state
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

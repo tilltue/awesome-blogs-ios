@@ -14,7 +14,7 @@ class MainSideMenuReactor: Reactor {
     
     enum Action {
         case menu(show: Bool)
-        case selected(index: Int)
+        case selected(group: AwesomeBlogs.Group)
     }
     
     enum Mutation {
@@ -27,15 +27,13 @@ class MainSideMenuReactor: Reactor {
         var selectedGroup: AwesomeBlogs.Group = .dev
     }
     
-    let groups = AwesomeBlogs.groups
     let initialState = State()
     
     func mutate(action: MainSideMenuReactor.Action) -> Observable<Mutation> {
         switch action {
         case .menu(let show):
             return Observable.just(Mutation.showMenu(show))
-        case .selected(let index):
-            let group = self.groups[index]
+        case .selected(let group):
             return Observable.just(.selected(group))
         }
     }

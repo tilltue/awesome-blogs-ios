@@ -33,7 +33,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
         super.viewDidLoad()
         self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.isPagingEnabled = true
-        self.tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+        self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.bindDataSource(tableView: self.tableView)
         self.compositeDisposable.add(disposables: [
             self.reactor.state.map{ $0.isLoading }.distinctUntilChanged().bind(onNext: { [weak self] isLoading in
@@ -43,7 +43,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                     self?.view.hideIndicator()
                 }
             }),
-            self.reactor.state.map{ $0.viewModels }.subscribe(onNext: { [weak self] viewModels in
+            self.reactor.state.map{ ($0.isLoading,$0.viewModels) }.filter{ $0.0 }.subscribe(onNext: { [weak self] (isLoading,viewModels) in
                 self?.cellViewModels.value = [AnimatableSectionModel(model: "section", items: viewModels)]
                 log.debug(viewModels.count)
             }),

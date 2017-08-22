@@ -24,6 +24,7 @@ class LeftSideMenuViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
+
         compositeDisposable.add(disposables: [
             self.allButton.rx.tap.map{ AwesomeBlogs.Group.all }.bind(to: self.selectedGroup),
             self.devButton.rx.tap.map{ AwesomeBlogs.Group.dev }.bind(to: self.selectedGroup),

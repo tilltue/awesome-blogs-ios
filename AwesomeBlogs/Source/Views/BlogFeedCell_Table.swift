@@ -22,7 +22,7 @@ class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.tableView.rx.setDelegate(self).addDisposableTo(disposeBag)
+        self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.bindDataSource(tableView: self.tableView)
     }
 }

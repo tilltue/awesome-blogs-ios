@@ -45,7 +45,7 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
             return self.contentView.width == UIScreen.main.bounds.width
         }.take(1).subscribe(onNext: { [weak self] _ in
             self?.drawLayer()
-        }).addDisposableTo(disposeBag)
+        }).disposed(by: disposeBag)
     }
     
     private func drawLayer() {

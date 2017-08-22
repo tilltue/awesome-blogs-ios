@@ -28,6 +28,7 @@ class BlogsFeedReactor: Reactor {
         var isLoading: Bool = false
         var entries: [Entry] = [Entry]()
         var viewModels: [BlogFeedCellViewModel] = [BlogFeedCellViewModel]()
+        var loadTime: TimeInterval = 0
     }
     
     deinit {

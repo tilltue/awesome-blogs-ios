@@ -50,12 +50,12 @@ class MainSideMenuReactorSpec: QuickSpec {
                         stateEvents.append(next(times[index],event))
                         index+=1
                         log.debug("state : \(event.isShowMenu) \(event.selectedGroup)")
-                    }).addDisposableTo(disposeBag)
+                    }).disposed(by: disposeBag)
                     reactor.action.on(.next(.menu(show: true)))
                     reactor.action.on(.next(.menu(show: false)))
-                    expect(stateEvents).toEventually(equal([next(100, SideMenuStateEvent(isShowMenu: false, selectedGroup: .all)),
-                                                            next(150, SideMenuStateEvent(isShowMenu: true, selectedGroup: .all)),
-                                                            next(200, SideMenuStateEvent(isShowMenu: false, selectedGroup: .all))]))
+                    expect(stateEvents).toEventually(equal([next(100, SideMenuStateEvent(isShowMenu: false, selectedGroup: .dev)),
+                                                            next(150, SideMenuStateEvent(isShowMenu: true, selectedGroup: .dev)),
+                                                            next(200, SideMenuStateEvent(isShowMenu: false, selectedGroup: .dev))]))
                 }
                 //it("액션: selected 메뉴") {
                 it("action: selected menu index") {
@@ -68,11 +68,11 @@ class MainSideMenuReactorSpec: QuickSpec {
                         stateEvents.append(next(times[index],event))
                         index+=1
                         log.debug("state : \(event.isShowMenu) \(event.selectedGroup)")
-                    }).addDisposableTo(disposeBag)
-                    reactor.action.on(.next(.selected(index: 0)))
-                    reactor.action.on(.next(.selected(index: 3)))
-                    reactor.action.on(.next(.selected(index: 1)))
-                    reactor.action.on(.next(.selected(index: 2)))
+                    }).disposed(by: disposeBag)
+                    reactor.action.on(.next(.selected(group: groups[0])))
+                    reactor.action.on(.next(.selected(group: groups[3])))
+                    reactor.action.on(.next(.selected(group: groups[1])))
+                    reactor.action.on(.next(.selected(group: groups[2])))
                     expect(stateEvents).toEventually(equal([next(100, SideMenuStateEvent(isShowMenu: false, selectedGroup: groups[1])),
                                                             next(150, SideMenuStateEvent(isShowMenu: false, selectedGroup: groups[0])),
                                                             next(200, SideMenuStateEvent(isShowMenu: false, selectedGroup: groups[3])),
