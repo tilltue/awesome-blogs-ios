@@ -12,9 +12,19 @@ import UIKit
 class BlogFeedView: BaseUIView {
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var authorDateLabel: UILabel?
+    var entry: Entry? = nil
+    
     func setData(entry: Entry) {
         self.titleLabel?.text = entry.title
         self.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
+        self.entry = entry
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.rxTap.subscribe(onNext: { [weak self] _ in
+            guard let entry = self?.entry else { return }
+            GlobalEvent.shared.selectedEntry.on(.next(entry))
+        }).disposed(by: disposeBag)
     }
 }
 

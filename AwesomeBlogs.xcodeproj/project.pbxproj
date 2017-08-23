@@ -30,6 +30,7 @@
 		5D4AC6021F45EBBC005B6B20 /* BlogFeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */; };
 		5D4AC6041F45F150005B6B20 /* BlogFeedCell_TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */; };
 		5D4C3F031F4DA6F7001B35F4 /* MockDevBlogs.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D4C3F021F4DA6F7001B35F4 /* MockDevBlogs.json */; };
+		5D4C3F051F4DB8DF001B35F4 /* GlobalEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4C3F041F4DB8DF001B35F4 /* GlobalEvent.swift */; };
 		5D5D92E01F42D2A10062631B /* BlogFeedCell_Circle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */; };
 		5D5D92E11F42D2A10062631B /* BlogFeedCell_Diagonal.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */; };
 		5D5D92E21F42D2A10062631B /* BlogFeedCell_Table.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */; };
@@ -117,6 +118,7 @@
 		5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCellViewModel.swift; sourceTree = "<group>"; };
 		5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_TableCell.xib; sourceTree = "<group>"; };
 		5D4C3F021F4DA6F7001B35F4 /* MockDevBlogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockDevBlogs.json; sourceTree = "<group>"; };
+		5D4C3F041F4DB8DF001B35F4 /* GlobalEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalEvent.swift; sourceTree = "<group>"; };
 		5D5D92DB1F42D2A10062631B /* BlogFeedCell_Circle.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Circle.xib; sourceTree = "<group>"; };
 		5D5D92DC1F42D2A10062631B /* BlogFeedCell_Diagonal.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Diagonal.xib; sourceTree = "<group>"; };
 		5D5D92DD1F42D2A10062631B /* BlogFeedCell_Table.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_Table.xib; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 				5D65EB5D1F337A1900D6E633 /* Protocol */,
 				5D1FF4441F264675009C863B /* Common */,
 				5D6111F51F2E47A300D7F61C /* Service.swift */,
+				5D4C3F041F4DB8DF001B35F4 /* GlobalEvent.swift */,
 				5DAB85901F1FA8F30082D5E1 /* BaseView.swift */,
 				5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */,
 				5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */,
@@ -699,6 +702,7 @@
 				5D853A9E1F49DDC400A6732A /* RxTableViewCustomReloadDataSource.swift in Sources */,
 				5D6111F61F2E47A300D7F61C /* Service.swift in Sources */,
 				5D25947C1F3A086600C49CE2 /* RxTableViewBindProtocol.swift in Sources */,
+				5D4C3F051F4DB8DF001B35F4 /* GlobalEvent.swift in Sources */,
 				5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */,
 				5D1FF4461F264684009C863B /* MaterialLoadingIndicator.swift in Sources */,
 				5D5D92ED1F42D75A0062631B /* String+Extension.swift in Sources */,

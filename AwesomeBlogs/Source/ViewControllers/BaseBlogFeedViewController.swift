@@ -53,8 +53,15 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
             self.reloaded.subscribe(onNext: { [weak self] _ in
                 self?.checkDotView()
             }),
-            self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
-                guard let entry = viewModel.cellType.entries.first else { return }
+            self.selectedCell.subscribe(onNext: { (indexPath,viewModel) in
+                switch viewModel.cellType {
+                case .rectangle(let entry), .circle(let entry):
+                    GlobalEvent.shared.selectedEntry.on(.next(entry))
+                default:
+                    break
+                }
+            }),
+            GlobalEvent.shared.selectedEntry.subscribe(onNext: { [weak self] entry in
                 self?.pushBlogViewController(entry: entry)
             })
         ])

@@ -86,7 +86,7 @@ struct BlogFeedCellViewModel: RxTableCellViewModel {
         case .table(let entries):
             let cell = cell as! BlogFeedCell_Table
             let viewModels = entries.map{ BlogFeedCellViewModel(cellType: .tableCell(entry: $0)) }
-            cell.cellViewModels.value = [AnimatableSectionModel(model: "section", items: viewModels)]
+            cell.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
         case .tableCell(let entry):
             cell.titleLabel?.text = entry.title
             cell.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"

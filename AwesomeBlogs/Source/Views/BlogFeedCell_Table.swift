@@ -24,6 +24,11 @@ class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
         super.awakeFromNib()
         self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.bindDataSource(tableView: self.tableView)
+        self.selectedCell.subscribe(onNext: { (indexPath,viewModel) in
+            if case .tableCell(let entry) = viewModel.cellType {
+                GlobalEvent.shared.selectedEntry.on(.next(entry))
+            }
+        }).disposed(by: disposeBag)
     }
 }
 
