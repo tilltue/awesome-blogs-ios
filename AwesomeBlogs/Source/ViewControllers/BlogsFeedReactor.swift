@@ -75,7 +75,6 @@ extension BlogsFeedReactor {
         repeat {
             let randomBound = viewModels.count < 5 ? 3: 4
             let type = GKRandomSource.sharedRandom().nextInt(upperBound: randomBound)
-            print(type)
             //type = viewModels.count == 0 ? 0 : type //facebook view test 를 한다면 이곳을 활성화 하자.
             switch type {
             case 1 where mutableEntries.count > 2:

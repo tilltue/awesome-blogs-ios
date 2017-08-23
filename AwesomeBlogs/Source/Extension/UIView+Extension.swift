@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 // MARK: - Frame extension
 extension UIView {
@@ -174,6 +176,11 @@ extension UIView {
         let result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return result!
+    }
+    var rxTap: ControlEvent<UITapGestureRecognizer> {
+        let tapGesture = UITapGestureRecognizer()
+        self.addGestureRecognizer(tapGesture)
+        return tapGesture.rx.event
     }
 }
 

@@ -59,8 +59,8 @@ class BlogsFeedReactorSpec: QuickSpec {
                     reactor.action.on(.next(.load(group: .dev)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
                                                             next(150, FeedStateEvent(loading: true, entryCount: 0)),
-                                                            next(200, FeedStateEvent(loading: true, entryCount: 1)),
-                                                            next(250, FeedStateEvent(loading: false, entryCount: 1))]))
+                                                            next(200, FeedStateEvent(loading: true, entryCount: 103)),
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 103))]))
                 }
                 it("action: feed load , feed refresh") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
@@ -76,9 +76,9 @@ class BlogsFeedReactorSpec: QuickSpec {
                     reactor.action.on(.next(.refresh(group: .company)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
                                                             next(150, FeedStateEvent(loading: true, entryCount: 0)),
-                                                            next(200, FeedStateEvent(loading: true, entryCount: 1)),
-                                                            next(250, FeedStateEvent(loading: false, entryCount: 1)),
-                                                            next(300, FeedStateEvent(loading: true, entryCount: 1)),
+                                                            next(200, FeedStateEvent(loading: true, entryCount: 103)),
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 103)),
+                                                            next(300, FeedStateEvent(loading: true, entryCount: 103)),
                                                             next(350, FeedStateEvent(loading: true, entryCount: 35)),
                                                             next(400, FeedStateEvent(loading: false, entryCount: 35))]))
                 }

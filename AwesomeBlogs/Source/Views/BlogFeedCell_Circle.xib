@@ -27,7 +27,7 @@
                                 <rect key="frame" x="20" y="20" width="295" height="295"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="4HQ-vj-Mjm">
-                                        <rect key="frame" x="32" y="110.5" width="231" height="134.5"/>
+                                        <rect key="frame" x="32" y="111" width="231" height="134.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RxSwift, 알아보기 RxCocoa 알아보기" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XqB-ly-lzk" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
                                                 <rect key="frame" x="0.0" y="0.0" width="231" height="58"/>
@@ -64,8 +64,8 @@
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.59215686274509804" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="4HQ-vj-Mjm" firstAttribute="centerY" secondItem="0fR-mf-g81" secondAttribute="centerY" constant="30" id="GeD-Lx-2eS"/>
-                                    <constraint firstItem="4HQ-vj-Mjm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0fR-mf-g81" secondAttribute="top" constant="32" id="Yj8-VM-SNu"/>
-                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4HQ-vj-Mjm" secondAttribute="bottom" constant="32" id="ig0-Ek-IiN"/>
+                                    <constraint firstItem="4HQ-vj-Mjm" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0fR-mf-g81" secondAttribute="top" constant="30" id="Yj8-VM-SNu"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="4HQ-vj-Mjm" secondAttribute="bottom" constant="40" id="ig0-Ek-IiN"/>
                                     <constraint firstItem="4HQ-vj-Mjm" firstAttribute="leading" secondItem="0fR-mf-g81" secondAttribute="leading" constant="32" id="isk-aB-lwk"/>
                                     <constraint firstAttribute="width" secondItem="0fR-mf-g81" secondAttribute="height" multiplier="1:1" id="liE-J2-Mw8"/>
                                     <constraint firstAttribute="trailing" secondItem="4HQ-vj-Mjm" secondAttribute="trailing" constant="32" id="rAl-r5-1z7"/>

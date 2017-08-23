@@ -44,7 +44,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                 }
             }),
             self.reactor.state.map{ ($0.isLoading,$0.viewModels) }.filter{ $0.0 }.subscribe(onNext: { [weak self] (isLoading,viewModels) in
-                self?.cellViewModels.value = [AnimatableSectionModel(model: "section", items: viewModels)]
+                self?.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
                 log.debug(viewModels.count)
             }),
             self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] _ in
@@ -52,6 +52,10 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
             }),
             self.reloaded.subscribe(onNext: { [weak self] _ in
                 self?.checkDotView()
+            }),
+            self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
+                guard let entry = viewModel.cellType.entries.first else { return }
+                self?.pushBlogViewController(entry: entry)
             })
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
@@ -59,6 +63,12 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    func pushBlogViewController(entry: Entry) {
+        let blogViewController = UIStoryboard.VC(name: "Feed", withIdentifier: "BlogViewController") as! BlogViewController
+        blogViewController.summary = entry.summary
+        self.navigationController?.pushViewController(blogViewController, animated: true)
     }
 }
 
