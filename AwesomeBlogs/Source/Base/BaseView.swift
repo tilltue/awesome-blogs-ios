@@ -17,6 +17,8 @@ class BaseUICollectionViewCell: UICollectionViewCell {
 }
 class BaseUITableViewCell: UITableViewCell {
     var disposeBag = DisposeBag()
+    weak var insideEvent: PublishSubject<Any>? = nil
+    
     deinit {
         log.verbose(type(of: self))
     }

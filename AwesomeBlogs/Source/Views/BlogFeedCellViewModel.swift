@@ -62,7 +62,7 @@ struct BlogFeedCellViewModel: RxTableCellViewModel {
     var cellType: CellType
     var color: UIColor
     
-    func cellFactory(tableView: UITableView, indexPath: IndexPath) -> UITableViewCell {
+    func cellFactory(tableView: UITableView, indexPath: IndexPath) -> BaseUITableViewCell {
         let identifier = self.cellType.cellIdentifier
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! BlogFeedCell
         switch self.cellType {

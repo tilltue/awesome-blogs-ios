@@ -14,7 +14,7 @@ import RxDataSources
 protocol RxTableCellViewModel: IdentifiableType, Equatable {
     static var cellNibSet: [String] { get set }
     var canEdit: Bool { get set }
-    func cellFactory(tableView:UITableView, indexPath:IndexPath) -> UITableViewCell
+    func cellFactory(tableView:UITableView, indexPath:IndexPath) -> BaseUITableViewCell
 }
 
 extension RxTableCellViewModel {
@@ -28,6 +28,7 @@ protocol RxTableViewBindProtocol: class {
     associatedtype ModelType: RxTableCellViewModel
     var cellViewModels: Variable<[AnimatableSectionModel<String,ModelType>]> { get set }
     var selectedCell: PublishSubject<(IndexPath,ModelType)> { get set }
+    var insideCellEvent: PublishSubject<Any> { get set }
     var reloaded: PublishSubject<Void> { get set }
     var disposeBag: DisposeBag { get set }
     func bindDataSource(tableView: UITableView)
@@ -65,8 +66,9 @@ extension RxTableViewBindProtocol {
     
     private func createDataSource() -> RxTableViewCustomReloadDataSource<SectionModelType> {
         let dataSource = RxTableViewCustomReloadDataSource<SectionModelType>()
-        dataSource.configureCell = { ds, tv, ip, cellViewModel -> UITableViewCell in
+        dataSource.configureCell = { [weak self] ds, tv, ip, cellViewModel -> BaseUITableViewCell in
             let cell = cellViewModel.cellFactory(tableView: tv, indexPath: ip)
+            cell.insideEvent = self?.insideCellEvent
             return cell
         }
         dataSource.canEditRowAtIndexPath = { [weak self] (ds, IndexPath) -> Bool in

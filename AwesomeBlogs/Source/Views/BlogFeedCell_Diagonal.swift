@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class BlogFeedView: BaseUIView {
     @IBOutlet var titleLabel: UILabel?
@@ -19,12 +20,9 @@ class BlogFeedView: BaseUIView {
         self.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
         self.entry = entry
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.rxTap.subscribe(onNext: { [weak self] _ in
-            guard let entry = self?.entry else { return }
-            GlobalEvent.shared.selectedEntry.on(.next(entry))
-        }).disposed(by: disposeBag)
     }
 }
 
@@ -55,6 +53,12 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
             return self.contentView.width == UIScreen.main.bounds.width
         }.take(1).subscribe(onNext: { [weak self] _ in
             self?.drawLayer()
+        }).disposed(by: disposeBag)
+        let topTap = self.topBlogFeedView.rxTap.map{ [weak self] _ in self?.topBlogFeedView.entry }
+        let bottomTap = self.bottomBlogFeedView.rxTap.map{ [weak self] _ in self?.bottomBlogFeedView.entry }
+        Observable.merge([topTap,bottomTap]).subscribe(onNext: { [weak self] entry in
+            guard let entry = entry else { return }
+            self?.insideEvent?.on(.next(entry))
         }).disposed(by: disposeBag)
     }
     

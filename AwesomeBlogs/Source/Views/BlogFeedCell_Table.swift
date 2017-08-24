@@ -15,7 +15,8 @@ class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
     
     var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
     var reloaded = PublishSubject<Void>()
-
+    var insideCellEvent = PublishSubject<Any>()
+    
     @IBOutlet var tableView: UITableView!
     typealias ModelType = BlogFeedCellViewModel
     var cellViewModels = Variable<[AnimatableSectionModel<String, BlogFeedCellViewModel>]>([])
@@ -24,9 +25,9 @@ class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
         super.awakeFromNib()
         self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.bindDataSource(tableView: self.tableView)
-        self.selectedCell.subscribe(onNext: { (indexPath,viewModel) in
+        self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
             if case .tableCell(let entry) = viewModel.cellType {
-                GlobalEvent.shared.selectedEntry.on(.next(entry))
+                self?.insideEvent?.on(.next(entry))
             }
         }).disposed(by: disposeBag)
     }

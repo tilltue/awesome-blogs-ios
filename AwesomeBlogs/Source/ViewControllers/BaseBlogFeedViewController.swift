@@ -26,6 +26,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
     var reloaded = PublishSubject<Void>()
     var dotTap = PublishSubject<Void>()
+    var insideCellEvent = PublishSubject<Any>()
     
     var group: AwesomeBlogs.Group = .all
     
@@ -53,15 +54,16 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
             self.reloaded.subscribe(onNext: { [weak self] _ in
                 self?.checkDotView()
             }),
-            self.selectedCell.subscribe(onNext: { (indexPath,viewModel) in
+            self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
                 switch viewModel.cellType {
                 case .rectangle(let entry), .circle(let entry):
-                    GlobalEvent.shared.selectedEntry.on(.next(entry))
+                    self?.pushBlogViewController(entry: entry)
                 default:
                     break
                 }
             }),
-            GlobalEvent.shared.selectedEntry.subscribe(onNext: { [weak self] entry in
+            self.insideCellEvent.subscribe(onNext: { [weak self] entry in
+                guard let entry = entry as? Entry else { return }
                 self?.pushBlogViewController(entry: entry)
             })
         ])
@@ -74,7 +76,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     
     func pushBlogViewController(entry: Entry) {
         let blogViewController = UIStoryboard.VC(name: "Feed", withIdentifier: "BlogViewController") as! BlogViewController
-        blogViewController.summary = entry.summary
+        blogViewController.entry = entry
         self.navigationController?.pushViewController(blogViewController, animated: true)
     }
 }
