@@ -57,7 +57,8 @@ class BlogViewController: BaseViewController {
     }
     
     func setMarkDown(text: String) {
-        //log.debug(text)
+//        log.debug(text)
+        let text = text.replacingOccurrences(of: "width", with: "")
         guard let entry = self.entry,self.downView == nil else { return }
         let down = Down(markdownString: text)
         if var downString = try? down.toCommonMark(DownOptions(rawValue: 1 << 2)) {

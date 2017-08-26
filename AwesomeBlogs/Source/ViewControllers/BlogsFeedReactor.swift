@@ -25,10 +25,14 @@ class BlogsFeedReactor: Reactor {
     }
     
     struct State {
+        enum EventType {
+            case load
+            case setModel
+        }
+        var eventType: EventType = .load
         var isLoading: Bool = false
         var entries: [Entry] = [Entry]()
         var viewModels: [BlogFeedCellViewModel] = [BlogFeedCellViewModel]()
-        var loadTime: TimeInterval = 0
     }
     
     deinit {
@@ -54,9 +58,11 @@ class BlogsFeedReactor: Reactor {
         var state = state
         switch mutation {
         case let .setLoading(isLoading):
+            state.eventType = .load
             state.isLoading = isLoading
             return state
         case let .setEntries(entries):
+            state.eventType = .setModel
             state.entries = entries
             state.viewModels = flatMapFeedViewModel(entries: entries)
             return state

@@ -44,7 +44,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                     self?.view.hideIndicator()
                 }
             }),
-            self.reactor.state.map{ ($0.isLoading,$0.viewModels) }.filter{ $0.0 }.subscribe(onNext: { [weak self] (isLoading,viewModels) in
+            self.reactor.state.filter{ $0.eventType == .setModel }.map{ $0.viewModels }.subscribe(onNext: { [weak self] viewModels in
                 self?.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
                 log.debug(viewModels.count)
             }),

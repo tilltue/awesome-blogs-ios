@@ -47,6 +47,7 @@ extension String {
         }
         remove(tag: "script")
         remove(tag: "pre")
+        remove(tag: "iframe")
 //        let entityMap = [
 //            "&": "&amp;",
 //            "<": "&lt;",
