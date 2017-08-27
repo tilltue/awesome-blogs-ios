@@ -52,6 +52,9 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                 self?.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
                 log.debug(viewModels.count)
             }),
+            GlobalEvent.shared.silentFeedRefresh.filter{ [weak self] group in group == self?.group }.subscribe(onNext: { _ in
+                self.reactor.action.on(.next(.refresh(group: self.group)))
+            }),
             self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] _ in
                 self?.dotTap.on(.next())
             }),

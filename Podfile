@@ -20,6 +20,7 @@ target 'AwesomeBlogs' do
     pod 'SwiftDate', '~> 4.0'
     pod 'EasyAbout'
     pod 'Down'
+    pod 'RealmSwift'
     pod 'KRWordWrapLabel'
     pod 'Swinject', '~> 2.1.0'
     pod 'FAPanels', :git => 'https://github.com/tilltue/FAPanels', :branch => 'master'

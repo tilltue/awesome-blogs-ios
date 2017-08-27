@@ -11,10 +11,22 @@ import RxSwift
 import Moya
 import ObjectMapper
 import Swinject
+import RealmSwift
 
 enum Api {
     static func getFeeds(group: AwesomeBlogs.Group) -> Single<[Entry]> {
-        return Service.shared.container
-            .resolve(RxMoyaProvider<AwesomeBlogs>.self)!.singleRequest(.feeds(group: group)).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }
+        let remote = Service.shared.container
+            .resolve(RxMoyaProvider<AwesomeBlogsRemoteSource>.self)!.singleRequest(.feeds(group: group))
+            .do(onNext: { json in
+                AwesomeBlogsLocalSource.saveFeeds(group: group, json: json)
+            }).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }.asObservable()
+        return AwesomeBlogsLocalSource.getFeeds(group: group).do(onNext: { feed in
+            guard feed.isExpired else { return }
+            _ = remote.subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+                .do(onNext: { _ in
+                    GlobalEvent.shared.silentFeedRefresh.on(.next(group))
+                }).subscribe()
+        }).map{ feed in feed.entries.flatMap{ Entry(entryDB: $0) }
+        }.ifEmpty(switchTo: remote).asSingle()
     }
 }

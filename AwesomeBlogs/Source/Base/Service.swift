@@ -23,11 +23,11 @@ struct Service {
     
     func register() {
         let plugins = [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)]
-        self.container.register(RxMoyaProvider<AwesomeBlogs>.self){ _ in RxMoyaProvider<AwesomeBlogs>(plugins: plugins) }
+        self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(plugins: plugins) }
     }
     
     func mockRegister() {
-        self.container.register(RxMoyaProvider<AwesomeBlogs>.self){ _ in RxMoyaProvider<AwesomeBlogs>(stubClosure: MoyaProvider.immediatelyStub) }
+        self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(stubClosure: MoyaProvider.immediatelyStub) }
     }
     
     func reactorRegister() {

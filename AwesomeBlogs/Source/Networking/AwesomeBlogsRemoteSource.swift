@@ -1,5 +1,5 @@
 //
-//  AwesomeBlogs.swift
+//  AwesomeBlogsRemoteSource.swift
 //  AwesomeBlogs
 //
 //  Created by wade.hawk on 2017. 7. 3..
@@ -9,31 +9,12 @@
 import Foundation
 import Moya
 
-enum AwesomeBlogs {
-    enum Group: String {
-        case all
-        case dev
-        case company
-        case insightful
-        var title: String {
-            switch self {
-            case .all:
-                return "ALL".localized
-            case .dev:
-                return "DEVELOPER".localized
-            case .company:
-                return "TECH COMPANY".localized
-            case .insightful:
-                return "INSIGHTFUL".localized
-            }
-        }
-    }
-    case feeds(group: Group)
+enum AwesomeBlogsRemoteSource {
+    case feeds(group: AwesomeBlogs.Group)
     case read
-    static let groups:[Group] = [.all,.dev,.company,.insightful]
 }
 
-extension AwesomeBlogs: TargetType {
+extension AwesomeBlogsRemoteSource: TargetType {
     public var baseURL: URL { return URL(string: "https://awesome-blogs.petabytes.org")! }
     public var path: String {
         switch self {

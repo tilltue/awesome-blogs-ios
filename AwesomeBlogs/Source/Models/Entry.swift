@@ -1,4 +1,4 @@
-    //
+//
 //  Entry.swift
 //  AwesomeBlogs
 //
@@ -9,6 +9,11 @@
 import Foundation
 import SwiftyJSON
 import ObjectMapper
+import RealmSwift
+
+enum EntryError: Error {
+    case unknown
+}
 
 struct Entry: Equatable,ImmutableMappable {
     let title: String
@@ -26,6 +31,16 @@ struct Entry: Equatable,ImmutableMappable {
         self.updatedAt = try map.value("updated_at", using: DateAtTransform())
         self.summary = try map.value("summary")
         self.removeHTMLSummary = self.summary.removeHTMLTags
+    }
+    
+    init?(entryDB: EntryDB) {
+        self.title = entryDB.title
+        self.author = entryDB.author
+        guard let url = entryDB.link.url else { return nil }
+        self.link = url
+        self.updatedAt = Date(timeIntervalSince1970: entryDB.updatedAt)
+        self.summary = entryDB.summary
+        self.removeHTMLSummary = entryDB.removeHTMLSummary
     }
     
     static func ==(lhs: Entry,rhs: Entry) -> Bool {

@@ -29,7 +29,6 @@ class AwesomeBlogsSpec: QuickSpec {
             describe("DI: used mock data") {
                 beforeEach {
                     Service.shared.mockRegister()
-                    //provider.awesomeBlogProvider = container.resolve(RxMoyaProvider<AwesomeBlogs>.self)
                 }
                 //it("mock 데이터는 1개의 엔트리를 가져온다")
                 it("mock data has returned 1 entry") {
@@ -40,7 +39,7 @@ class AwesomeBlogsSpec: QuickSpec {
                     }, onError: { error in
                         
                     }).disposed(by: disposeBag)
-                    expect(count).toEventually(equal(1))
+                    expect(count).toEventually(equal(103))
                 }
             }
             //describe("네트워크를 사용하도록 의존성 주입") {

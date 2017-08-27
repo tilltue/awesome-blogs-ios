@@ -28,6 +28,7 @@
 		5D3927121F45FB3000BE7923 /* BlogFeedCell_Circle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3927111F45FB3000BE7923 /* BlogFeedCell_Circle.swift */; };
 		5D3927141F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3927131F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift */; };
 		5D3927161F45FB7000BE7923 /* BlogFeedCell_Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D3927151F45FB7000BE7923 /* BlogFeedCell_Table.swift */; };
+		5D4AC2F31F531451005432DE /* GlobalEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4AC2F21F531451005432DE /* GlobalEvent.swift */; };
 		5D4AC6021F45EBBC005B6B20 /* BlogFeedCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */; };
 		5D4AC6041F45F150005B6B20 /* BlogFeedCell_TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */; };
 		5D4C3F031F4DA6F7001B35F4 /* MockDevBlogs.json in Resources */ = {isa = PBXBuildFile; fileRef = 5D4C3F021F4DA6F7001B35F4 /* MockDevBlogs.json */; };
@@ -47,6 +48,14 @@
 		5D65EB561F33763900D6E633 /* BaseBlogFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB551F33763900D6E633 /* BaseBlogFeedViewController.swift */; };
 		5D65EB581F33768400D6E633 /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D65EB571F33768400D6E633 /* Feed.storyboard */; };
 		5D65EB5B1F33796F00D6E633 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */; };
+		5D6F89741F52C48100F4D491 /* AwesomeBlogsCacheSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F89731F52C48100F4D491 /* AwesomeBlogsCacheSpec.swift */; };
+		5D6F89761F52C66300F4D491 /* Realm+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F89751F52C66300F4D491 /* Realm+Extension.swift */; };
+		5D6F89781F52CB6C00F4D491 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F89771F52CB6C00F4D491 /* FileManager+Extension.swift */; };
+		5D6F897A1F52D97A00F4D491 /* RealmAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F89791F52D97A00F4D491 /* RealmAPI.swift */; };
+		5D6F897E1F52DE9300F4D491 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F897D1F52DE9300F4D491 /* Feed.swift */; };
+		5D6F89801F52DE9D00F4D491 /* EntryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F897F1F52DE9D00F4D491 /* EntryDB.swift */; };
+		5D6F89841F52E5EA00F4D491 /* AwsomeBlogsLocalSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F89831F52E5EA00F4D491 /* AwsomeBlogsLocalSource.swift */; };
+		5D6F89861F52E60200F4D491 /* AwsomeBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6F89851F52E60200F4D491 /* AwsomeBlogs.swift */; };
 		5D6FCF3A1F4AB3F1002DCF90 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5D6FCF391F4AB3F1002DCF90 /* Default-568h@2x.png */; };
 		5D6FCF3C1F4ABF8D002DCF90 /* MainSideMenuReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCF3B1F4ABF8D002DCF90 /* MainSideMenuReactorSpec.swift */; };
 		5D6FCF541F4B424C002DCF90 /* LeftSideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCF531F4B424C002DCF90 /* LeftSideMenuViewController.swift */; };
@@ -61,7 +70,7 @@
 		5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85951F1FA8F30082D5E1 /* UIView+Extension.swift */; };
 		5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85971F1FA8F30082D5E1 /* Entry.swift */; };
 		5DAB85A51F1FA8F30082D5E1 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85991F1FA8F30082D5E1 /* Api.swift */; };
-		5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogs.swift */; };
+		5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift */; };
 		5DAB85A71F1FA8F30082D5E1 /* MainSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859D1F1FA8F30082D5E1 /* MainSideMenuController.swift */; };
 		88B7CF2BE8363D977BA59F3C /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F9F4B23AAD9EA9FBCDB62 /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework */; };
 /* End PBXBuildFile section */
@@ -116,6 +125,7 @@
 		5D3927111F45FB3000BE7923 /* BlogFeedCell_Circle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell_Circle.swift; sourceTree = "<group>"; };
 		5D3927131F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell_Diagonal.swift; sourceTree = "<group>"; };
 		5D3927151F45FB7000BE7923 /* BlogFeedCell_Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCell_Table.swift; sourceTree = "<group>"; };
+		5D4AC2F21F531451005432DE /* GlobalEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalEvent.swift; sourceTree = "<group>"; };
 		5D4AC6011F45EBBC005B6B20 /* BlogFeedCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogFeedCellViewModel.swift; sourceTree = "<group>"; };
 		5D4AC6031F45F150005B6B20 /* BlogFeedCell_TableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogFeedCell_TableCell.xib; sourceTree = "<group>"; };
 		5D4C3F021F4DA6F7001B35F4 /* MockDevBlogs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockDevBlogs.json; sourceTree = "<group>"; };
@@ -135,6 +145,14 @@
 		5D65EB551F33763900D6E633 /* BaseBlogFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBlogFeedViewController.swift; sourceTree = "<group>"; };
 		5D65EB571F33768400D6E633 /* Feed.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
+		5D6F89731F52C48100F4D491 /* AwesomeBlogsCacheSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeBlogsCacheSpec.swift; sourceTree = "<group>"; };
+		5D6F89751F52C66300F4D491 /* Realm+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Extension.swift"; sourceTree = "<group>"; };
+		5D6F89771F52CB6C00F4D491 /* FileManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		5D6F89791F52D97A00F4D491 /* RealmAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmAPI.swift; sourceTree = "<group>"; };
+		5D6F897D1F52DE9300F4D491 /* Feed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		5D6F897F1F52DE9D00F4D491 /* EntryDB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryDB.swift; sourceTree = "<group>"; };
+		5D6F89831F52E5EA00F4D491 /* AwsomeBlogsLocalSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwsomeBlogsLocalSource.swift; sourceTree = "<group>"; };
+		5D6F89851F52E60200F4D491 /* AwsomeBlogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwsomeBlogs.swift; sourceTree = "<group>"; };
 		5D6FCF391F4AB3F1002DCF90 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5D6FCF3B1F4ABF8D002DCF90 /* MainSideMenuReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSideMenuReactorSpec.swift; sourceTree = "<group>"; };
 		5D6FCF531F4B424C002DCF90 /* LeftSideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftSideMenuViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +167,7 @@
 		5DAB85951F1FA8F30082D5E1 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		5DAB85971F1FA8F30082D5E1 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		5DAB85991F1FA8F30082D5E1 /* Api.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
-		5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeBlogs.swift; sourceTree = "<group>"; };
+		5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeBlogsRemoteSource.swift; sourceTree = "<group>"; };
 		5DAB859D1F1FA8F30082D5E1 /* MainSideMenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainSideMenuController.swift; sourceTree = "<group>"; };
 		73A3E35F6407F7C484420A27 /* Pods_AwesomeBlogs_AwesomeBlogsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeBlogs_AwesomeBlogsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25F9F4B23AAD9EA9FBCDB62 /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AwesomeBlogs_AwesomeBlogsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -223,6 +241,7 @@
 			children = (
 				5D65EB1F1F32293900D6E633 /* Quick+Extension.swift */,
 				5D17D7931F1E6D7D00C5D84D /* AwesomeBlogsApiSpec.swift */,
+				5D6F89731F52C48100F4D491 /* AwesomeBlogsCacheSpec.swift */,
 				5D1FF4511F2651EC009C863B /* BlogsFeedReactorSpec.swift */,
 				5D6FCF3B1F4ABF8D002DCF90 /* MainSideMenuReactorSpec.swift */,
 				5D17D7951F1E6D7D00C5D84D /* Info.plist */,
@@ -286,6 +305,15 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
+		5D6F897C1F52DE8800F4D491 /* RealmObject */ = {
+			isa = PBXGroup;
+			children = (
+				5D6F897D1F52DE9300F4D491 /* Feed.swift */,
+				5D6F897F1F52DE9D00F4D491 /* EntryDB.swift */,
+			);
+			name = RealmObject;
+			sourceTree = "<group>";
+		};
 		5DAB858E1F1FA8F30082D5E1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -306,6 +334,7 @@
 				5D65EB5D1F337A1900D6E633 /* Protocol */,
 				5D1FF4441F264675009C863B /* Common */,
 				5D6111F51F2E47A300D7F61C /* Service.swift */,
+				5D4AC2F21F531451005432DE /* GlobalEvent.swift */,
 				5DAB85901F1FA8F30082D5E1 /* BaseView.swift */,
 				5DAB85911F1FA8F30082D5E1 /* BaseViewController.swift */,
 				5D65EB591F33796F00D6E633 /* BaseNavigationViewController.swift */,
@@ -327,6 +356,9 @@
 				5D1B1CC91F49A93000EA6ED7 /* Date+Extension.swift */,
 				5D853A9A1F49D99300A6732A /* UIStoryboard+Extension.swift */,
 				5D853A9D1F49DDC400A6732A /* RxTableViewCustomReloadDataSource.swift */,
+				5D6F89751F52C66300F4D491 /* Realm+Extension.swift */,
+				5D6F89771F52CB6C00F4D491 /* FileManager+Extension.swift */,
+				5D6F89791F52D97A00F4D491 /* RealmAPI.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -334,6 +366,7 @@
 		5DAB85961F1FA8F30082D5E1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5D6F897C1F52DE8800F4D491 /* RealmObject */,
 				5DAB85971F1FA8F30082D5E1 /* Entry.swift */,
 			);
 			path = Models;
@@ -344,7 +377,9 @@
 			children = (
 				5D5D92E71F42D5DA0062631B /* MockJson */,
 				5DAB85991F1FA8F30082D5E1 /* Api.swift */,
-				5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogs.swift */,
+				5D6F89851F52E60200F4D491 /* AwsomeBlogs.swift */,
+				5D6F89831F52E5EA00F4D491 /* AwsomeBlogsLocalSource.swift */,
+				5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -705,6 +740,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D5D92F21F435C5D0062631B /* NSLayoutConstraint.swift in Sources */,
+				5D6F897E1F52DE9300F4D491 /* Feed.swift in Sources */,
+				5D6F89781F52CB6C00F4D491 /* FileManager+Extension.swift in Sources */,
 				5DAB85A71F1FA8F30082D5E1 /* MainSideMenuController.swift in Sources */,
 				5D5D92EB1F42D6910062631B /* Bundle+Extension.swift in Sources */,
 				5D1B1CC81F47C48900EA6ED7 /* BlogFeedCell_Rectangle.swift in Sources */,
@@ -714,15 +751,18 @@
 				5DAB85A31F1FA8F30082D5E1 /* UIView+Extension.swift in Sources */,
 				5D1FF4461F264684009C863B /* MaterialLoadingIndicator.swift in Sources */,
 				5D5D92ED1F42D75A0062631B /* String+Extension.swift in Sources */,
+				5D6F89841F52E5EA00F4D491 /* AwsomeBlogsLocalSource.swift in Sources */,
 				5D5D92E31F42D2A10062631B /* BlogFeedCell.swift in Sources */,
 				5D4AC6021F45EBBC005B6B20 /* BlogFeedCellViewModel.swift in Sources */,
 				5D1FF4541F2659AE009C863B /* BlogsFeedReactor.swift in Sources */,
 				5D1FF4501F264903009C863B /* UIColor+Extension.swift in Sources */,
 				5D0BBAC61F4EE30D0062A829 /* Delay.swift in Sources */,
 				5D6FCF581F4C8F94002DCF90 /* BlogViewController.swift in Sources */,
-				5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogs.swift in Sources */,
+				5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift in Sources */,
 				5D2594821F3A1E0A00C49CE2 /* RxFeedTableViewBindProtocol.swift in Sources */,
+				5D6F89861F52E60200F4D491 /* AwsomeBlogs.swift in Sources */,
 				5D17D77F1F1E6D7D00C5D84D /* AppDelegate.swift in Sources */,
+				5D6F89761F52C66300F4D491 /* Realm+Extension.swift in Sources */,
 				5DAB859F1F1FA8F30082D5E1 /* BaseView.swift in Sources */,
 				5DAB85A41F1FA8F30082D5E1 /* Entry.swift in Sources */,
 				5D3927141F45FB4900BE7923 /* BlogFeedCell_Diagonal.swift in Sources */,
@@ -730,7 +770,10 @@
 				5D3927121F45FB3000BE7923 /* BlogFeedCell_Circle.swift in Sources */,
 				5DAB85A01F1FA8F30082D5E1 /* BaseViewController.swift in Sources */,
 				5D65EB5B1F33796F00D6E633 /* BaseNavigationViewController.swift in Sources */,
+				5D4AC2F31F531451005432DE /* GlobalEvent.swift in Sources */,
 				5D1B1CCA1F49A93000EA6ED7 /* Date+Extension.swift in Sources */,
+				5D6F89801F52DE9D00F4D491 /* EntryDB.swift in Sources */,
+				5D6F897A1F52D97A00F4D491 /* RealmAPI.swift in Sources */,
 				5D3927161F45FB7000BE7923 /* BlogFeedCell_Table.swift in Sources */,
 				5D853A9B1F49D99300A6732A /* UIStoryboard+Extension.swift in Sources */,
 				5DAB85A21F1FA8F30082D5E1 /* Reactive+Extension.swift in Sources */,
@@ -751,6 +794,7 @@
 				5D65EB201F32293900D6E633 /* Quick+Extension.swift in Sources */,
 				5D6FCF3C1F4ABF8D002DCF90 /* MainSideMenuReactorSpec.swift in Sources */,
 				5D17D7941F1E6D7D00C5D84D /* AwesomeBlogsApiSpec.swift in Sources */,
+				5D6F89741F52C48100F4D491 /* AwesomeBlogsCacheSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
