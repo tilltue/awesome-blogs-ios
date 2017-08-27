@@ -15,6 +15,7 @@ import WebKit
 class BlogViewController: BaseViewController {
     
     @IBOutlet var backButton: UIButton!
+    @IBOutlet var airdropButton: UIButton!
     @IBOutlet var containerView: UIView!
     var entry: Entry? = nil
     var downView: DownView? = nil
@@ -45,15 +46,25 @@ class BlogViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.showIndicator()
         htmlConvertMD()
         compositeDisposable.add(disposables: [
             self.backButton.rx.tap.subscribe(onNext: { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }),
+            self.airdropButton.rx.tap.map{ [weak self] _ in self?.entry?.link }.subscribe(onNext: { [weak self] url in
+                guard let url = url else { return }
+                self?.presentActivityVC(url: url)
+            }),
             self.downText.asDriver().filter{ !$0.isEmpty }.drive(onNext: { [weak self] text in
                 self?.setMarkDown(text: text)
             })
         ])
+    }
+    
+    func presentActivityVC(url: URL) {
+        let activityVC = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        self.present(activityVC, animated: true, completion: nil)
     }
     
     func setMarkDown(text: String) {
@@ -64,7 +75,10 @@ class BlogViewController: BaseViewController {
         if var downString = try? down.toCommonMark(DownOptions(rawValue: 1 << 2)) {
             downString = "## [" + entry.title + "](" + entry.link.absoluteString + ")\n###### "
                 + "by \(entry.author) · \(entry.updatedAt.colloquial())" + "\n" + downString
-            self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString)
+            self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString, didLoadSuccessfully: { [weak self] _ in
+                self?.view.hideIndicator()
+            })
+            
         }
         guard let downView = self.downView else { return }
         self.containerView.addSubview(downView)
