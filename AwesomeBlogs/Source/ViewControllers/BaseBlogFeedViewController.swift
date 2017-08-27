@@ -12,6 +12,10 @@ import RxCocoa
 import RxDataSources
 
 class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProtocol {
+    @IBOutlet var refreshView: UIView!
+    @IBOutlet var refreshViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var indicator: UIActivityIndicatorView!
+    
     @IBOutlet var dotView: UIView!
     @IBOutlet var dotButton: UIButton!
     @IBOutlet var tableView: UITableView!
@@ -52,6 +56,8 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                 self?.dotTap.on(.next())
             }),
             self.reloaded.subscribe(onNext: { [weak self] _ in
+                self?.refreshViewHeightConstraint.constant = 0
+                self?.tableView.contentOffset = CGPoint.zero
                 self?.checkDotView()
             }),
             self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
@@ -65,6 +71,17 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
             self.insideCellEvent.subscribe(onNext: { [weak self] entry in
                 guard let entry = entry as? Entry else { return }
                 self?.pushBlogViewController(entry: entry)
+            }),
+            self.tableView.rx.contentOffset.filter{ $0.y < 0 }.subscribe(onNext: { [weak self] point in
+                guard let `self` = self else { return }
+                self.refreshViewHeightConstraint.constant = 20 - point.y
+                let scale = fmin(1.8, fmax(1,point.y / -30))
+                self.indicator.transform = CGAffineTransform(scaleX: scale, y: scale)
+                if point.y < -60,!self.indicator.isAnimating {
+                    log.debug("refresh trigger")
+                    self.indicator.startAnimating()
+                    self.refreshTrigger()
+                }
             })
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
@@ -72,6 +89,14 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    func refreshTrigger() {
+        self.tableView.rx.contentOffset.filter{ $0.y >= 0 }.take(1).subscribe(onNext:{ [weak self] _ in
+            guard let `self` = self else { return }
+            self.indicator.stopAnimating()
+            self.reactor.action.on(.next(.refresh(group: self.group)))
+        }).disposed(by: disposeBag)
     }
     
     func pushBlogViewController(entry: Entry) {
@@ -84,7 +109,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
 //MARK: - UITableViewDelegate
 extension BlogFeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return self.view.height
+        return self.tableView.height
     }
     
     func checkDotView() {

@@ -42,6 +42,7 @@ class BlogsFeedReactor: Reactor {
     let initialState = State()
     
     func mutate(action: Action) -> Observable<Mutation> {
+        guard self.currentState.isLoading == false else { return Observable.empty() }
         let start = Observable.just(Mutation.setLoading(true))
         let end = Observable.just(Mutation.setLoading(false))
         switch action {

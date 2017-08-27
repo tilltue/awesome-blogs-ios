@@ -22,7 +22,6 @@ target 'AwesomeBlogs' do
     pod 'Down'
     pod 'KRWordWrapLabel'
     pod 'Swinject', '~> 2.1.0'
-    pod 'AMScrollingNavbar'
     pod 'FAPanels', :git => 'https://github.com/tilltue/FAPanels', :branch => 'master'
     target 'AwesomeBlogsTests' do
         test_pods
