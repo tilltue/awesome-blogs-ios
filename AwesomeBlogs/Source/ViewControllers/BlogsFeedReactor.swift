@@ -64,8 +64,10 @@ class BlogsFeedReactor: Reactor {
             return state
         case let .setEntries(entries):
             state.eventType = .setModel
-            state.entries = entries
-            state.viewModels = flatMapFeedViewModel(entries: entries)
+            if state.entries.first != entries.first {
+                state.entries = entries
+                state.viewModels = flatMapFeedViewModel(entries: entries)
+            }
             return state
         }
     }

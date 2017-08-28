@@ -73,7 +73,7 @@ class BlogViewController: BaseViewController {
         guard let entry = self.entry,self.downView == nil else { return }
         let down = Down(markdownString: text)
         if var downString = try? down.toCommonMark(DownOptions(rawValue: 1 << 2)) {
-            downString = "## [" + entry.title + "](" + entry.link.absoluteString + ")\n###### "
+            downString = "## " + entry.title + "\n###### "
                 + "by \(entry.author) · \(entry.updatedAt.colloquial())" + "\n" + downString
             self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString, didLoadSuccessfully: { [weak self] _ in
                 self?.view.hideIndicator()

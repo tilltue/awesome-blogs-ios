@@ -20,12 +20,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWj-WI-2ld">
-                        <rect key="frame" x="23" y="88" width="329" height="540.5"/>
+                        <rect key="frame" x="23" y="38" width="329" height="600.5"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D98-SX-0zm">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="540.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="329" height="600.5"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -34,8 +35,8 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="BWj-WI-2ld" firstAttribute="leading" secondItem="Vtd-0Q-C6e" secondAttribute="leadingMargin" constant="15" id="BG9-Zd-uF3"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="BWj-WI-2ld" secondAttribute="bottom" constant="30" id="hjj-8m-LXo"/>
-                    <constraint firstItem="BWj-WI-2ld" firstAttribute="top" secondItem="Vtd-0Q-C6e" secondAttribute="topMargin" constant="80" id="jnv-Jy-qSX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="BWj-WI-2ld" secondAttribute="bottom" constant="20" id="hjj-8m-LXo"/>
+                    <constraint firstItem="BWj-WI-2ld" firstAttribute="top" secondItem="Vtd-0Q-C6e" secondAttribute="topMargin" constant="30" id="jnv-Jy-qSX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="BWj-WI-2ld" secondAttribute="trailing" constant="15" id="vxk-Cb-LIL"/>
                 </constraints>
             </tableViewCellContentView>

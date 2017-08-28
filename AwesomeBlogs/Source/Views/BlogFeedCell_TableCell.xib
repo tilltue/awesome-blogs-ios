@@ -12,23 +12,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogFeedCell_TableCell" id="khj-ux-58N" customClass="BlogFeedCell" customModule="AwesomeBlogs" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="khj-ux-58N" id="wrd-Qy-7QW">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="NPZ-hd-toW">
-                        <rect key="frame" x="8" y="49.5" width="359" height="101"/>
+                        <rect key="frame" x="8" y="8" width="359" height="83.5"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="950" constant="21" id="jFM-17-6Md"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-K6-nmg" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
-                                <rect key="frame" x="0.0" y="27" width="359" height="51"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-K6-nmg" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
+                                <rect key="frame" x="0.0" y="27" width="359" height="33.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" priority="250" constant="51" id="XN5-rr-len"/>
+                                </constraints>
                                 <string key="text">Label
 ㅇ ㅇ</string>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
@@ -36,7 +42,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
-                                <rect key="frame" x="0.0" y="84" width="359" height="17"/>
+                                <rect key="frame" x="0.0" y="66.5" width="359" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" priority="750" constant="17" id="04E-2N-Pht"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
                                 <color key="textColor" white="0.0" alpha="0.25" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>

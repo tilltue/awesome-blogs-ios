@@ -23,6 +23,7 @@ class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.width, height: 1))
         self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.bindDataSource(tableView: self.tableView)
         self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
