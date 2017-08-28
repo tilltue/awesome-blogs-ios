@@ -10,6 +10,7 @@ import UIKit
 import XCGLogger
 import Fabric
 import Crashlytics
+import Firebase
 
 let log = XCGLogger.default
 
@@ -26,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             log.verbose("\(FileManager.documentsDir())")
         #else
             Fabric.with([Crashlytics.self])
+            FirebaseApp.configure()
             log.setup(level: .severe, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true)
             if let consoleLog = log.destination(withIdentifier: XCGLogger.Constants.baseConsoleDestinationIdentifier) as? ConsoleDestination {
                 consoleLog.logQueue = XCGLogger.logQueue

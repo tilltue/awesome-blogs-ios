@@ -11,6 +11,7 @@ target 'AwesomeBlogs' do
     use_frameworks!
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'Firebase/Core'
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'RxDataSources'
