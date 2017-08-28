@@ -16,14 +16,20 @@ struct Service {
     let container = Container()
     
     private init() {
-        mockRegister()
-//        register()
+//        mockRegister()
+        register()
         reactorRegister()
     }
     
     func register() {
+        let version =
+            (Bundle.main.infoDictionary?["CFBundleShortVersionString"]) as? String ?? "1.0"
+        let endpointClosure = { (target: AwesomeBlogsRemoteSource) -> Endpoint<AwesomeBlogsRemoteSource> in
+            let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
+            return defaultEndpoint.adding(newHTTPHeaderFields: ["User-Agent": "awesome-blogs-ios/\(version)"])
+        }
         let plugins = [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)]
-        self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(plugins: plugins) }
+        self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(endpointClosure: endpointClosure,plugins: plugins) }
     }
     
     func mockRegister() {
