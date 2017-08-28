@@ -9,6 +9,8 @@ end
 
 target 'AwesomeBlogs' do
     use_frameworks!
+    pod 'Fabric'
+    pod 'Crashlytics'
     pod 'RxSwift'
     pod 'RxCocoa'
     pod 'RxDataSources'

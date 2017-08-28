@@ -458,6 +458,7 @@
 				5D17D7791F1E6D7D00C5D84D /* Resources */,
 				968311645CF7A71D0A36A159 /* [CP] Embed Pods Frameworks */,
 				38BE5536088F2021AA88528D /* [CP] Copy Pods Resources */,
+				5D4AC2F41F531EF1005432DE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -641,6 +642,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AwesomeBlogs-AwesomeBlogsTests/Pods-AwesomeBlogs-AwesomeBlogsTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		5D4AC2F41F531EF1005432DE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" d681fa3447fdb8f13e18ee327c6ce8a00bcfb3dc 50f8dc51e890b223b7d8dcde5d3c94d0e10770ba20aeeb94eb71bfde57727906";
 		};
 		715B31174B25B94DD1CC2679 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

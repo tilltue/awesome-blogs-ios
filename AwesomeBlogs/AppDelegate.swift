@@ -8,6 +8,8 @@
 
 import UIKit
 import XCGLogger
+import Fabric
+import Crashlytics
 
 let log = XCGLogger.default
 
@@ -23,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             log.setup(level: .verbose, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true)
             log.verbose("\(FileManager.documentsDir())")
         #else
+            Fabric.with([Crashlytics.self])
             log.setup(level: .severe, showThreadName: true, showLevel: true, showFileNames: true, showLineNumbers: true)
             if let consoleLog = log.destination(withIdentifier: XCGLogger.Constants.baseConsoleDestinationIdentifier) as? ConsoleDestination {
                 consoleLog.logQueue = XCGLogger.logQueue
