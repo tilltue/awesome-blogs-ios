@@ -23,6 +23,7 @@ enum Api {
         return AwesomeBlogsLocalSource.getFeeds(group: group).do(onNext: { feed in
             guard feed.isExpired else { return }
             _ = remote.subscribeOn(SerialDispatchQueueScheduler(qos: .background))
+                .observeOn(MainScheduler.instance)
                 .do(onNext: { _ in
                     GlobalEvent.shared.silentFeedRefresh.on(.next(group))
                 }).subscribe()
