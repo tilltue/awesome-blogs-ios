@@ -28,4 +28,7 @@ enum Api {
         }).map{ feed in feed.entries.flatMap{ Entry(entryDB: $0) }
         }.ifEmpty(switchTo: remote).asSingle()
     }
+    static func readFeeds(link: String) -> Observable<Void> {
+        return Service.shared.container.resolve(RxMoyaProvider<AwesomeBlogsRemoteSource>.self)!.request(.read(link: link)).map{ _ in }
+    }
 }
