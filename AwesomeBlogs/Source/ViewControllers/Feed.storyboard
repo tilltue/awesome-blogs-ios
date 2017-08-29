@@ -65,10 +65,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psl-Yq-5Sa">
-                                <rect key="frame" x="12" y="40" width="40" height="40"/>
+                                <rect key="frame" x="0.0" y="40" width="52" height="40"/>
                                 <subviews>
                                     <view userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YkM-Ap-JyE">
-                                        <rect key="frame" x="20" y="10" width="10" height="10"/>
+                                        <rect key="frame" x="32" y="10" width="10" height="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -84,13 +84,13 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGs-dj-Q7B">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="52" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="WVs-QU-OcJ"/>
+                                    <constraint firstAttribute="width" constant="52" id="WVs-QU-OcJ"/>
                                     <constraint firstAttribute="height" constant="40" id="Wl8-tN-hyK"/>
                                 </constraints>
                             </view>
@@ -99,7 +99,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Gr1-qT-5CM" secondAttribute="trailing" id="0OX-WB-Ygc"/>
                             <constraint firstItem="7im-M9-Bzl" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="0gy-7k-QGH"/>
-                            <constraint firstItem="psl-Yq-5Sa" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" constant="12" id="2hW-WE-9Ya"/>
+                            <constraint firstItem="psl-Yq-5Sa" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="2hW-WE-9Ya"/>
                             <constraint firstAttribute="trailing" secondItem="6F7-YR-Xvj" secondAttribute="trailing" id="5rC-7j-B9p"/>
                             <constraint firstItem="Gr1-qT-5CM" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="9EV-4g-pgK"/>
                             <constraint firstItem="6F7-YR-Xvj" firstAttribute="leading" secondItem="am9-zG-dJ8" secondAttribute="leading" id="CKt-ZQ-CFD"/>

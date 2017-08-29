@@ -112,6 +112,14 @@ enum System {
 
 // MARK: - NotificationCenter
 extension Reactive where Base: NotificationCenter {
+    public var willEnterForeground: Observable<Notification> {
+        return self.notification(System.didEnterBackground.name)
+    }
+    
+    public var didEnterBackground: Observable<Notification> {
+        return self.notification(System.didEnterBackground.name)
+    }
+    
     func keyboard(_ notification: KeyboardNotification) -> Observable<(begin: (CGRect,TimeInterval), end: (CGRect,TimeInterval))> {
         return self.notification(notification.name)
             .flatMap { event -> Observable<(begin: (CGRect,TimeInterval), end: (CGRect,TimeInterval))> in

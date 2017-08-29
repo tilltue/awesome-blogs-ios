@@ -63,9 +63,9 @@ class BlogsFeedReactor: Reactor {
             state.isLoading = isLoading
             return state
         case let .setEntries(entries):
-            state.eventType = .setModel
-            if state.entries.first != entries.first {
+            if state.entries.count == 0 || state.entries.first != entries.first {
                 state.entries = entries
+                state.eventType = .setModel
                 state.viewModels = flatMapFeedViewModel(entries: entries)
             }
             return state
