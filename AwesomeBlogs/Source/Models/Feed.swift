@@ -20,8 +20,7 @@ class Feed: Object {
     let entries = List<EntryDB>()
     
     var isExpired: Bool {
-        print(Date(timeIntervalSince1970: expiredTime).timeIntervalSinceNow)
-        return Date(timeIntervalSince1970: expiredTime).timeIntervalSinceNow < -100
+        return Date(timeIntervalSince1970: expiredTime).timeIntervalSinceNow < -1800
     }
     
     override static func primaryKey() -> String? {
