@@ -20,22 +20,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CBY-NZ-Lcl">
-                        <rect key="frame" x="32" y="88" width="311" height="526.5"/>
+                        <rect key="frame" x="32" y="78" width="311" height="536.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="우버시대를 대비하는 일본의 택시업계" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDZ-C5-aeU" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
-                                <rect key="frame" x="0.0" y="0.0" width="311" height="67"/>
+                                <rect key="frame" x="0.0" y="0.0" width="311" height="68"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by estima7" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MQ-g2-Plo">
-                                <rect key="frame" x="0.0" y="75" width="311" height="19.5"/>
+                                <rect key="frame" x="0.0" y="76" width="311" height="19.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evn-vU-SVP" customClass="KRWordWrapLabel" customModule="KRWordWrapLabel">
-                                <rect key="frame" x="0.0" y="506.5" width="311" height="20"/>
+                                <rect key="frame" x="0.0" y="516.5" width="311" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="0.65000000000000002" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -58,7 +58,7 @@
                 <color key="backgroundColor" red="0.1019607843" green="0.73725490199999999" blue="0.61176470589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="CBY-NZ-Lcl" secondAttribute="bottom" constant="44" id="8Cn-3X-i7m"/>
-                    <constraint firstItem="CBY-NZ-Lcl" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="topMargin" constant="80" id="SnM-L6-u7a"/>
+                    <constraint firstItem="CBY-NZ-Lcl" firstAttribute="top" secondItem="wrd-Qy-7QW" secondAttribute="topMargin" constant="70" id="SnM-L6-u7a"/>
                     <constraint firstItem="CBY-NZ-Lcl" firstAttribute="leading" secondItem="wrd-Qy-7QW" secondAttribute="leadingMargin" constant="24" id="fxt-3P-Rs1"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CBY-NZ-Lcl" secondAttribute="trailing" constant="24" id="hrX-M4-rDZ"/>
                 </constraints>

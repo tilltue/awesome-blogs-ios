@@ -60,6 +60,8 @@ class BlogViewController: BaseViewController {
                 self?.setMarkDown(text: text)
             })
         ])
+        guard let link = self.entry?.link.absoluteString else { return }
+        Api.readFeeds(link: link).subscribe().disposed(by: disposeBag)
     }
     
     func presentActivityVC(url: URL) {

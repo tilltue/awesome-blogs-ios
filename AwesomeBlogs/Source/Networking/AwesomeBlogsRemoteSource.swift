@@ -11,7 +11,7 @@ import Moya
 
 enum AwesomeBlogsRemoteSource {
     case feeds(group: AwesomeBlogs.Group)
-    case read
+    case read(link: String)
 }
 
 extension AwesomeBlogsRemoteSource: TargetType {
@@ -20,7 +20,7 @@ extension AwesomeBlogsRemoteSource: TargetType {
         switch self {
         case .feeds(_):
             return "/feeds.json"
-        case .read:
+        case .read(_):
             return "/feeds/read.json"
         }
     }
@@ -28,7 +28,7 @@ extension AwesomeBlogsRemoteSource: TargetType {
         switch self {
         case .feeds(_):
             return .get
-        case .read:
+        case .read(_):
             return .post
         }
     }
@@ -37,8 +37,8 @@ extension AwesomeBlogsRemoteSource: TargetType {
         switch self {
         case .feeds(let group):
             parameters["group"] = group.rawValue
-        case .read:
-            return parameters
+        case .read(let link):
+            parameters["url"] = link
         }
         return parameters
     }
