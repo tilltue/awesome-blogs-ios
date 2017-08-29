@@ -72,7 +72,6 @@
 		5DAB85A51F1FA8F30082D5E1 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB85991F1FA8F30082D5E1 /* Api.swift */; };
 		5DAB85A61F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859A1F1FA8F30082D5E1 /* AwesomeBlogsRemoteSource.swift */; };
 		5DAB85A71F1FA8F30082D5E1 /* MainSideMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB859D1F1FA8F30082D5E1 /* MainSideMenuController.swift */; };
-		5DDAD9301F53B5BC000B2376 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDAD92F1F53B5BC000B2376 /* GoogleService-Info.plist */; };
 		88B7CF2BE8363D977BA59F3C /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F9F4B23AAD9EA9FBCDB62 /* Pods_AwesomeBlogs_AwesomeBlogsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -581,7 +580,6 @@
 				5D5D92E91F42D5EF0062631B /* MockCompanyBlogs.json in Resources */,
 				5D5D92E01F42D2A10062631B /* BlogFeedCell_Circle.xib in Resources */,
 				5D5D92E21F42D2A10062631B /* BlogFeedCell_Table.xib in Resources */,
-				5DDAD9301F53B5BC000B2376 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
