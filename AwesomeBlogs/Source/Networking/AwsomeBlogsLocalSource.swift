@@ -27,12 +27,14 @@ enum AwesomeBlogsLocalSource {
         let realmApi = RealmAPI<Feed>()
         realmApi.deleteMapper = { $0.group == group.rawValue }
         realmApi.cascadeDelete = { object in
+//            log.verbose("delete cascade\(object.entries.count)")
             try? realm.write {
                 realm.delete(object.entries)
             }
         }
         realmApi.delete()
         let feed = Feed(group: group, json: json)
+//        log.verbose("save count\(json["entries"].arrayValue.count)")
         for entry in json["entries"].arrayValue {
             let object = EntryDB(group: group, json: entry)
             try? realm.write {

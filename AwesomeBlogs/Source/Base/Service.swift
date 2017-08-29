@@ -10,6 +10,7 @@ import Foundation
 import Moya
 import Swinject
 import ReactorKit
+import RealmSwift
 
 struct Service {
     static let shared = Service()
@@ -30,6 +31,16 @@ struct Service {
         }
         let plugins = [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)]
         self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(endpointClosure: endpointClosure,plugins: plugins) }
+    }
+    
+    func deleteFeedCache() {
+        guard let realm = try? Realm() else { return }
+        if let feed = RealmAPI<Feed>().getObject() {
+            try? realm.write {
+                realm.delete(feed.entries)
+                realm.delete(feed)
+            }
+        }
     }
     
     func mockRegister() {

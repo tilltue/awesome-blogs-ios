@@ -42,11 +42,12 @@ class BlogsFeedReactorSpec: QuickSpec {
                 disposeBag = DisposeBag()
                 reactor = BlogsFeedReactor()
                 Service.shared.mockRegister()
+                Service.shared.deleteFeedCache()
             }
             //describe("액션을 전달하고 이벤트 스트림 결과를 비교") {
             describe("action -> event stream result") {
-                //it("액션: 피드 로드") {
-                it("action: feed load") {
+                //it("액션: 피드 로드 -> 엔트리 상태 확인") {
+                it("action: feed load -> get entries") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
                     var index = 0
                     let times = [100,150,200,250]
@@ -54,34 +55,35 @@ class BlogsFeedReactorSpec: QuickSpec {
                     .subscribe(onNext: { event in
                         stateEvents.append(next(times[index],event))
                         index+=1
-                        log.debug("state : \(event.loading) \(event.entryCount)")
+                        log.debug("load state : \(event.loading) \(event.entryCount)")
                     }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
                                                             next(150, FeedStateEvent(loading: true, entryCount: 0)),
                                                             next(200, FeedStateEvent(loading: true, entryCount: 103)),
-                                                            next(250, FeedStateEvent(loading: false, entryCount: 103))]))
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 103))]),
+                                                     timeout: 20)
                 }
-                it("action: feed load , feed refresh") {
+                //it("액션: 피드 로드가 되면 리프레시 액션을 수행. 필터 : reactor state 의 event type 중 setModel")
+                it("action: feed load -> complete load -> feed refresh (filter eventType: setModel) ") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
                     var index = 0
-                    let times = [100,150,200,250,300,350,400]
-                    reactor.state.map{ FeedStateEvent(loading: $0.isLoading, entryCount:$0.entries.count) }
+                    let times = [100,150]
+                    reactor.state.filter{ $0.eventType == .setModel }.map{ FeedStateEvent(loading: $0.isLoading, entryCount:$0.entries.count) }
                     .subscribe(onNext: { event in
                         stateEvents.append(next(times[index],event))
                         index+=1
-                        log.debug("state : \(event.loading) \(event.entryCount)")
+                        log.debug("refresh state : \(event.loading) \(event.entryCount)")
+                        if event.entryCount == 103 {
+                            reactor.action.on(.next(.refresh(group: .company)))
+                        }
                     }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
-                    reactor.action.on(.next(.refresh(group: .company)))
-                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0)),
-                                                            next(150, FeedStateEvent(loading: true, entryCount: 0)),
-                                                            next(200, FeedStateEvent(loading: true, entryCount: 103)),
-                                                            next(250, FeedStateEvent(loading: false, entryCount: 103)),
-                                                            next(300, FeedStateEvent(loading: true, entryCount: 103)),
-                                                            next(350, FeedStateEvent(loading: true, entryCount: 35)),
-                                                            next(400, FeedStateEvent(loading: false, entryCount: 35))]))
+                    expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: true, entryCount: 103)),
+                                                            next(150, FeedStateEvent(loading: true, entryCount: 35))]),
+                                                     timeout: 20)
                 }
+                //it("액션: 피드 로드 -> 뷰모델이 정상적으로 생성되었는지 확인.")
                 it("action: feed load -> usable view model") {
                     var stateEvents = [Recorded<Event<FeedStateEvent>>]()
                     var index = 0
@@ -92,17 +94,17 @@ class BlogsFeedReactorSpec: QuickSpec {
                         })
                         let useableViewModel = state.entries.count == viewModelEntryCount && viewModelEntryCount > 0
                         return FeedStateEvent(loading: state.isLoading, entryCount:state.entries.count, useableViewModel: useableViewModel)
-                        }
-                        .subscribe(onNext: { event in
-                            stateEvents.append(next(times[index],event))
-                            index+=1
-                            log.debug("state : \(event.loading) \(event.entryCount) \(event.useableViewModel)")
-                        }).disposed(by: disposeBag)
+                    }.subscribe(onNext: { event in
+                        stateEvents.append(next(times[index],event))
+                        index+=1
+                        log.debug("usable state : \(event.loading) \(event.entryCount) \(event.useableViewModel)")
+                    }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .company)))
                     expect(stateEvents).toEventually(equal([next(100, FeedStateEvent(loading: false, entryCount: 0, useableViewModel: false)),
                                                             next(150, FeedStateEvent(loading: true, entryCount: 0, useableViewModel: false)),
                                                             next(200, FeedStateEvent(loading: true, entryCount: 35, useableViewModel: true)),
-                                                            next(250, FeedStateEvent(loading: false, entryCount: 35, useableViewModel: true))]))
+                                                            next(250, FeedStateEvent(loading: false, entryCount: 35, useableViewModel: true))]),
+                                                     timeout: 20)
                 }
             }
         }
