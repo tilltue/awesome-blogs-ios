@@ -24,5 +24,8 @@
 <a href="https://itunes.apple.com/us/app/%EC%96%B4%EC%8D%B8-%EB%B8%94%EB%A1%9C%EA%B7%B8/id1276023809?l=ko&ls=1&mt=8"><img src="./badge-download-on-the-app-store.png"></a>
 
 ## 업데이트 내역
-### v1.0 2017.
+### v1.1 2017.08.
+ * 피드 성능 개선, safari로 열기 버튼 추가.
+
+### v1.0 2017.08.31
  * 아이폰 버전 배포.
