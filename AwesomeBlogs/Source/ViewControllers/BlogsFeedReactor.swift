@@ -17,6 +17,7 @@ class BlogsFeedReactor: Reactor {
     enum Action {
         case load(group: AwesomeBlogs.Group)
         case refresh(group: AwesomeBlogs.Group)
+        case silentRefresh(entries: [Entry])
     }
     
     enum Mutation {
@@ -51,6 +52,8 @@ class BlogsFeedReactor: Reactor {
         case .refresh(let group):
             let getFeed = Api.getFeeds(group: group).asObservable().map(Mutation.setEntries)
             return Observable.concat(start,getFeed,end)
+        case .silentRefresh(let entries):
+            return Observable.just(Mutation.setEntries(entries))
         }
     }
     
