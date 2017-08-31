@@ -36,6 +36,7 @@ struct Service {
         }
         let plugins = [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)]
         self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(endpointClosure: endpointClosure,plugins: plugins) }
+        self.container.register(SerialDispatchQueueScheduler.self,name: RegisterationName.cacheSave.rawValue){ _ in SerialDispatchQueueScheduler(qos: .background) }
     }
     
     func deleteFeedCache() {
@@ -56,7 +57,6 @@ struct Service {
     func reactorRegister() {
         self.container.register(BlogsFeedReactor.self) { _ in BlogsFeedReactor() }
         self.container.register(MainSideMenuReactor.self) { _ in MainSideMenuReactor() }
-        self.container.register(SerialDispatchQueueScheduler.self,name: RegisterationName.cacheSave.rawValue){ _ in SerialDispatchQueueScheduler(qos: .background) }
     }
 }
 
