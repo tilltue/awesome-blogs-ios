@@ -24,12 +24,12 @@ class AwesomeBlogsApiSpec: QuickSpec {
         context("awesome blog feed api test") {
             beforeEach {
                 disposeBag = DisposeBag()
-                Service.shared.deleteFeedCache()
             }
             //describe("mock 데이터 사용하도록 의존성 주입") {
             describe("DI: used mock data") {
                 beforeEach {
                     Service.shared.mockRegister()
+                    Service.shared.deleteFeedCache()
                 }
                 //it("mock 데이터는 103개의 엔트리를 가져온다")
                 it("mock data has returned 103 entry") {
@@ -45,6 +45,7 @@ class AwesomeBlogsApiSpec: QuickSpec {
             describe("DI: used networking") {
                 beforeEach {
                     Service.shared.register()
+                    Service.shared.deleteFeedCache()
                 }
                 //it("엔트리를 10개 이상 얻어오면 성공") {
                 it("return entries greater than 10") {

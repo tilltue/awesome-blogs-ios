@@ -17,7 +17,7 @@ enum Api {
     static func getFeeds(group: AwesomeBlogs.Group) -> Single<[Entry]> {
         let remote = Service.shared.container
             .resolve(RxMoyaProvider<AwesomeBlogsRemoteSource>.self)!.singleRequest(.feeds(group: group))
-            .observeOn(SerialDispatchQueueScheduler(qos: .background))
+            .observeOn(Service.shared.container.resolve(SerialDispatchQueueScheduler.self, name: Service.RegisterationName.cacheSave.rawValue)!)
             .do(onNext: { json in
                 AwesomeBlogsLocalSource.saveFeeds(group: group, json: json)
             }).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }.asObservable()

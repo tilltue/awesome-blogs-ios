@@ -11,10 +11,15 @@ import Moya
 import Swinject
 import ReactorKit
 import RealmSwift
+import RxSwift
 
 struct Service {
     static let shared = Service()
     let container = Container()
+    
+    enum RegisterationName: String {
+        case cacheSave = "CacheSaveDispatchQueue"
+    }
     
     private init() {
 //        mockRegister()
@@ -45,11 +50,13 @@ struct Service {
     
     func mockRegister() {
         self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(stubClosure: MoyaProvider.immediatelyStub) }
+        self.container.register(SerialDispatchQueueScheduler.self,name: RegisterationName.cacheSave.rawValue){ _ in MainScheduler.instance }
     }
     
     func reactorRegister() {
         self.container.register(BlogsFeedReactor.self) { _ in BlogsFeedReactor() }
         self.container.register(MainSideMenuReactor.self) { _ in MainSideMenuReactor() }
+        self.container.register(SerialDispatchQueueScheduler.self,name: RegisterationName.cacheSave.rawValue){ _ in SerialDispatchQueueScheduler(qos: .background) }
     }
 }
 
