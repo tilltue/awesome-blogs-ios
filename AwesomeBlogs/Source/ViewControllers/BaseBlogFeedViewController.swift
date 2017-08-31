@@ -58,13 +58,12 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
             }),
             NotificationCenter.default.rx.willEnterForeground.subscribe(onNext: { [weak self] _ in
                 guard let `self` = self else { return }
-                self.reactor.action.on(.next(.refresh(group: self.group)))
+                self.reactor.action.on(.next(.refresh(group: self.group, force: false)))
             }),
             self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] _ in
                 self?.dotTap.on(.next())
             }),
             self.reloaded.subscribe(onNext: { [weak self] _ in
-                print("reloaded!!!")
                 self?.refreshViewHeightConstraint.constant = 0
                 self?.tableView.contentOffset = CGPoint.zero
                 self?.checkDotView()
@@ -104,7 +103,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
         self.tableView.rx.contentOffset.filter{ $0.y >= 0 }.take(1).subscribe(onNext:{ [weak self] _ in
             guard let `self` = self else { return }
             self.indicator.stopAnimating()
-            self.reactor.action.on(.next(.refresh(group: self.group)))
+            self.reactor.action.on(.next(.refresh(group: self.group, force: true)))
         }).disposed(by: disposeBag)
     }
     

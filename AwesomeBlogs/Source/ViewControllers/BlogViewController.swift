@@ -15,6 +15,7 @@ import WebKit
 class BlogViewController: BaseViewController {
     
     @IBOutlet var backButton: UIButton!
+    @IBOutlet var safariButton: UIButton!
     @IBOutlet var airdropButton: UIButton!
     @IBOutlet var containerView: UIView!
     var entry: Entry? = nil
@@ -46,7 +47,6 @@ class BlogViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.showIndicator()
         htmlConvertMD()
         compositeDisposable.add(disposables: [
             self.backButton.rx.tap.subscribe(onNext: { [weak self] _ in
@@ -55,6 +55,10 @@ class BlogViewController: BaseViewController {
             self.airdropButton.rx.tap.map{ [weak self] _ in self?.entry?.link }.subscribe(onNext: { [weak self] url in
                 guard let url = url else { return }
                 self?.presentActivityVC(url: url)
+            }),
+            self.safariButton.rx.tap.map{ [weak self] _ in self?.entry?.link }.subscribe(onNext: { url in
+                guard let url = url else { return }
+                UIApplication.shared.open(url)
             }),
             self.downText.asDriver().filter{ !$0.isEmpty }.drive(onNext: { [weak self] text in
                 self?.setMarkDown(text: text)
@@ -78,11 +82,11 @@ class BlogViewController: BaseViewController {
             downString = "## " + entry.title + "\n###### "
                 + "by \(entry.author) · \(entry.updatedAt.colloquial())" + "\n" + downString
             self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString, didLoadSuccessfully: { [weak self] _ in
-                self?.view.hideIndicator()
+                self?.downView?.hideIndicator()
             })
-            
         }
         guard let downView = self.downView else { return }
+        self.downView?.showIndicator()
         self.containerView.addSubview(downView)
     }
     

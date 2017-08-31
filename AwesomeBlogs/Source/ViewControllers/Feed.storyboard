@@ -140,14 +140,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xrs-If-EY3">
-                                        <rect key="frame" x="10" y="27" width="30" height="30"/>
+                                        <rect key="frame" x="15" y="27" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="back_black"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIG-zD-TDE">
-                                        <rect key="frame" x="335" y="26" width="32" height="32"/>
+                                        <rect key="frame" x="325" y="26" width="32" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="browser_black"/>
+                                        <inset key="imageEdgeInsets" minX="1" minY="1" maxX="1" maxY="1"/>
+                                        <state key="normal" image="share_black"/>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oRf-TW-efj">
                                         <rect key="frame" x="0.0" y="63" width="375" height="1"/>
@@ -162,6 +163,11 @@
                                             </constraint>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eQh-oM-7i4">
+                                        <rect key="frame" x="275" y="26" width="32" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="safari"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -191,15 +197,17 @@
                         <outlet property="airdropButton" destination="ZIG-zD-TDE" id="TdF-DE-I8Y"/>
                         <outlet property="backButton" destination="Xrs-If-EY3" id="9ly-1w-KqE"/>
                         <outlet property="containerView" destination="II3-VD-nbo" id="ybh-1t-pIY"/>
+                        <outlet property="safariButton" destination="eQh-oM-7i4" id="T7G-KA-Dc6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EbB-Hl-v3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1197.5999999999999" y="-18.440779610194905"/>
+            <point key="canvasLocation" x="502" y="-18"/>
         </scene>
     </scenes>
     <resources>
         <image name="back_black" width="72" height="72"/>
-        <image name="browser_black" width="72" height="72"/>
+        <image name="safari" width="96" height="96"/>
+        <image name="share_black" width="72" height="72"/>
     </resources>
 </document>

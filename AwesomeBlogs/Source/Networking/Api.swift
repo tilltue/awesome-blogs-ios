@@ -14,7 +14,7 @@ import Swinject
 import RealmSwift
 
 enum Api {
-    static func getFeeds(group: AwesomeBlogs.Group) -> Single<[Entry]> {
+    static func getFeeds(group: AwesomeBlogs.Group, force: Bool = false) -> Single<[Entry]> {
         let remote = Service.shared.container
             .resolve(RxMoyaProvider<AwesomeBlogsRemoteSource>.self)!.singleRequest(.feeds(group: group))
             .observeOn(Service.shared.container.resolve(SerialDispatchQueueScheduler.self, name: Service.RegisterationName.cacheSave.rawValue)!)
@@ -22,6 +22,9 @@ enum Api {
                 AwesomeBlogsLocalSource.saveFeeds(group: group, json: json)
             }).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }.asObservable()
             .observeOn(MainScheduler.instance)
+        if force {
+            return remote.asSingle()
+        }
         return AwesomeBlogsLocalSource.getFeeds(group: group).do(onNext: { feed in
             guard feed.isExpired else { return }
             _ = remote.do(onNext: { entries in
