@@ -19,6 +19,7 @@ target 'AwesomeBlogs' do
     pod 'ObjectMapper'
     pod 'ReactorKit'
     pod 'Moya/RxSwift'
+    pod 'ReachabilitySwift'
     pod 'XCGLogger'
     pod 'SwiftDate', '~> 4.0'
     pod 'EasyAbout'

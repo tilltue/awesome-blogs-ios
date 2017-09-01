@@ -85,7 +85,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                 self.refreshViewHeightConstraint.constant = 20 - point.y
                 let scale = fmin(1.8, fmax(1,point.y / -30))
                 self.indicator.transform = CGAffineTransform(scaleX: scale, y: scale)
-                if point.y < -60,!self.indicator.isAnimating {
+                if point.y < -150,!self.indicator.isAnimating {
                     log.debug("refresh trigger")
                     self.indicator.startAnimating()
                     self.refreshTrigger()

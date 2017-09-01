@@ -19,10 +19,6 @@ class Feed: Object {
     
     let entries = List<EntryDB>()
     
-    var isExpired: Bool {
-        return Date(timeIntervalSince1970: expiredTime).timeIntervalSinceNow < -1800
-    }
-    
     override static func primaryKey() -> String? {
         return "group"
     }
@@ -34,5 +30,9 @@ class Feed: Object {
         self.desc = json["description"].stringValue
         self.updatedAt = DateAtTransform().transformFromJSON(json["updated_at"].string)?.timeIntervalSince1970 ?? Date().timeIntervalSince1970
         self.expiredTime = Date().timeIntervalSince1970
+    }
+    
+    func isExpired(time: TimeInterval) -> Bool {
+        return Date(timeIntervalSince1970: expiredTime).timeIntervalSinceNow < time
     }
 }
