@@ -45,8 +45,12 @@ extension BlogFeedTableViewBindProtocol {
                 }
             case .table:
                 let cell = cell as! BlogFeedCell_Table
-                //                let viewModels = entries.map{ BlogFeedCellViewModel(cellType: .tableCell(entry: $0)) }
-            //                cell.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
+                let viewModels = cellViewModel.entryViewModels.flatMap({ (entryViewModel) -> BlogFeedCellViewModel? in
+                    var viewModel = BlogFeedCellViewModel(style: .tableCell, entries: [])
+                    viewModel.entryViewModels = [entryViewModel]
+                    return viewModel
+                })
+                cell.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
             case .tableCell:
                 if let entryViewModel = cellViewModel.entryViewModels.first {
                     cell.titleLabel?.text = entryViewModel.title
