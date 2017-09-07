@@ -18,7 +18,7 @@ class BlogViewController: BaseViewController {
     @IBOutlet var safariButton: UIButton!
     @IBOutlet var airdropButton: UIButton!
     @IBOutlet var containerView: UIView!
-    var entry: Entry? = nil
+    var entryViewModel: FeedEntryViewModel? = nil
     var downView: DownView? = nil
     var downText = Variable("")
     var webView = WKWebView()
@@ -52,20 +52,21 @@ class BlogViewController: BaseViewController {
             self.backButton.rx.tap.subscribe(onNext: { [weak self] _ in
                 self?.navigationController?.popViewController(animated: true)
             }),
-            self.airdropButton.rx.tap.map{ [weak self] _ in self?.entry?.link }.subscribe(onNext: { [weak self] url in
-                guard let url = url else { return }
+            self.airdropButton.rx.tap.map{ [weak self] _ in self?.entryViewModel?.link }.subscribe(onNext: { [weak self] link in
+                guard let url = link?.url else { return }
                 self?.presentActivityVC(url: url)
             }),
-            self.safariButton.rx.tap.map{ [weak self] _ in self?.entry?.link }.subscribe(onNext: { url in
-                guard let url = url else { return }
+            self.safariButton.rx.tap.map{ [weak self] _ in self?.entryViewModel?.link }.subscribe(onNext: { link in
+                guard let url = link?.url else { return }
                 UIApplication.shared.open(url)
             }),
             self.downText.asDriver().filter{ !$0.isEmpty }.drive(onNext: { [weak self] text in
                 self?.setMarkDown(text: text)
             })
         ])
-        guard let link = self.entry?.link.absoluteString else { return }
-        Api.readFeeds(link: link).subscribe().disposed(by: disposeBag)
+        if let link = self.entryViewModel?.link {
+            Api.readFeeds(link: link).subscribe().disposed(by: disposeBag)
+        }
     }
     
     func presentActivityVC(url: URL) {
@@ -76,11 +77,11 @@ class BlogViewController: BaseViewController {
     func setMarkDown(text: String) {
 //        log.debug(text)
         let text = text.replacingOccurrences(of: "width", with: "")
-        guard let entry = self.entry,self.downView == nil else { return }
+        guard let entryViewModel = self.entryViewModel,self.downView == nil else { return }
         let down = Down(markdownString: text)
         if var downString = try? down.toCommonMark(DownOptions(rawValue: 1 << 2)) {
-            downString = "## " + entry.title + "\n###### "
-                + "by \(entry.author) · \(entry.updatedAt.colloquial())" + "\n" + downString
+            downString = "## " + entryViewModel.title + "\n###### "
+                + "by \(entryViewModel.author) · \(entryViewModel.updatedAt.colloquial())" + "\n" + downString
             self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString, didLoadSuccessfully: { [weak self] _ in
                 self?.downView?.hideIndicator()
             })
@@ -91,7 +92,7 @@ class BlogViewController: BaseViewController {
     }
     
     func htmlConvertMD() {
-        let string = "<html><head><meta charset=\"utf-8\"><script> var downText = \"\(self.entry!.summary.removeNewLine)\";</script></head><body></body></html>"
+        let string = "<html><head><meta charset=\"utf-8\"><script> var downText = \"\(self.entryViewModel!.summary.removeNewLine)\";</script></head><body></body></html>"
         self.webView.loadHTMLString(string, baseURL: nil)
         self.webView.allowsBackForwardNavigationGestures = true
         self.webView.navigationDelegate = self

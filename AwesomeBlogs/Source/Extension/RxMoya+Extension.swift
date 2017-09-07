@@ -21,12 +21,6 @@ func JSONResponseDataFormatter(_ data: Data) -> Data {
     }
 }
 
-extension String {
-    var urlEscaped: String {
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
-}
-
 extension RxMoyaProvider {
     func singleRequest(_ token: Target) -> Single<JSON> {
         return Single<JSON>.create { single in

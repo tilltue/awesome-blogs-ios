@@ -91,20 +91,20 @@ extension BlogsFeedReactor {
             case 1 where mutableEntries.count > 2:
                 let entries = Array(mutableEntries.prefix(2))
                 guard entries.count == 2 else { break }
-                viewModels.append(BlogFeedCellViewModel(cellType: .diagonal(entries: entries)))
+                viewModels.append(BlogFeedCellViewModel(style: .diagonal, entries: entries))
                 mutableEntries.removeFirst(2)
             case 2:
                 guard let entry = mutableEntries.first else { break }
-                viewModels.append(BlogFeedCellViewModel(cellType: .rectangle(entry: entry)))
+                viewModels.append(BlogFeedCellViewModel(style: .rectangle, entries: [entry]))
                 mutableEntries.removeFirst()
             case 3:
                 let entries = Array(mutableEntries.prefix(4))
                 guard entries.count == 4 else { break }
-                viewModels.append(BlogFeedCellViewModel(cellType: .table(entries: entries)))
+                viewModels.append(BlogFeedCellViewModel(style: .table, entries: entries))
                 mutableEntries.removeFirst(4)
             default:
                 guard let entry = mutableEntries.first else { break }
-                viewModels.append(BlogFeedCellViewModel(cellType: .circle(entry: entry)))
+                viewModels.append(BlogFeedCellViewModel(style: .circle, entries: [entry]))
                 mutableEntries.removeFirst()
             }
         }while(mutableEntries.count > 0)

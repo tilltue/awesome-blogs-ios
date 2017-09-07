@@ -12,9 +12,8 @@ import RxCocoa
 import RxDataSources
 
 protocol RxTableCellViewModel: IdentifiableType, Equatable {
-    static var cellNibSet: [String] { get set }
+    var cellIdentifier: String { get }
     var canEdit: Bool { get set }
-    func cellFactory(tableView:UITableView, indexPath:IndexPath) -> BaseUITableViewCell
 }
 
 extension RxTableCellViewModel {
@@ -26,12 +25,14 @@ extension RxTableCellViewModel {
 
 protocol RxTableViewBindProtocol: class {
     associatedtype ModelType: RxTableCellViewModel
+    var cellNibSet: [String] { get set }
     var cellViewModels: Variable<[AnimatableSectionModel<String,ModelType>]> { get set }
     var selectedCell: PublishSubject<(IndexPath,ModelType)> { get set }
-    var insideCellEvent: PublishSubject<Any> { get set }
     var reloaded: PublishSubject<Void> { get set }
+    var insideCellEvent: PublishSubject<Any> { get set }
     var disposeBag: DisposeBag { get set }
     func bindDataSource(tableView: UITableView)
+    func createDataSource(tableView: UITableView) -> RxTableViewCustomReloadDataSource<SectionModelType>
 }
 
 extension RxTableViewBindProtocol {
@@ -39,8 +40,16 @@ extension RxTableViewBindProtocol {
     typealias SectionModelType = AnimatableSectionModel<String,ModelType>
     
     func bindDataSource(tableView: UITableView) {
-        register(tableView: tableView, nibNameSet: ModelType.cellNibSet)
-        self.cellViewModels.asDriver().drive(tableView.rx.items(dataSource: createDataSource())).disposed(by: disposeBag)
+        register(tableView: tableView, nibNameSet: self.cellNibSet)
+        let dataSource = createDataSource(tableView: tableView)
+        dataSource.canEditRowAtIndexPath = { [weak self] (ds, IndexPath) -> Bool in
+            guard let `self` = self else { return false }
+            return self.cellViewModels.value[IndexPath.section].items[IndexPath.row].canEdit
+        }
+        dataSource.reloadEvent = { [weak self] _ in
+            self?.reloaded.on(.next())
+        }
+        self.cellViewModels.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             guard let `self` = self else { return }
             guard let sectionModel = (self.cellViewModels.value.filter{ $0.model == "section\(indexPath.section)" }.first) else { return }
@@ -57,27 +66,11 @@ extension RxTableViewBindProtocol {
         guard indexPath.row < self.cellViewModels.value[indexPath.section].items.count else { return nil }
         return self.cellViewModels.value[indexPath.section].items[indexPath.row]
     }
+    
     private func register(tableView: UITableView, nibNameSet: [String]) {
         for nibName in nibNameSet {
             let nib = UINib(nibName: nibName, bundle: nil)
             tableView.register(nib, forCellReuseIdentifier: nibName)
         }
-    }
-    
-    private func createDataSource() -> RxTableViewCustomReloadDataSource<SectionModelType> {
-        let dataSource = RxTableViewCustomReloadDataSource<SectionModelType>()
-        dataSource.configureCell = { [weak self] ds, tv, ip, cellViewModel -> BaseUITableViewCell in
-            let cell = cellViewModel.cellFactory(tableView: tv, indexPath: ip)
-            cell.insideEvent = self?.insideCellEvent
-            return cell
-        }
-        dataSource.canEditRowAtIndexPath = { [weak self] (ds, IndexPath) -> Bool in
-            guard let `self` = self else { return false }
-            return self.cellViewModels.value[IndexPath.section].items[IndexPath.row].canEdit
-        }
-        dataSource.reloadEvent = { [weak self] _ in
-            self?.reloaded.on(.next())
-        }
-        return dataSource
     }
 }

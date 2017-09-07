@@ -13,12 +13,13 @@ import RxSwift
 class BlogFeedView: BaseUIView {
     @IBOutlet var titleLabel: UILabel?
     @IBOutlet var authorDateLabel: UILabel?
-    var entry: Entry? = nil
     
-    func setData(entry: Entry) {
-        self.titleLabel?.text = entry.title
-        self.authorDateLabel?.text = "by \(entry.author) · \(entry.updatedAt.colloquial())"
-        self.entry = entry
+    var entryViewModel: FeedEntryViewModel? = nil
+    
+    func setData(entryViewModel: FeedEntryViewModel) {
+        self.entryViewModel = entryViewModel
+        self.titleLabel?.text = entryViewModel.title
+        self.authorDateLabel?.text = "by \(entryViewModel.author) · \(entryViewModel.updatedAt.colloquial())"
     }
     
     override func awakeFromNib() {
@@ -54,11 +55,11 @@ class BlogFeedCell_Diagonal: BlogFeedCell {
         }.take(1).subscribe(onNext: { [weak self] _ in
             self?.drawLayer()
         }).disposed(by: disposeBag)
-        let topTap = self.topBlogFeedView.rxTap.map{ [weak self] _ in self?.topBlogFeedView.entry }
-        let bottomTap = self.bottomBlogFeedView.rxTap.map{ [weak self] _ in self?.bottomBlogFeedView.entry }
-        Observable.merge([topTap,bottomTap]).subscribe(onNext: { [weak self] entry in
-            guard let entry = entry else { return }
-            self?.insideEvent?.on(.next(entry))
+        let topTap = self.topBlogFeedView.rxTap.map{ [weak self] _ in self?.topBlogFeedView.entryViewModel }
+        let bottomTap = self.bottomBlogFeedView.rxTap.map{ [weak self] _ in self?.bottomBlogFeedView.entryViewModel }
+        Observable.merge([topTap,bottomTap]).subscribe(onNext: { [weak self] entryViewModel in
+            guard let entryViewModel = entryViewModel else { return }
+            self?.insideEvent?.on(.next(entryViewModel))
         }).disposed(by: disposeBag)
     }
     

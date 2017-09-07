@@ -11,8 +11,9 @@ import UIKit
 import RxSwift
 import RxDataSources
 
-class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
+class BlogFeedCell_Table: BlogFeedCell,BlogFeedTableViewBindProtocol {
     
+    var cellNibSet = [FeedCellStyle.tableCell.cellIdentifier]
     var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
     var reloaded = PublishSubject<Void>()
     var insideCellEvent = PublishSubject<Any>()
@@ -27,8 +28,8 @@ class BlogFeedCell_Table: BlogFeedCell,RxTableViewBindProtocol {
         self.tableView.rx.setDelegate(self).disposed(by: disposeBag)
         self.bindDataSource(tableView: self.tableView)
         self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
-            if case .tableCell(let entry) = viewModel.cellType {
-                self?.insideEvent?.on(.next(entry))
+            if case .tableCell = viewModel.style, let entryViewModel = viewModel.entryViewModels.first {
+                self?.insideEvent?.on(.next(entryViewModel))
             }
         }).disposed(by: disposeBag)
     }

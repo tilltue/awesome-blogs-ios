@@ -18,7 +18,7 @@ enum EntryError: Error {
 struct Entry: Equatable,ImmutableMappable {
     let title: String
     let author: String
-    let link: URL
+    let link: String
     let updatedAt: Date
     let summary: String
     let removeHTMLSummary: String
@@ -27,7 +27,7 @@ struct Entry: Equatable,ImmutableMappable {
     init(map: Map) throws {
         self.title = try map.value("title", using: RemoveHTMLAtTransform())
         self.author = try map.value("author")
-        self.link = try map.value("link", using: URLTransform())
+        self.link = try map.value("link")
         self.updatedAt = try map.value("updated_at", using: DateAtTransform())
         self.summary = try map.value("summary")
         self.removeHTMLSummary = self.summary.removeHTMLTags
@@ -36,14 +36,13 @@ struct Entry: Equatable,ImmutableMappable {
     init?(entryDB: EntryDB) {
         self.title = entryDB.title
         self.author = entryDB.author
-        guard let url = entryDB.link.url else { return nil }
-        self.link = url
+        self.link = entryDB.link
         self.updatedAt = Date(timeIntervalSince1970: entryDB.updatedAt)
         self.summary = entryDB.summary
         self.removeHTMLSummary = entryDB.removeHTMLSummary
     }
     
     static func ==(lhs: Entry,rhs: Entry) -> Bool {
-        return lhs.link.absoluteString == rhs.link.absoluteString
+        return lhs.link == rhs.link
     }
 }

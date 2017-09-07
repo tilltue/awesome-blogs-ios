@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProtocol {
+class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBindProtocol {
     @IBOutlet var refreshView: UIView!
     @IBOutlet var refreshViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet var indicator: UIActivityIndicatorView!
@@ -26,6 +26,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
     }()
     
     typealias ModelType = BlogFeedCellViewModel
+    var cellNibSet = [FeedCellStyle.rectangle.cellIdentifier,FeedCellStyle.circle.cellIdentifier,FeedCellStyle.diagonal.cellIdentifier,FeedCellStyle.table.cellIdentifier]
     var cellViewModels = Variable<[AnimatableSectionModel<String, BlogFeedCellViewModel>]>([])
     var selectedCell = PublishSubject<(IndexPath, BlogFeedCellViewModel)>()
     var reloaded = PublishSubject<Void>()
@@ -69,16 +70,18 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
                 self?.checkDotView()
             }),
             self.selectedCell.subscribe(onNext: { [weak self] (indexPath,viewModel) in
-                switch viewModel.cellType {
-                case .rectangle(let entry), .circle(let entry):
-                    self?.pushBlogViewController(entry: entry)
+                switch viewModel.style {
+                case .rectangle, .circle:
+                    if let entryViewModel = viewModel.entryViewModels.first {
+                        self?.pushBlogViewController(entryViewModel: entryViewModel)
+                    }
                 default:
                     break
                 }
             }),
-            self.insideCellEvent.subscribe(onNext: { [weak self] entry in
-                guard let entry = entry as? Entry else { return }
-                self?.pushBlogViewController(entry: entry)
+            self.insideCellEvent.subscribe(onNext: { [weak self] entryViewModel in
+                guard let entryViewModel = entryViewModel as? FeedEntryViewModel else { return }
+                self?.pushBlogViewController(entryViewModel: entryViewModel)
             }),
             self.tableView.rx.contentOffset.filter{ $0.y < 0 }.subscribe(onNext: { [weak self] point in
                 guard let `self` = self else { return }
@@ -94,7 +97,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -107,9 +110,9 @@ class BlogFeedViewController: BaseViewController,HaveReactor,RxTableViewBindProt
         }).disposed(by: disposeBag)
     }
     
-    func pushBlogViewController(entry: Entry) {
+    func pushBlogViewController(entryViewModel: FeedEntryViewModel) {
         let blogViewController = UIStoryboard.VC(name: "Feed", withIdentifier: "BlogViewController") as! BlogViewController
-        blogViewController.entry = entry
+        blogViewController.entryViewModel = entryViewModel
         self.navigationController?.pushViewController(blogViewController, animated: true)
     }
 }
