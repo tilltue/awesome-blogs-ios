@@ -75,7 +75,7 @@ class BlogsFeedReactorSpec: QuickSpec {
                         index+=1
                         log.debug("refresh state : \(event.loading) \(event.entryCount)")
                         if event.entryCount == 103 {
-                            reactor.action.on(.next(.refresh(group: .company)))
+                            reactor.action.on(.next(.refresh(group: .company, force: true)))
                         }
                     }).disposed(by: disposeBag)
                     reactor.action.on(.next(.load(group: .dev)))
