@@ -90,7 +90,7 @@ class BlogsFeedReactorSpec: QuickSpec {
                     let times = [100,150,200,250]
                     reactor.state.map{ state -> FeedStateEvent in
                         let viewModelEntryCount = state.viewModels.reduce(0, { (result, viewModel) -> Int in
-                            return result + viewModel.cellType.entries.count
+                            return result + viewModel.entryViewModels.count
                         })
                         let useableViewModel = state.entries.count == viewModelEntryCount && viewModelEntryCount > 0
                         return FeedStateEvent(loading: state.isLoading, entryCount:state.entries.count, useableViewModel: useableViewModel)

@@ -117,58 +117,6 @@ extension UIView {
         }
     }
 }
-
-// MARK: - View extension
-extension UIView {
-    class func load(fromNibNamed: String, bundle : Bundle? = nil, withOwner: Any? = nil) -> UIView? {
-        return UINib(nibName: fromNibNamed, bundle: bundle).instantiate(withOwner: withOwner, options: nil)[0] as? UIView
-    }
-    func show(_ show: Bool) -> Bool {
-        if self.isHidden == !show { return false }
-        self.isHidden = !show
-        return true
-    }
-    func removeAllSubView() {
-        for subview in self.subviews {
-            subview.removeFromSuperview()
-        }
-    }
-    func flip(completion: ((Bool) -> Swift.Void)? = nil) {
-        UIView.transition(with: self, duration: 0.2, options: .transitionFlipFromRight, animations: {
-            self.transform = CGAffineTransform(rotationAngle: 0)
-        }, completion: completion)
-    }
-    func flip(back: UIImage?, completion: (() -> Swift.Void)? = nil){
-        let backView = UIImageView(frame: self.frame)
-        backView.origin = CGPoint.zero
-        backView.image = back
-        self.addSubview(backView)
-        UIView.transition(with: backView, duration: 0.2, options: .transitionFlipFromRight, animations: {
-            self.isHidden = false
-        }, completion: { _ in
-            backView.removeFromSuperview()
-        })
-        UIView.transition(with: self, duration: 0.2, options: .transitionFlipFromRight, animations:nil, completion: { _ in
-            self.isHidden = false
-            completion?()
-        })
-    }
-    func gradientAlpha(startPoint:CGPoint = CGPoint(x: 0, y: 0), endPoint: CGPoint = CGPoint(x: 0, y: 1), reverse: Bool = false) {
-        let gradientLayer = CAGradientLayer.init()
-        gradientLayer.frame = self.bounds
-        if reverse {
-            gradientLayer.colors = [UIColor(hex: 0x000000, alpha: 1).cgColor,
-                                    UIColor(hex: 0x000000, alpha: 0).cgColor]
-        }else {
-            gradientLayer.colors = [UIColor(hex: 0x000000, alpha: 0).cgColor,
-                                    UIColor(hex: 0x000000, alpha: 1).cgColor]
-        }
-        gradientLayer.startPoint = startPoint
-        gradientLayer.endPoint = endPoint
-        self.layer.mask = gradientLayer
-    }
-}
-
 extension UIView {
     func snapshot() -> UIImage {
         UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
