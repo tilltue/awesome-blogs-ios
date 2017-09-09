@@ -10,10 +10,7 @@ import XCTest
 import RxSwift
 import Quick
 import Nimble
-import Swinject
-import Moya
 import RxTest
-//import ObjectMapper
 
 @testable import AwesomeBlogs
 

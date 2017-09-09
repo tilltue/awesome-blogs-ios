@@ -9,7 +9,6 @@
 import XCTest
 import Quick
 import Nimble
-import Swinject
 import RxSwift
 import RxTest
 

@@ -10,9 +10,6 @@ import Foundation
 import RxSwift
 import Quick
 import Nimble
-import Swinject
-import Moya
-import ObjectMapper
 import RealmSwift
 
 @testable import AwesomeBlogs
@@ -25,12 +22,10 @@ class AwesomeBlogsCacheSpec: QuickSpec {
             beforeEach {
                 disposeBag = DisposeBag()
                 Service.shared.deleteFeedCache()
+                Service.shared.mockRegister()
             }
             //describe("mock 데이터 사용하도록 의존성 주입") {
             describe("DI: used mock data") {
-                beforeEach {
-                    Service.shared.mockRegister()
-                }
                 it("empty -> api call -> cache database") {
                     var counts: [Int] = []
                     let cache = AwesomeBlogsLocalSource.getFeeds(group: .dev).map{ $0.entries.count }

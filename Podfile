@@ -5,6 +5,7 @@ def test_pods
     pod 'Quick'
     pod 'Nimble'
     pod 'RxTest'
+    pod 'FBSnapshotTestCase'
 end
 
 target 'AwesomeBlogs' do
