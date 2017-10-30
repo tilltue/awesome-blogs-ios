@@ -18,7 +18,7 @@ class ChangedObject: Object {
 }
 
 class RealmString: Object {
-    dynamic var stringValue = ""
+    @objc dynamic var stringValue = ""
     override class func primaryKey() -> String? {
         return "stringValue"
     }

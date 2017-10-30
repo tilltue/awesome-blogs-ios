@@ -14,6 +14,7 @@ import RxCocoa
 class RxTableViewCustomReloadDataSource<S: SectionModelType>: RxTableViewSectionedReloadDataSource<S> {
     
     var reloadEvent: ((Element,Int,Int,S.Item?, S.Item?) -> Void)? = nil
+    var reloadedEvent: (() -> Void)? = nil
     
     override func tableView(_ tableView: UITableView, observedEvent: Event<Element>) {
         UIBindingObserver(UIElement: self) { [weak self] dataSource, element in
@@ -25,6 +26,7 @@ class RxTableViewCustomReloadDataSource<S: SectionModelType>: RxTableViewSection
             let newFirstItem: S.Item? = dataSource.sectionModels.first?.items.first
             tableView.reloadData()
             self?.reloadEvent?(element,oldCount,count,oldFirstItem, newFirstItem)
+            self?.reloadedEvent?()
         }.on(observedEvent)
     }
 }

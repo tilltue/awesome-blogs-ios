@@ -17,15 +17,15 @@ enum FeedCellStyle {
     case table
     var cellIdentifier: String {
         switch self {
-        case .rectangle(entry: _):
+        case .rectangle:
             return "BlogFeedCell_Rectangle"
-        case .circle(entry: _):
+        case .circle:
             return "BlogFeedCell_Circle"
-        case .diagonal(entries: _):
+        case .diagonal:
             return "BlogFeedCell_Diagonal"
-        case .table(entries: _):
+        case .table:
             return "BlogFeedCell_Table"
-        case .tableCell(entry: _):
+        case .tableCell:
             return "BlogFeedCell_TableCell"
         }
     }

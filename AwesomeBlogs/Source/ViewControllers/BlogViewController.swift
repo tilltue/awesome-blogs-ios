@@ -82,7 +82,7 @@ class BlogViewController: BaseViewController {
         if var downString = try? down.toCommonMark(DownOptions(rawValue: 1 << 2)) {
             downString = "## " + entryViewModel.title + "\n###### "
                 + "by \(entryViewModel.author) · \(entryViewModel.updatedAt.colloquial())" + "\n" + downString
-            self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString, didLoadSuccessfully: { [weak self] _ in
+            self.downView = try? DownView(frame: self.containerView.bounds, markdownString: downString, didLoadSuccessfully: { [weak self] in
                 self?.downView?.hideIndicator()
             })
         }

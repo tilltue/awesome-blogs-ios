@@ -146,7 +146,7 @@ extension Reactive where Base: UIScrollView {
             return shouldTrigger
         }.distinctUntilChanged()
         .flatMapFirst{ shouldTrigger -> Observable<Void> in
-            return shouldTrigger ? Observable.just() : Observable.empty()
+            return shouldTrigger ? Observable.just(()) : Observable.empty()
         }
     }
 }

@@ -21,7 +21,7 @@ class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBi
     @IBOutlet var tableView: UITableView!
     
     typealias ReactorType = BlogsFeedReactor
-    lazy var reactor: BlogsFeedReactor = { [unowned self] _ in
+    lazy var reactor: BlogsFeedReactor = { [unowned self] in
        return self.resolve()
     }()
     
@@ -61,8 +61,8 @@ class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBi
                 guard let `self` = self else { return }
                 self.reactor.action.on(.next(.refresh(group: self.group, force: false)))
             }),
-            self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] _ in
-                self?.dotTap.on(.next())
+            self.dotButton.rx.debounceTap.subscribe(onNext: { [weak self] in
+                self?.dotTap.on(.next(()))
             }),
             self.reloaded.subscribe(onNext: { [weak self] _ in
                 self?.refreshViewHeightConstraint.constant = 0

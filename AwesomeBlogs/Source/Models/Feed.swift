@@ -11,11 +11,11 @@ import RealmSwift
 import SwiftyJSON
 
 class Feed: Object {
-    dynamic var group: String = ""
-    dynamic var title: String = ""
-    dynamic var desc: String = ""
-    dynamic var updatedAt: Double = 0
-    dynamic var expiredTime: Double = 0
+    @objc dynamic var group: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var desc: String = ""
+    @objc dynamic var updatedAt: Double = 0
+    @objc dynamic var expiredTime: Double = 0
     
     let entries = List<EntryDB>()
     

@@ -15,7 +15,7 @@ private let accessQueue = DispatchQueue(label: "SyncRealmObj")
 
 enum AwesomeBlogsLocalSource {
     static func getFeeds(group: AwesomeBlogs.Group) -> Observable<Feed> {
-        return Observable.deferred { _ -> Observable<Feed> in
+        return Observable.deferred {
             if let feed = RealmAPI<Feed>().getObject(filter: "group == '\(group.rawValue)'") {
                 return Observable.just(feed)
             }else {

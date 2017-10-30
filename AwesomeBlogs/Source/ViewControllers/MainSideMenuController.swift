@@ -20,7 +20,7 @@ class MainNavController: BaseNavigationViewController {
 class MainSideMenuController: FAPanelController,HaveReactor {
 
     typealias ReactorType = MainSideMenuReactor
-    lazy var reactor: MainSideMenuReactor = { [unowned self] _ in
+    lazy var reactor: MainSideMenuReactor = { [unowned self] in
         return self.resolve()
     }()
     var compositeDisposable = CompositeDisposable()

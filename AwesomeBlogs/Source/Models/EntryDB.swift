@@ -11,13 +11,13 @@ import RealmSwift
 import SwiftyJSON
 
 class EntryDB: Object {
-    dynamic var title: String = ""
-    dynamic var author: String = ""
-    dynamic var link: String = ""
-    dynamic var updatedAt: Double = 0
-    dynamic var summary: String = ""
-    dynamic var removeHTMLSummary: String = ""
-    dynamic var compoundKey: String = ""
+    @objc dynamic var title: String = ""
+    @objc dynamic var author: String = ""
+    @objc dynamic var link: String = ""
+    @objc dynamic var updatedAt: Double = 0
+    @objc dynamic var summary: String = ""
+    @objc dynamic var removeHTMLSummary: String = ""
+    @objc dynamic var compoundKey: String = ""
     
     override static func primaryKey() -> String? {
         return "compoundKey"

@@ -38,10 +38,10 @@ class LeftSideMenuViewController: BaseViewController {
     }
     
     func makeUI() {
-        var normalAttrs: [String : Any] = [NSFontAttributeName : self.allButton.titleLabel!.font,
-                                      NSForegroundColorAttributeName : UIColor.white]
+        var normalAttrs: [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : self.allButton.titleLabel!.font,
+                                           NSAttributedStringKey.foregroundColor : UIColor.white]
         var selectedAttrs = normalAttrs
-        selectedAttrs[NSUnderlineStyleAttributeName] = NSUnderlineStyle.styleSingle.rawValue
+        selectedAttrs[NSAttributedStringKey.underlineStyle] = NSUnderlineStyle.styleSingle.rawValue
         func setStyle(button: UIButton, group: AwesomeBlogs.Group) {
             button.setAttributedTitle(NSAttributedString(string: group.title, attributes: normalAttrs), for: .normal)
             button.setAttributedTitle(NSAttributedString(string: group.title, attributes: selectedAttrs), for: .selected)

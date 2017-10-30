@@ -46,14 +46,14 @@ extension RxTableViewBindProtocol {
             guard let `self` = self else { return false }
             return self.cellViewModels.value[IndexPath.section].items[IndexPath.row].canEdit
         }
-        dataSource.reloadEvent = { [weak self] _ in
-            self?.reloaded.on(.next())
+        dataSource.reloadedEvent = { [weak self] in
+            self?.reloaded.on(.next(()))
         }
         self.cellViewModels.asDriver().drive(tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
         tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
             guard let `self` = self else { return }
             guard let sectionModel = (self.cellViewModels.value.filter{ $0.model == "section\(indexPath.section)" }.first) else { return }
-            self.selectedCell.on(.next(indexPath, sectionModel.items[indexPath.row]))
+            self.selectedCell.on(.next((indexPath, sectionModel.items[indexPath.row])))
         }).disposed(by: disposeBag)
         tableView.rx.itemDeleted.subscribe(onNext: { [weak self] indexPath in
             guard let `self` = self else { return }

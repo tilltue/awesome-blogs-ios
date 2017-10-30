@@ -116,7 +116,7 @@ class MaterialLoadingIndicator: BaseUIView {
         pathAnim.fillMode            = kCAFillModeForwards
         pathAnim.isRemovedOnCompletion = false
         CATransaction.begin()
-        CATransaction.setCompletionBlock { [weak self] _ in
+        CATransaction.setCompletionBlock { [weak self] in
             guard let `self` = self else { return }
             if self.circleShapeLayer.animation(forKey: "stroke") != nil {
                 self.circleShapeLayer.transform = CATransform3DRotate(self.circleShapeLayer.transform, CGFloat(Double.pi*2) * progress, 0, 0, 1)
