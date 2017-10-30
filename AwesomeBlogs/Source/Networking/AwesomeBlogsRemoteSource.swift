@@ -15,6 +15,7 @@ enum AwesomeBlogsRemoteSource {
 }
 
 extension AwesomeBlogsRemoteSource: TargetType {
+    
     public var baseURL: URL { return URL(string: "https://awesome-blogs.petabytes.org")! }
     public var path: String {
         switch self {
@@ -32,6 +33,9 @@ extension AwesomeBlogsRemoteSource: TargetType {
             return .post
         }
     }
+    public var headers: [String : String]? {
+        return nil
+    }
     public var parameters: [String: Any]? {
         var parameters = [String: Any]()
         switch self {
@@ -46,7 +50,7 @@ extension AwesomeBlogsRemoteSource: TargetType {
         return URLEncoding.default
     }
     public var task: Task {
-        return .request
+        return .requestPlain
     }
     public var validate: Bool {
         return true

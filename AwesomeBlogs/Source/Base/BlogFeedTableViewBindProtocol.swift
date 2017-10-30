@@ -15,8 +15,7 @@ protocol BlogFeedTableViewBindProtocol: RxTableViewBindProtocol {
 
 extension BlogFeedTableViewBindProtocol {
     func createDataSource(tableView: UITableView) -> RxTableViewCustomReloadDataSource<AnimatableSectionModel<String, BlogFeedCellViewModel>> {
-        let dataSource = RxTableViewCustomReloadDataSource<AnimatableSectionModel<String, BlogFeedCellViewModel>>()
-        dataSource.configureCell = { [weak self, weak tableView] ds, tv, ip, cellViewModel -> BaseUITableViewCell in
+        let dataSource = RxTableViewCustomReloadDataSource<AnimatableSectionModel<String, BlogFeedCellViewModel>>(configureCell: { [weak self, weak tableView] ds, tv, ip, cellViewModel -> BaseUITableViewCell in
             let cell = tableView?.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier) as! BlogFeedCell
             cell.insideEvent = self?.insideCellEvent
             switch cellViewModel.style {
@@ -60,7 +59,7 @@ extension BlogFeedTableViewBindProtocol {
             }
             cell.selectionStyle = .none
             return cell
-        }
+        })
         return dataSource
     }
 }

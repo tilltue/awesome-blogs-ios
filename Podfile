@@ -26,7 +26,7 @@ target 'AwesomeBlogs' do
     pod 'EasyAbout'
     pod 'Down'
     pod 'RealmSwift'
-    pod 'KRWordWrapLabel'
+    pod 'KRWordWrapLabel', :git => 'https://github.com/tilltue/KRWordWrapLabel', :branch => 'master'
     pod 'Swinject', '~> 2.1.0'
     pod 'FAPanels', :git => 'https://github.com/tilltue/FAPanels', :branch => 'master'
     target 'AwesomeBlogsTests' do
@@ -40,7 +40,7 @@ end
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
-            config.build_settings['SWIFT_VERSION'] = '3.0'
+            config.build_settings['SWIFT_VERSION'] = '4.0'
         end
     end
 end

@@ -35,7 +35,7 @@ struct Service {
             return defaultEndpoint.adding(newHTTPHeaderFields: ["User-Agent": "awesome-blogs-ios/\(version)"])
         }
         let plugins = [NetworkLoggerPlugin(verbose: false, responseDataFormatter: JSONResponseDataFormatter)]
-        self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(endpointClosure: endpointClosure,plugins: plugins) }
+        self.container.register(MoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in MoyaProvider<AwesomeBlogsRemoteSource>(endpointClosure: endpointClosure,plugins: plugins) }
         self.container.register(SerialDispatchQueueScheduler.self,name: RegisterationName.cacheSave.rawValue){ _ in SerialDispatchQueueScheduler(qos: .background) }
     }
     
@@ -50,7 +50,7 @@ struct Service {
     }
     
     func mockRegister() {
-        self.container.register(RxMoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in RxMoyaProvider<AwesomeBlogsRemoteSource>(stubClosure: MoyaProvider.immediatelyStub) }
+        self.container.register(MoyaProvider<AwesomeBlogsRemoteSource>.self){ _ in MoyaProvider<AwesomeBlogsRemoteSource>(stubClosure: MoyaProvider.immediatelyStub) }
         self.container.register(SerialDispatchQueueScheduler.self,name: RegisterationName.cacheSave.rawValue){ _ in MainScheduler.instance }
     }
     

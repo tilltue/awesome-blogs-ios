@@ -21,10 +21,10 @@ func JSONResponseDataFormatter(_ data: Data) -> Data {
     }
 }
 
-extension RxMoyaProvider {
-    func singleRequest(_ token: Target) -> Single<JSON> {
+extension MoyaProviderType {
+    func singleRequest(_ token: Target, callbackQueue: DispatchQueue? = nil) -> Single<JSON> {
         return Single<JSON>.create { single in
-            let cancellableToken = self.request(token) { result in
+            let cancellableToken = self.request(token, callbackQueue: callbackQueue, progress: nil) { result in
                 switch result {
                 case let .success(response):
                     single(.success(JSON(data: response.data)))
