@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,10 +20,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWj-WI-2ld">
-                        <rect key="frame" x="23" y="38" width="329" height="600.5"/>
+                        <rect key="frame" x="15" y="81" width="345" height="555"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" scrollEnabled="NO" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D98-SX-0zm">
-                                <rect key="frame" x="0.0" y="0.0" width="329" height="600.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="345" height="555"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -34,10 +34,10 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="BWj-WI-2ld" firstAttribute="leading" secondItem="Vtd-0Q-C6e" secondAttribute="leadingMargin" constant="15" id="BG9-Zd-uF3"/>
+                    <constraint firstAttribute="trailing" secondItem="BWj-WI-2ld" secondAttribute="trailing" constant="15" id="G9f-DK-NwG"/>
+                    <constraint firstItem="BWj-WI-2ld" firstAttribute="leading" secondItem="Vtd-0Q-C6e" secondAttribute="leading" constant="15" id="ZOr-G1-yp9"/>
                     <constraint firstAttribute="bottomMargin" secondItem="BWj-WI-2ld" secondAttribute="bottom" constant="20" id="hjj-8m-LXo"/>
-                    <constraint firstItem="BWj-WI-2ld" firstAttribute="top" secondItem="Vtd-0Q-C6e" secondAttribute="topMargin" constant="30" id="jnv-Jy-qSX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="BWj-WI-2ld" secondAttribute="trailing" constant="15" id="vxk-Cb-LIL"/>
+                    <constraint firstItem="BWj-WI-2ld" firstAttribute="top" secondItem="Vtd-0Q-C6e" secondAttribute="topMargin" constant="50" id="jnv-Jy-qSX"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

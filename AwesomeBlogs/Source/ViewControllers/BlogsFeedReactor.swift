@@ -77,7 +77,9 @@ class BlogsFeedReactor: Reactor {
             }
             return state
         case let .setAskingRefresh(askingRefresh):
-            state.askingRefresh = askingRefresh
+            if !state.isLoading {
+                state.askingRefresh = askingRefresh
+            }
             return state
         }
     }

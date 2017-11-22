@@ -23,7 +23,7 @@ enum Api {
                 AwesomeBlogsLocalSource.saveFeeds(group: group, json: json)
             }).map{ try Mapper<Entry>().mapArray(JSONObject: $0["entries"].rawValue) }.asObservable()
             .observeOn(MainScheduler.instance)
-        if Reachability()?.isReachable == false {
+        if Reachability()?.connection == .none {
             remote = Observable.empty()
         }
         let expiredTime: TimeInterval = force ? -300 : -1800

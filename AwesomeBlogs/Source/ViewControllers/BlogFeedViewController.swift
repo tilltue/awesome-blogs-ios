@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import RxDataSources
+import NotificationBannerSwift
 
 class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBindProtocol {
     @IBOutlet var refreshView: UIView!
@@ -52,6 +53,17 @@ class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBi
             self.reactor.state.filter{ $0.eventType == .setModel }.map{ $0.viewModels }.subscribe(onNext: { [weak self] viewModels in
                 self?.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
                 log.debug(viewModels.count)
+            }),
+            self.reactor.state.map{ $0.askingRefresh }.distinctUntilChanged().subscribe(onNext: { [weak self] askingRefresh in
+                if askingRefresh {
+                    let imageView = UIImageView(image: #imageLiteral(resourceName: "ic_launcher"))
+                    let banner = NotificationBanner(title: "새로운 소식이 있습니다.", subtitle: nil, leftView: imageView, style: .success, colors: CustomBannerColors())
+                    banner.onTap = {
+                        guard let `self` = self else { return }
+                        self.reactor.action.on(.next(.refresh(group: self.group, force: false)))
+                    }
+                    banner.show()
+                }
             }),
             GlobalEvent.shared.silentFeedRefresh.filter{ [weak self] group in group == self?.group }.subscribe(onNext: { [weak self] _ in
                 guard let `self` = self else { return }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import NotificationBannerSwift
 
 extension UIColor {
     convenience init(hex: Int, alpha: CGFloat = 1) {
@@ -17,5 +18,14 @@ extension UIColor {
             B: CGFloat((hex >> 00) & 0xff) / 255
         )
         self.init(red: components.R, green: components.G, blue: components.B, alpha:alpha)
+    }
+}
+
+class CustomBannerColors: BannerColorsProtocol {
+    func color(for style: BannerStyle) -> UIColor {
+        switch style {
+        default:
+            return UIColor(hex: 0x333333)
+        }
     }
 }
