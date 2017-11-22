@@ -18,7 +18,7 @@ class AwesomeBlogsApiSpec: QuickSpec {
     override func spec() {
         var disposeBag: DisposeBag!
         //describe("어썸 블로그 feed api 테스트") {
-        context("awesome blog feed api test") {
+        xcontext("awesome blog feed api test") {
             beforeEach {
                 disposeBag = DisposeBag()
             }

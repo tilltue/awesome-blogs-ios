@@ -30,7 +30,7 @@ class FeedCellSnapshotTest: FBSnapshotTestCase {
             let nib = UINib(nibName: nibName, bundle: nil)
             self.tableView.register(nib, forCellReuseIdentifier: nibName)
         }
-        self.recordMode = true
+//        self.recordMode = true
         let json = JSON(Bundle.jsonData(name: "MockEntry"))
         self.entries = try? Mapper<Entry>().mapArray(JSONObject: json["entries"].rawValue)
     }

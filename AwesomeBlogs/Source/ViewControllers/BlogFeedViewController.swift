@@ -53,9 +53,9 @@ class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBi
                 self?.cellViewModels.value = [AnimatableSectionModel(model: "section\(0)", items: viewModels)]
                 log.debug(viewModels.count)
             }),
-            GlobalEvent.shared.silentFeedRefresh.filter{ [weak self] (group,entries) in group == self?.group }.subscribe(onNext: { [weak self] (group,entries) in
+            GlobalEvent.shared.silentFeedRefresh.filter{ [weak self] group in group == self?.group }.subscribe(onNext: { [weak self] _ in
                 guard let `self` = self else { return }
-                self.reactor.action.on(.next(.silentRefresh(entries: entries)))
+                self.reactor.action.on(.next(.silentRefresh))
             }),
             NotificationCenter.default.rx.willEnterForeground.subscribe(onNext: { [weak self] _ in
                 guard let `self` = self else { return }

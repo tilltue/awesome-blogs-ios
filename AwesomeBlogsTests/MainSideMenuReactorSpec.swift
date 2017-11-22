@@ -32,7 +32,7 @@ class MainSideMenuReactorSpec: QuickSpec {
         var disposeBag: DisposeBag!
         var reactor: MainSideMenuReactor!
         //context("사이드 메뉴 리엑터 테스트") {
-        context("MainSideMenuReactor test") {
+        xcontext("MainSideMenuReactor test") {
             beforeEach {
                 disposeBag = DisposeBag()
                 reactor = MainSideMenuReactor()

@@ -13,5 +13,5 @@ struct GlobalEvent {
     static let shared = GlobalEvent()
     private init() {}
     
-    let silentFeedRefresh = PublishSubject<(AwesomeBlogs.Group,[Entry])>()
+    let silentFeedRefresh = PublishSubject<(AwesomeBlogs.Group)>()
 }

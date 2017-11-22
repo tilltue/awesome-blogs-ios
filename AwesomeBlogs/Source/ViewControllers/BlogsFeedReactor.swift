@@ -17,12 +17,13 @@ class BlogsFeedReactor: Reactor {
     enum Action {
         case load(group: AwesomeBlogs.Group)
         case refresh(group: AwesomeBlogs.Group, force: Bool)
-        case silentRefresh(entries: [Entry])
+        case silentRefresh
     }
     
     enum Mutation {
         case setLoading(Bool)
         case setEntries([Entry])
+        case setAskingRefresh(Bool)
     }
     
     struct State {
@@ -32,6 +33,7 @@ class BlogsFeedReactor: Reactor {
         }
         var eventType: EventType = .load
         var isLoading: Bool = false
+        var askingRefresh: Bool = false
         var entries: [Entry] = [Entry]()
         var viewModels: [BlogFeedCellViewModel] = [BlogFeedCellViewModel]()
     }
@@ -52,8 +54,10 @@ class BlogsFeedReactor: Reactor {
         case .refresh(let group,let force):
             let getFeed = Api.getFeeds(group: group, force: force).asObservable().map(Mutation.setEntries)
             return Observable.concat(start,getFeed,end)
-        case .silentRefresh(let entries):
-            return Observable.just(Mutation.setEntries(entries))
+        case .silentRefresh:
+            let silentAsk = Observable.just(Mutation.setAskingRefresh(true))
+            let silentTimeout = Observable.just(Mutation.setAskingRefresh(false)).delay(3, scheduler: SerialDispatchQueueScheduler(qos: .background)).observeOn(MainScheduler.instance)
+            return Observable.concat(silentAsk,silentTimeout)
         }
     }
     
@@ -61,6 +65,7 @@ class BlogsFeedReactor: Reactor {
         var state = state
         switch mutation {
         case let .setLoading(isLoading):
+            state.askingRefresh = false
             state.eventType = .load
             state.isLoading = isLoading
             return state
@@ -70,6 +75,9 @@ class BlogsFeedReactor: Reactor {
                 state.eventType = .setModel
                 state.viewModels = flatMapFeedViewModel(entries: entries)
             }
+            return state
+        case let .setAskingRefresh(askingRefresh):
+            state.askingRefresh = askingRefresh
             return state
         }
     }

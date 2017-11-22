@@ -26,6 +26,7 @@ target 'AwesomeBlogs' do
     pod 'EasyAbout'
     pod 'Down'
     pod 'RealmSwift'
+    pod 'NotificationBannerSwift'
     pod 'KRWordWrapLabel', :git => 'https://github.com/tilltue/KRWordWrapLabel', :branch => 'master'
     pod 'Swinject', '~> 2.1.0'
     pod 'FAPanels', :git => 'https://github.com/tilltue/FAPanels', :branch => 'master'

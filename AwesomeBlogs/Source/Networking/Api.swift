@@ -30,7 +30,7 @@ enum Api {
         return AwesomeBlogsLocalSource.getFeeds(group: group).do(onNext: { feed in
             guard feed.isExpired(time: expiredTime) else { return }
             _ = remote.do(onNext: { entries in
-                    GlobalEvent.shared.silentFeedRefresh.on(.next((group,entries)))
+                    GlobalEvent.shared.silentFeedRefresh.on(.next(group))
                 }).subscribe()
         }).map{ feed in feed.entries.flatMap{ Entry(entryDB: $0) }
         }.ifEmpty(switchTo: remote).asSingle().observeOn(MainScheduler.instance)
