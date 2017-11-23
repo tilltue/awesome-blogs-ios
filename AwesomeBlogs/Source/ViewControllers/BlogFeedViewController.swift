@@ -13,10 +13,6 @@ import RxDataSources
 import NotificationBannerSwift
 
 class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBindProtocol {
-    @IBOutlet var refreshView: UIView!
-    @IBOutlet var refreshViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var indicator: UIActivityIndicatorView!
-    
     @IBOutlet var dotView: UIView!
     @IBOutlet var dotButton: UIButton!
     @IBOutlet var tableView: UITableView!
@@ -77,7 +73,6 @@ class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBi
                 self?.dotTap.on(.next(()))
             }),
             self.reloaded.subscribe(onNext: { [weak self] _ in
-                self?.refreshViewHeightConstraint.constant = 0
                 self?.tableView.contentOffset = CGPoint.zero
                 self?.checkDotView()
             }),
@@ -94,34 +89,11 @@ class BlogFeedViewController: BaseViewController,HaveReactor,BlogFeedTableViewBi
             self.insideCellEvent.subscribe(onNext: { [weak self] entryViewModel in
                 guard let entryViewModel = entryViewModel as? FeedEntryViewModel else { return }
                 self?.pushBlogViewController(entryViewModel: entryViewModel)
-            }),
-            self.tableView.rx.contentOffset.filter{ $0.y < 0 }.subscribe(onNext: { [weak self] point in
-                guard let `self` = self else { return }
-                self.refreshViewHeightConstraint.constant = 20 - point.y
-                let scale = fmin(1.8, fmax(1,point.y / -30))
-                self.indicator.transform = CGAffineTransform(scaleX: scale, y: scale)
-                if point.y < -150,!self.indicator.isAnimating {
-                    log.debug("refresh trigger")
-                    self.indicator.startAnimating()
-                    self.refreshTrigger()
-                }
             })
         ])
         self.reactor.action.on(.next(.load(group: self.group)))
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    func refreshTrigger() {
-        self.tableView.rx.contentOffset.filter{ $0.y >= 0 }.take(1).subscribe(onNext:{ [weak self] _ in
-            guard let `self` = self else { return }
-            self.indicator.stopAnimating()
-            self.reactor.action.on(.next(.refresh(group: self.group, force: true)))
-        }).disposed(by: disposeBag)
-    }
-    
     func pushBlogViewController(entryViewModel: FeedEntryViewModel) {
         let blogViewController = UIStoryboard.VC(name: "Feed", withIdentifier: "BlogViewController") as! BlogViewController
         blogViewController.entryViewModel = entryViewModel
