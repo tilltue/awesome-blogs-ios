@@ -27,7 +27,12 @@ extension MoyaProviderType {
             let cancellableToken = self.request(token, callbackQueue: callbackQueue, progress: nil) { result in
                 switch result {
                 case let .success(response):
-                    single(.success(JSON(data: response.data)))
+                    do {
+                        let json = try JSON(data: response.data)
+                        single(.success(json))
+                    }catch {
+                        single(.error(RxError.unknown))
+                    }
                 case let .failure(error):
                     single(.error(error))
                 }
