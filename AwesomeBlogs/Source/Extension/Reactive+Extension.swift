@@ -68,7 +68,7 @@ extension Reactive where Base: UIButton {
         return controlEvent(.touchUpInside).debounce(0.2, scheduler: MainScheduler.instance)
     }
     /// Reactive wrapper for `setImage(_:controlState:)`
-    public func image(for controlState: UIControlState = []) -> UIBindingObserver<Base, UIImage?> {
+    public func image(for controlState: UIControl.State = []) -> UIBindingObserver<Base, UIImage?> {
         return UIBindingObserver<Base, UIImage?>(UIElement: self.base) { (button, image) -> () in
             button.setImage(image, for: controlState)
         }
@@ -84,15 +84,15 @@ enum KeyboardNotification {
     var name: NSNotification.Name {
         switch self {
         case .willShow:
-            return NSNotification.Name.UIKeyboardWillShow
+            return UIWindow.keyboardWillShowNotification
         case .didShow:
-            return NSNotification.Name.UIKeyboardDidShow
+            return UIWindow.keyboardDidShowNotification
         case .willChangeFrame:
-            return NSNotification.Name.UIKeyboardWillChangeFrame
+            return UIWindow.keyboardWillChangeFrameNotification
         case .willHide:
-            return NSNotification.Name.UIKeyboardWillHide
+            return UIWindow.keyboardWillHideNotification
         case .didHide:
-            return NSNotification.Name.UIKeyboardDidHide
+            return UIWindow.keyboardDidHideNotification
         }
     }
 }
@@ -103,9 +103,9 @@ enum System {
     var name: NSNotification.Name {
         switch self {
         case .willEnterForeground:
-            return Notification.Name.UIApplicationWillEnterForeground
+            return UIApplication.willEnterForegroundNotification
         case .didEnterBackground:
-            return Notification.Name.UIApplicationDidEnterBackground
+            return UIApplication.didEnterBackgroundNotification
         }
     }
 }
@@ -124,7 +124,7 @@ extension Reactive where Base: NotificationCenter {
         return self.notification(notification.name)
             .flatMap { event -> Observable<(begin: (CGRect,TimeInterval), end: (CGRect,TimeInterval))> in
                 guard let userInfo = event.userInfo as? [String: AnyObject] else { return Observable.empty() }
-                guard let begin = userInfo[UIKeyboardFrameBeginUserInfoKey]?.cgRectValue, let end = userInfo[UIKeyboardFrameEndUserInfoKey]?.cgRectValue, let duration = userInfo[UIKeyboardAnimationDurationUserInfoKey] as? TimeInterval else { return Observable.empty() }
+                guard let begin = userInfo[UIResponder.keyboardFrameBeginUserInfoKey]?.cgRectValue, let end = userInfo[UIResponder.keyboardFrameEndUserInfoKey]?.cgRectValue, let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? TimeInterval else { return Observable.empty() }
                 if begin.origin == end.origin { return Observable.empty() }
                 return Observable.just((begin: (begin, duration), end: (end, duration)))
             }

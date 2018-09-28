@@ -30,7 +30,7 @@ struct Service {
     func register() {
         let version =
             (Bundle.main.infoDictionary?["CFBundleShortVersionString"]) as? String ?? "1.0"
-        let endpointClosure = { (target: AwesomeBlogsRemoteSource) -> Endpoint<AwesomeBlogsRemoteSource> in
+        let endpointClosure = { (target: AwesomeBlogsRemoteSource) -> Endpoint in
             let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
             return defaultEndpoint.adding(newHTTPHeaderFields: ["User-Agent": "awesome-blogs-ios/\(version)"])
         }

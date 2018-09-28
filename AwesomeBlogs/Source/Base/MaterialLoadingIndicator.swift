@@ -37,7 +37,7 @@ class MaterialLoadingIndicator: BaseUIView {
         self.circleShapeLayer.strokeColor     = UIColor.blue.cgColor
         self.circleShapeLayer.fillColor       = UIColor.clear.cgColor
         self.circleShapeLayer.lineWidth       = 5
-        self.circleShapeLayer.lineCap         = kCALineCapRound
+        self.circleShapeLayer.lineCap         = CAShapeLayerLineCap.round
         self.circleShapeLayer.strokeStart     = 0
         self.circleShapeLayer.strokeEnd       = self.MinStrokeLength
         self.circleShapeLayer.frame           = self.bounds
@@ -72,7 +72,7 @@ class MaterialLoadingIndicator: BaseUIView {
                           UIColor(hex: 0xF7C223, alpha: 1.0).cgColor,
                           UIColor(hex: 0x1B9A59, alpha: 1.0).cgColor,
                           UIColor(hex: 0x4285F4, alpha: 1.0).cgColor]
-        color.calculationMode = kCAAnimationPaced
+        color.calculationMode = CAAnimationCalculationMode.paced
         color.repeatCount     = Float.infinity
         self.circleShapeLayer.add(color, forKey: "color")
     }
@@ -96,24 +96,24 @@ class MaterialLoadingIndicator: BaseUIView {
         strokeEnd.fromValue             = endFromValue
         strokeEnd.toValue               = endToValue
         strokeEnd.duration              = 0.5
-        strokeEnd.fillMode              = kCAFillModeForwards
+        strokeEnd.fillMode              = CAMediaTimingFillMode.forwards
         strokeEnd.timingFunction        = easeInOutSineTimingFunc
         strokeEnd.beginTime             = 0.1
         strokeEnd.isRemovedOnCompletion = false
         let startFromValue: CGFloat     = circleShapeLayer.strokeStart
-        let startToValue: CGFloat       = fabs(endToValue - MinStrokeLength)
+        let startToValue: CGFloat       = abs(endToValue - MinStrokeLength)
         let strokeStart                 = CABasicAnimation(keyPath: "strokeStart")
         strokeStart.fromValue           = startFromValue
         strokeStart.toValue             = startToValue
         strokeStart.duration            = 0.4
-        strokeStart.fillMode            = kCAFillModeForwards
+        strokeStart.fillMode            = CAMediaTimingFillMode.forwards
         strokeStart.timingFunction      = easeInOutSineTimingFunc
         strokeStart.beginTime           = strokeEnd.beginTime + strokeEnd.duration + 0.2
         strokeStart.isRemovedOnCompletion = false
         let pathAnim                 = CAAnimationGroup()
         pathAnim.animations          = [strokeEnd, strokeStart]
         pathAnim.duration            = strokeStart.beginTime + strokeStart.duration
-        pathAnim.fillMode            = kCAFillModeForwards
+        pathAnim.fillMode            = CAMediaTimingFillMode.forwards
         pathAnim.isRemovedOnCompletion = false
         CATransaction.begin()
         CATransaction.setCompletionBlock { [weak self] in
